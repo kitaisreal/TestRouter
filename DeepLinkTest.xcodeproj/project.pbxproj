@@ -7,13 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48073B2E1FFE6814001A1C7D /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48073B2D1FFE6814001A1C7D /* Matcher.swift */; };
+		4814CAB21FFE83B200FF1987 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4814CAB11FFE83B200FF1987 /* Graph.swift */; };
+		4814CAB41FFE874D00FF1987 /* TransitionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4814CAB31FFE874D00FF1987 /* TransitionEnum.swift */; };
+		4814CAB61FFE879000FF1987 /* NavigationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4814CAB51FFE879000FF1987 /* NavigationTransition.swift */; };
+		481B02D01FFFB6F8005E9C96 /* RouteGraphTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B02CF1FFFB6F8005E9C96 /* RouteGraphTestTests.swift */; };
+		481B02D31FFFC5A2005E9C96 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B02D21FFFC5A2005E9C96 /* Presenter.swift */; };
+		48256658200609DA00C4CCF8 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48256657200609DA00C4CCF8 /* DeepLinkHandler.swift */; };
+		4825665A20060AF700C4CCF8 /* DeepLinkHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4825665920060AF700C4CCF8 /* DeepLinkHandlerTests.swift */; };
+		482566612006268E00C4CCF8 /* DetailNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482566602006268E00C4CCF8 /* DetailNavigationVC.swift */; };
+		482566632006276700C4CCF8 /* DataNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482566622006276700C4CCF8 /* DataNavigationVC.swift */; };
+		4825666520062A1D00C4CCF8 /* SplitVCContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4825666420062A1D00C4CCF8 /* SplitVCContainer.swift */; };
+		4828B3832004CD2A002EF96B /* RouterLinkParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4828B3822004CD2A002EF96B /* RouterLinkParserTests.swift */; };
 		48523C951FFE477D00E9E6D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48523C941FFE477D00E9E6D7 /* AppDelegate.swift */; };
-		48523C971FFE477D00E9E6D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48523C961FFE477D00E9E6D7 /* ViewController.swift */; };
 		48523C9A1FFE477D00E9E6D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48523C981FFE477D00E9E6D7 /* Main.storyboard */; };
 		48523C9C1FFE477D00E9E6D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48523C9B1FFE477D00E9E6D7 /* Assets.xcassets */; };
 		48523C9F1FFE477D00E9E6D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48523C9D1FFE477D00E9E6D7 /* LaunchScreen.storyboard */; };
 		48523CAA1FFE477E00E9E6D7 /* DeepLinkTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48523CA91FFE477E00E9E6D7 /* DeepLinkTestTests.swift */; };
 		48523CB51FFE477E00E9E6D7 /* DeepLinkTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48523CB41FFE477E00E9E6D7 /* DeepLinkTestUITests.swift */; };
+		485443E32007497400E9C553 /* PresenterModuleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485443E22007497400E9C553 /* PresenterModuleRepository.swift */; };
+		48553E1F2000E79600DEEA9A /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48553E1E2000E79600DEEA9A /* DataViewController.swift */; };
+		48556AE82004A8FB0053AED0 /* MatcherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48556AE72004A8FB0053AED0 /* MatcherResponse.swift */; };
+		48556AEA2004AAE60053AED0 /* ViewPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48556AE92004AAE60053AED0 /* ViewPresenterProtocol.swift */; };
+		48556AEC2004AB280053AED0 /* StoryboardViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48556AEB2004AB280053AED0 /* StoryboardViewPresenter.swift */; };
+		488464CD20035DB100F19A42 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464CC20035DB100F19A42 /* ContainerViewController.swift */; };
+		488464CF20035DC100F19A42 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464CE20035DC100F19A42 /* NavigationViewController.swift */; };
+		488464D520035E1600F19A42 /* RouterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464D420035E1600F19A42 /* RouterModule.swift */; };
+		488464DA2003640200F19A42 /* RouterPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464D92003640200F19A42 /* RouterPath.swift */; };
+		488464DC200364B300F19A42 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464DB200364B300F19A42 /* MainRouter.swift */; };
+		488464DF2003B93D00F19A42 /* DataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464DE2003B93D00F19A42 /* DataTableViewController.swift */; };
+		488464E12003BAD400F19A42 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464E02003BAD400F19A42 /* TestModel.swift */; };
+		488464E32003BB0200F19A42 /* TestModelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464E22003BB0200F19A42 /* TestModelInteractor.swift */; };
+		488464E72003BB8400F19A42 /* TestModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464E62003BB8400F19A42 /* TestModulePresenter.swift */; };
+		488464EA2003BC6700F19A42 /* RouterSenderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464E92003BC6700F19A42 /* RouterSenderProtocol.swift */; };
+		488464EC2003BD5C00F19A42 /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464EB2003BD5C00F19A42 /* DataTableViewCell.swift */; };
+		488464EE2003CDF100F19A42 /* RouterMatcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464ED2003CDF100F19A42 /* RouterMatcherTest.swift */; };
+		488464F02003D26000F19A42 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464EF2003D26000F19A42 /* DetailViewController.swift */; };
+		488464F22003E08000F19A42 /* AnotherTestModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464F12003E08000F19A42 /* AnotherTestModulePresenter.swift */; };
+		488464F42003E0C900F19A42 /* FirstDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464F32003E0C900F19A42 /* FirstDetailVC.swift */; };
+		488464F82003E13F00F19A42 /* SecondDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464F72003E13F00F19A42 /* SecondDetailVC.swift */; };
+		489B472E2004AFC400650F10 /* ViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B472D2004AFC400650F10 /* ViewProtocols.swift */; };
+		48A72E261FFF721D00D98A10 /* RouteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A72E251FFF721D00D98A10 /* RouteNode.swift */; };
+		48A72E281FFF736500D98A10 /* RouteTransitionEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A72E271FFF736500D98A10 /* RouteTransitionEdge.swift */; };
+		48A72E2A1FFF73BB00D98A10 /* RouteGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A72E291FFF73BB00D98A10 /* RouteGraph.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +70,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		48073B2D1FFE6814001A1C7D /* Matcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matcher.swift; sourceTree = "<group>"; };
+		4814CAB11FFE83B200FF1987 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		4814CAB31FFE874D00FF1987 /* TransitionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionEnum.swift; sourceTree = "<group>"; };
+		4814CAB51FFE879000FF1987 /* NavigationTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTransition.swift; sourceTree = "<group>"; };
+		481B02CF1FFFB6F8005E9C96 /* RouteGraphTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteGraphTestTests.swift; sourceTree = "<group>"; };
+		481B02D21FFFC5A2005E9C96 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		48256657200609DA00C4CCF8 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
+		4825665920060AF700C4CCF8 /* DeepLinkHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandlerTests.swift; sourceTree = "<group>"; };
+		482566602006268E00C4CCF8 /* DetailNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNavigationVC.swift; sourceTree = "<group>"; };
+		482566622006276700C4CCF8 /* DataNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNavigationVC.swift; sourceTree = "<group>"; };
+		4825666420062A1D00C4CCF8 /* SplitVCContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitVCContainer.swift; sourceTree = "<group>"; };
+		4828B3822004CD2A002EF96B /* RouterLinkParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterLinkParserTests.swift; sourceTree = "<group>"; };
 		48523C911FFE477D00E9E6D7 /* DeepLinkTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepLinkTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48523C941FFE477D00E9E6D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		48523C961FFE477D00E9E6D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		48523C991FFE477D00E9E6D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		48523C9B1FFE477D00E9E6D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48523C9E1FFE477D00E9E6D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +94,31 @@
 		48523CB01FFE477E00E9E6D7 /* DeepLinkTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepLinkTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48523CB41FFE477E00E9E6D7 /* DeepLinkTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkTestUITests.swift; sourceTree = "<group>"; };
 		48523CB61FFE477E00E9E6D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		485443E22007497400E9C553 /* PresenterModuleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterModuleRepository.swift; sourceTree = "<group>"; };
+		48553E1E2000E79600DEEA9A /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		48556AE72004A8FB0053AED0 /* MatcherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherResponse.swift; sourceTree = "<group>"; };
+		48556AE92004AAE60053AED0 /* ViewPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresenterProtocol.swift; sourceTree = "<group>"; };
+		48556AEB2004AB280053AED0 /* StoryboardViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardViewPresenter.swift; sourceTree = "<group>"; };
+		488464CC20035DB100F19A42 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		488464CE20035DC100F19A42 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		488464D420035E1600F19A42 /* RouterModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterModule.swift; sourceTree = "<group>"; };
+		488464D92003640200F19A42 /* RouterPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterPath.swift; sourceTree = "<group>"; };
+		488464DB200364B300F19A42 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		488464DE2003B93D00F19A42 /* DataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewController.swift; sourceTree = "<group>"; };
+		488464E02003BAD400F19A42 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		488464E22003BB0200F19A42 /* TestModelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModelInteractor.swift; sourceTree = "<group>"; };
+		488464E62003BB8400F19A42 /* TestModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModulePresenter.swift; sourceTree = "<group>"; };
+		488464E92003BC6700F19A42 /* RouterSenderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterSenderProtocol.swift; sourceTree = "<group>"; };
+		488464EB2003BD5C00F19A42 /* DataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
+		488464ED2003CDF100F19A42 /* RouterMatcherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterMatcherTest.swift; sourceTree = "<group>"; };
+		488464EF2003D26000F19A42 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		488464F12003E08000F19A42 /* AnotherTestModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherTestModulePresenter.swift; sourceTree = "<group>"; };
+		488464F32003E0C900F19A42 /* FirstDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstDetailVC.swift; sourceTree = "<group>"; };
+		488464F72003E13F00F19A42 /* SecondDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondDetailVC.swift; sourceTree = "<group>"; };
+		489B472D2004AFC400650F10 /* ViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocols.swift; sourceTree = "<group>"; };
+		48A72E251FFF721D00D98A10 /* RouteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteNode.swift; sourceTree = "<group>"; };
+		48A72E271FFF736500D98A10 /* RouteTransitionEdge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTransitionEdge.swift; sourceTree = "<group>"; };
+		48A72E291FFF73BB00D98A10 /* RouteGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteGraph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +146,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48073B2C1FFE67FC001A1C7D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				48256656200609D000C4CCF8 /* DeepLinkHandler */,
+				488464E82003BC5900F19A42 /* RouterSenderProtocol */,
+				488464D7200362EA00F19A42 /* Matcher */,
+				488464D320035E0D00F19A42 /* RouterModules */,
+				488464D020035DCE00F19A42 /* RouterGraph */,
+				4814CAB11FFE83B200FF1987 /* Graph.swift */,
+				488464DB200364B300F19A42 /* MainRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		481B02D11FFFC59A005E9C96 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				485443E12007495C00E9C553 /* PresenterModulesRepository */,
+				488464DD2003696300F19A42 /* ModulePresenters */,
+				488464D620035F2500F19A42 /* ViewPresenter */,
+				48553E202000E84900DEEA9A /* AbstractViewController */,
+				481B02D21FFFC5A2005E9C96 /* Presenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		481B02D41FFFD6A3005E9C96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				488464F62003E12C00F19A42 /* SecondTest */,
+				488464F52003E0D800F19A42 /* FirstTest */,
+			);
+			name = View;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		48256656200609D000C4CCF8 /* DeepLinkHandler */ = {
+			isa = PBXGroup;
+			children = (
+				48256657200609DA00C4CCF8 /* DeepLinkHandler.swift */,
+			);
+			path = DeepLinkHandler;
+			sourceTree = "<group>";
+		};
 		48523C881FFE477D00E9E6D7 = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +213,12 @@
 		48523C931FFE477D00E9E6D7 /* DeepLinkTest */ = {
 			isa = PBXGroup;
 			children = (
+				488464D220035DDB00F19A42 /* Model */,
+				488464D120035DD500F19A42 /* Interactor */,
+				481B02D41FFFD6A3005E9C96 /* View */,
+				481B02D11FFFC59A005E9C96 /* Presenter */,
+				48073B2C1FFE67FC001A1C7D /* Router */,
 				48523C941FFE477D00E9E6D7 /* AppDelegate.swift */,
-				48523C961FFE477D00E9E6D7 /* ViewController.swift */,
 				48523C981FFE477D00E9E6D7 /* Main.storyboard */,
 				48523C9B1FFE477D00E9E6D7 /* Assets.xcassets */,
 				48523C9D1FFE477D00E9E6D7 /* LaunchScreen.storyboard */,
@@ -112,6 +232,10 @@
 			children = (
 				48523CA91FFE477E00E9E6D7 /* DeepLinkTestTests.swift */,
 				48523CAB1FFE477E00E9E6D7 /* Info.plist */,
+				481B02CF1FFFB6F8005E9C96 /* RouteGraphTestTests.swift */,
+				488464ED2003CDF100F19A42 /* RouterMatcherTest.swift */,
+				4828B3822004CD2A002EF96B /* RouterLinkParserTests.swift */,
+				4825665920060AF700C4CCF8 /* DeepLinkHandlerTests.swift */,
 			);
 			path = DeepLinkTestTests;
 			sourceTree = "<group>";
@@ -123,6 +247,128 @@
 				48523CB61FFE477E00E9E6D7 /* Info.plist */,
 			);
 			path = DeepLinkTestUITests;
+			sourceTree = "<group>";
+		};
+		485443E12007495C00E9C553 /* PresenterModulesRepository */ = {
+			isa = PBXGroup;
+			children = (
+				485443E22007497400E9C553 /* PresenterModuleRepository.swift */,
+			);
+			path = PresenterModulesRepository;
+			sourceTree = "<group>";
+		};
+		48553E202000E84900DEEA9A /* AbstractViewController */ = {
+			isa = PBXGroup;
+			children = (
+				48553E1E2000E79600DEEA9A /* DataViewController.swift */,
+				488464CC20035DB100F19A42 /* ContainerViewController.swift */,
+				488464CE20035DC100F19A42 /* NavigationViewController.swift */,
+			);
+			path = AbstractViewController;
+			sourceTree = "<group>";
+		};
+		488464D020035DCE00F19A42 /* RouterGraph */ = {
+			isa = PBXGroup;
+			children = (
+				4814CAB31FFE874D00FF1987 /* TransitionEnum.swift */,
+				4814CAB51FFE879000FF1987 /* NavigationTransition.swift */,
+				48A72E251FFF721D00D98A10 /* RouteNode.swift */,
+				48A72E271FFF736500D98A10 /* RouteTransitionEdge.swift */,
+				48A72E291FFF73BB00D98A10 /* RouteGraph.swift */,
+			);
+			path = RouterGraph;
+			sourceTree = "<group>";
+		};
+		488464D120035DD500F19A42 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				488464E22003BB0200F19A42 /* TestModelInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		488464D220035DDB00F19A42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				488464E02003BAD400F19A42 /* TestModel.swift */,
+			);
+			name = Model;
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
+		488464D320035E0D00F19A42 /* RouterModules */ = {
+			isa = PBXGroup;
+			children = (
+				488464D420035E1600F19A42 /* RouterModule.swift */,
+				488464D92003640200F19A42 /* RouterPath.swift */,
+			);
+			path = RouterModules;
+			sourceTree = "<group>";
+		};
+		488464D620035F2500F19A42 /* ViewPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				489B472C2004AFA400650F10 /* ViewProtocols */,
+				48556AE92004AAE60053AED0 /* ViewPresenterProtocol.swift */,
+				48556AEB2004AB280053AED0 /* StoryboardViewPresenter.swift */,
+			);
+			path = ViewPresenter;
+			sourceTree = "<group>";
+		};
+		488464D7200362EA00F19A42 /* Matcher */ = {
+			isa = PBXGroup;
+			children = (
+				48073B2D1FFE6814001A1C7D /* Matcher.swift */,
+				48556AE72004A8FB0053AED0 /* MatcherResponse.swift */,
+			);
+			path = Matcher;
+			sourceTree = "<group>";
+		};
+		488464DD2003696300F19A42 /* ModulePresenters */ = {
+			isa = PBXGroup;
+			children = (
+				488464E62003BB8400F19A42 /* TestModulePresenter.swift */,
+				488464F12003E08000F19A42 /* AnotherTestModulePresenter.swift */,
+			);
+			path = ModulePresenters;
+			sourceTree = "<group>";
+		};
+		488464E82003BC5900F19A42 /* RouterSenderProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				488464E92003BC6700F19A42 /* RouterSenderProtocol.swift */,
+			);
+			path = RouterSenderProtocol;
+			sourceTree = "<group>";
+		};
+		488464F52003E0D800F19A42 /* FirstTest */ = {
+			isa = PBXGroup;
+			children = (
+				488464DE2003B93D00F19A42 /* DataTableViewController.swift */,
+				488464EB2003BD5C00F19A42 /* DataTableViewCell.swift */,
+				488464EF2003D26000F19A42 /* DetailViewController.swift */,
+				482566602006268E00C4CCF8 /* DetailNavigationVC.swift */,
+				482566622006276700C4CCF8 /* DataNavigationVC.swift */,
+				4825666420062A1D00C4CCF8 /* SplitVCContainer.swift */,
+			);
+			path = FirstTest;
+			sourceTree = "<group>";
+		};
+		488464F62003E12C00F19A42 /* SecondTest */ = {
+			isa = PBXGroup;
+			children = (
+				488464F32003E0C900F19A42 /* FirstDetailVC.swift */,
+				488464F72003E13F00F19A42 /* SecondDetailVC.swift */,
+			);
+			path = SecondTest;
+			sourceTree = "<group>";
+		};
+		489B472C2004AFA400650F10 /* ViewProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				489B472D2004AFC400650F10 /* ViewProtocols.swift */,
+			);
+			path = ViewProtocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +505,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48523C971FFE477D00E9E6D7 /* ViewController.swift in Sources */,
+				482566612006268E00C4CCF8 /* DetailNavigationVC.swift in Sources */,
+				48256658200609DA00C4CCF8 /* DeepLinkHandler.swift in Sources */,
+				488464F02003D26000F19A42 /* DetailViewController.swift in Sources */,
+				488464CF20035DC100F19A42 /* NavigationViewController.swift in Sources */,
+				488464F42003E0C900F19A42 /* FirstDetailVC.swift in Sources */,
+				48556AE82004A8FB0053AED0 /* MatcherResponse.swift in Sources */,
+				48A72E261FFF721D00D98A10 /* RouteNode.swift in Sources */,
+				488464E12003BAD400F19A42 /* TestModel.swift in Sources */,
+				485443E32007497400E9C553 /* PresenterModuleRepository.swift in Sources */,
+				481B02D31FFFC5A2005E9C96 /* Presenter.swift in Sources */,
+				488464E32003BB0200F19A42 /* TestModelInteractor.swift in Sources */,
+				488464DC200364B300F19A42 /* MainRouter.swift in Sources */,
+				48553E1F2000E79600DEEA9A /* DataViewController.swift in Sources */,
+				4814CAB61FFE879000FF1987 /* NavigationTransition.swift in Sources */,
+				48556AEC2004AB280053AED0 /* StoryboardViewPresenter.swift in Sources */,
+				48556AEA2004AAE60053AED0 /* ViewPresenterProtocol.swift in Sources */,
+				488464EC2003BD5C00F19A42 /* DataTableViewCell.swift in Sources */,
+				4825666520062A1D00C4CCF8 /* SplitVCContainer.swift in Sources */,
+				4814CAB41FFE874D00FF1987 /* TransitionEnum.swift in Sources */,
+				488464CD20035DB100F19A42 /* ContainerViewController.swift in Sources */,
+				488464F82003E13F00F19A42 /* SecondDetailVC.swift in Sources */,
+				488464EA2003BC6700F19A42 /* RouterSenderProtocol.swift in Sources */,
+				482566632006276700C4CCF8 /* DataNavigationVC.swift in Sources */,
+				4814CAB21FFE83B200FF1987 /* Graph.swift in Sources */,
 				48523C951FFE477D00E9E6D7 /* AppDelegate.swift in Sources */,
+				489B472E2004AFC400650F10 /* ViewProtocols.swift in Sources */,
+				48A72E2A1FFF73BB00D98A10 /* RouteGraph.swift in Sources */,
+				488464DF2003B93D00F19A42 /* DataTableViewController.swift in Sources */,
+				488464E72003BB8400F19A42 /* TestModulePresenter.swift in Sources */,
+				48A72E281FFF736500D98A10 /* RouteTransitionEdge.swift in Sources */,
+				488464F22003E08000F19A42 /* AnotherTestModulePresenter.swift in Sources */,
+				48073B2E1FFE6814001A1C7D /* Matcher.swift in Sources */,
+				488464D520035E1600F19A42 /* RouterModule.swift in Sources */,
+				488464DA2003640200F19A42 /* RouterPath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +546,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481B02D01FFFB6F8005E9C96 /* RouteGraphTestTests.swift in Sources */,
+				4828B3832004CD2A002EF96B /* RouterLinkParserTests.swift in Sources */,
 				48523CAA1FFE477E00E9E6D7 /* DeepLinkTestTests.swift in Sources */,
+				4825665A20060AF700C4CCF8 /* DeepLinkHandlerTests.swift in Sources */,
+				488464EE2003CDF100F19A42 /* RouterMatcherTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +711,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6FZFL3G4N7;
 				INFOPLIST_FILE = DeepLinkTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Maksim-Kita.DeepLinkTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -444,6 +727,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6FZFL3G4N7;
 				INFOPLIST_FILE = DeepLinkTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Maksim-Kita.DeepLinkTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";

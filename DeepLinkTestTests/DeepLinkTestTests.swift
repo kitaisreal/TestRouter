@@ -8,12 +8,23 @@
 
 import XCTest
 @testable import DeepLinkTest
-
+import UIKit
 class DeepLinkTestTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let node = Node(value: "MainNode", previousNode: nil)
+        let graph = Graph<String>(mainNode: node)
+        node.addNode(node: Node(value: "FirstNode", previousNode: node))
+        node.addNode(node: Node(value:"SecondNode", previousNode: node))
+        let thirdNode = Node(value:"ThirdNode", previousNode:node)
+        let thirdNodeChild = Node(value:"ThirdNodeFirstChild", previousNode:thirdNode)
+        thirdNode.addNode(node: thirdNodeChild)
+        thirdNode.addNode(node: Node(value:"TrirdNodeSecondChild", previousNode:thirdNode))
+        node.addNode(node: thirdNode)
+        graph.printGraphValues()
+        print("PATH TO THIRD NODE")
+        thirdNodeChild.pathToNode()
     }
     
     override func tearDown() {
