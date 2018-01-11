@@ -20,21 +20,26 @@ class RouterModule {
         self.routerModuleRootNode = routerModuleRootNode
         self.currentNodeLink = self.routerModuleRootNode.routeNodeLink
     }
-    
+    //TEST THIS SHIT
     func getModuleLinks() -> [String] {
         var moduleLinks:[String] = []
         for link in configGraph.getLinks() {
             moduleLinks.append(link)
         }
+        return moduleLinks
+    }
+    func getModuleModules() -> [RouterModule] {
+        var routerModules:[RouterModule] = []
+        routerModules.append(self)
         guard childRouterModules.count != 0 else {
-            return moduleLinks
+            return routerModules
         }
-        for module in childRouterModules {
-            for link in module.getModuleLinks() {
-                moduleLinks.append(link)
+        for childModule in childRouterModules {
+            for module in childModule.getModuleModules() {
+                routerModules.append(module)
             }
         }
-        return moduleLinks
+        return routerModules
     }
     func getModuleRootNodes() -> [RouteNode]{
         var moduleRootNodes:[RouteNode] = []
@@ -42,8 +47,10 @@ class RouterModule {
         guard childRouterModules.count != 0 else {
             return moduleRootNodes
         }
-        for module in childRouterModules {
-            moduleRootNodes.append(module.routerModuleRootNode)
+        for childModule in childRouterModules {
+            for module in childModule.getModuleRootNodes() {
+                moduleRootNodes.append(module)
+            }
         }
         return moduleRootNodes
     }
@@ -61,19 +68,19 @@ class RouterModule {
         let fromRootToLinkPath = configGraph.findPathToNode(from: routerModuleRootNode.routeNodeLink, to: link)
         let fromRootToCurrentLinkPath = configGraph.findPathToNode(from: routerModuleRootNode.routeNodeLink, to: currentNodeLink)
         let path = configGraph.findPathToNode(from: currentNodeLink, to: link)
-        var routerPath:RouterPath = RouterPath(rootNodeLink: routerModuleRootNode.routeNodeLink,
+        var routerPath:RouterPath = RouterPath(rootNode: routerModuleRootNode,
                                                path: [],
                                                pathType: RouterPathType.push)
         if (fromRootToLinkPath.count >= fromRootToCurrentLinkPath.count) {
-            routerPath = RouterPath(rootNodeLink: routerModuleRootNode.routeNodeLink, path: path, pathType: RouterPathType.push)
+            routerPath = RouterPath(rootNode: routerModuleRootNode, path: path, pathType: RouterPathType.push)
         }
         if (fromRootToLinkPath.count < fromRootToCurrentLinkPath.count) {
             let removeCount = fromRootToCurrentLinkPath.count - fromRootToLinkPath.count
-            routerPath = RouterPath(rootNodeLink: routerModuleRootNode.routeNodeLink, path: path,
+            routerPath = RouterPath(rootNode: routerModuleRootNode, path: path,
                                     pathType: RouterPathType.remove(removeCount))
         }
         if (fromRootToCurrentLinkPath.count == fromRootToCurrentLinkPath.count && link == currentNodeLink) {
-            routerPath = RouterPath(rootNodeLink: routerModuleRootNode.routeNodeLink, path: path, pathType: RouterPathType.currentLink)
+            routerPath = RouterPath(rootNode: routerModuleRootNode, path: path, pathType: RouterPathType.currentLink)
         }
         currentNodeLink = link
         return routerPath

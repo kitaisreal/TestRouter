@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TestModel {
+class MainModuleModel {
     
     let testTitle:String
     

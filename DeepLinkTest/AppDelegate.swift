@@ -80,9 +80,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let transitiontype = RouteTransitionEdgeType(transitionAnimation: TransitionAnimation.yes, transitionData: TransitionData.no)
         switch UIDevice.current.userInterfaceIdiom {
             case .phone:
-                let rootNode = RouteNode(routeNodeLink: "RootNode", routeNodeID: "rootVC", routeNodeType: RouteNodeType.rootContainer)
+                //REGISTATION ROUTE MODULE
+                let rootRegModuleNode = RouteNode(routeNodeLink: "/registration", routeNodeID: "regRootVC", routeNodeType: RouteNodeType.root)
+                let regFirstStepNode = RouteNode(routeNodeLink: "/registrationFirstStep", routeNodeID: "regFirstStepVC", routeNodeType: RouteNodeType.presenter)
+                let regSecondStepNode = RouteNode(routeNodeLink: "/registrationSecondStep", routeNodeID: "regSecondStepVC", routeNodeType: RouteNodeType.presenter)
+                let regThirdStepNode = RouteNode(routeNodeLink: "/registrationThirdStep", routeNodeID: "regThirdStepVC", routeNodeType: RouteNodeType.presenter)
+                rootRegModuleNode.addEdge(to: regFirstStepNode, transitionType: transitiontype)
+                regFirstStepNode.addEdge(to: regSecondStepNode, transitionType: transitiontype)
+                regSecondStepNode.addEdge(to: regThirdStepNode, transitionType: transitiontype)
+                let regModuleGraph = RouteGraph()
+                regModuleGraph.addNode(node: rootRegModuleNode)
+                regModuleGraph.addNode(node: regFirstStepNode)
+                regModuleGraph.addNode(node: regSecondStepNode)
+                regModuleGraph.addNode(node: regThirdStepNode)
+                let regRouterModule = RouterModule(configGraph: regModuleGraph, routerModuleRootNode: rootRegModuleNode)
+                
+                //SWITCH ROUTE MODULE
+                let switchModuleNode = RouteNode(routeNodeLink: "/switch", routeNodeID: "AuthRegSwitchVC", routeNodeType: RouteNodeType.root)
+                let switchModuleGraph = RouteGraph()
+                switchModuleGraph.addNode(node: switchModuleNode)
+                let switchRouterModule = RouterModule(configGraph: switchModuleGraph, routerModuleRootNode: switchModuleNode)
+                //AUTHORIZATION ROUTE MODULE
+                let authModuleNode = RouteNode(routeNodeLink: "/authorization", routeNodeID: "authorizationRootVC", routeNodeType: RouteNodeType.root)
+                let authModuleGraph = RouteGraph()
+                authModuleGraph.addNode(node: authModuleNode)
+                let authRouterModule = RouterModule(configGraph: authModuleGraph, routerModuleRootNode: authModuleNode)
+                //MAIN ROUTE MODULE
                 let rootFirstModuleNode = RouteNode(routeNodeLink: "/firstModule", routeNodeID: "navigationTVVC", routeNodeType: RouteNodeType.root)
-                rootNode.addNodeToContainer(routeNode: rootFirstModuleNode)
                 let dataVC = RouteNode(routeNodeLink: "/firstModule/data", routeNodeID: "dataVC", routeNodeType: RouteNodeType.presenter)
                 rootFirstModuleNode.addEdge(to: dataVC, transitionType: transitiontype)
                 let detailVC = RouteNode(routeNodeLink: "/firstModule/data/detail", routeNodeID: "detailVC", routeNodeType: RouteNodeType.data)
@@ -92,9 +116,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 firstModuleGraph.addNode(node: dataVC)
                 firstModuleGraph.addNode(node: detailVC)
                 let firstRouterModule = RouterModule(configGraph: firstModuleGraph, routerModuleRootNode: rootFirstModuleNode)
+                //
                 Presenter.instance.setWindow(window: window!)
-                MainRouter.instance.setConfig(rootNode: rootNode, routerModules: [firstRouterModule])
-                MainRouter.instance.navigateToLink(to: "/firstModule/data")
+                MainRouter.instance.setConfig(presentedModule: authRouterModule, routerModules: [regRouterModule, switchRouterModule, authRouterModule])
+                MainRouter.instance.navigateToLink(to: "/switch")
             case .pad:
                 let rootNode = RouteNode(routeNodeLink: "RootNode", routeNodeID: "rootSplitVC", routeNodeType: RouteNodeType.rootContainer)
                 let rootFirstModuleNode = RouteNode(routeNodeLink: "/firstModule", routeNodeID: "navigationTVVC", routeNodeType: RouteNodeType.root)
@@ -114,7 +139,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let firstRouterModule = RouterModule(configGraph: firstModuleGraph, routerModuleRootNode: rootFirstModuleNode)
                 let secondRouterModule = RouterModule(configGraph: secondModuleGraph, routerModuleRootNode: rootSecondModuleNode)
                 Presenter.instance.setWindow(window: window!)
-                MainRouter.instance.setConfig(rootNode: rootNode, routerModules: [firstRouterModule, secondRouterModule])
+                let mainRouterModule = RouterModule(configGraph: RouteGraph(), routerModuleRootNode: rootNode)
+                mainRouterModule.addChildsRouterModules(routerModule: [firstRouterModule, secondRouterModule])
+                MainRouter.instance.setConfig(presentedModule: mainRouterModule , routerModules: [mainRouterModule])
                 MainRouter.instance.navigateToLink(to: "/firstModule/data")
                 MainRouter.instance.navigateToLink(to: "/secondModule/detail")
             case .unspecified:

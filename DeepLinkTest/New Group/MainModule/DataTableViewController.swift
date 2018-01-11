@@ -10,8 +10,8 @@ import UIKit
 
 class DataTableViewController: UITableViewController,PresenterProtocol {
     
-    let testModulePresenter:TestModulePresenter = TestModulePresenter()
-    var data:[TestModel] = [] {
+    let testModulePresenter:MainModulePresenter = MainModulePresenter()
+    var data:[MainModuleModel] = [] {
         didSet {
             self.tableView.reloadData()
         }

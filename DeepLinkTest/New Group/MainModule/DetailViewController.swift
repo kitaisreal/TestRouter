@@ -29,7 +29,7 @@ class DetailViewController: UIViewController,DataTransferProtocol,PresenterProto
     }
     //DATA PROBLEM FIX
     func setData(data: Any?) {
-        if let testModel = data as? TestModel {
+        if let testModel = data as? MainModuleModel {
             let title = testModel.testTitle
             self.data = title
             if (testDetailLabel != nil) {

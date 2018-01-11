@@ -17,11 +17,22 @@ enum LinkValue {
 class Matcher {
     
     func getModuleWithLink(with link:String,from routerModules:[RouterModule]) -> MatcherResponse? {
+        print("GET MODULE WITH LINK ENTRY POINT \(link)")
         let linkValue = getLinkValue(with: link)
-        for routerModule in routerModules {
+        var allRouterModules:[RouterModule] = []
+        for module in routerModules {
+            for childModule in module.getModuleModules() {
+                allRouterModules.append(childModule)
+            }
+        }
+        
+        for routerModule in allRouterModules {
+            print("GET MODULE WITH LINK ROUTER MODULE \(routerModule.routerModuleRootNode.routeNodeLink)")
             for linkTest in routerModule.getModuleLinks() {
                 if matchLink(in: linkTest, with: linkValue) {
-                    return MatcherResponse(routerModule: routerModule, link: linkTest)
+                    let matcherResponse = MatcherResponse(routerModule: routerModule, link: linkTest)
+                    print("GET MODULE WITH LINK MATCHER RESPONSE \(matcherResponse.link) \(matcherResponse.routerModule.routerModuleRootNode.routeNodeLink)")
+                    return matcherResponse
                 }
             }
         }

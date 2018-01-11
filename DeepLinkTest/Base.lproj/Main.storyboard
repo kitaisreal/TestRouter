@@ -76,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="-6802.3999999999996" y="694.90254872563719"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Registration Navigation-->
         <scene sceneID="2Wy-BK-bl6">
             <objects>
-                <navigationController storyboardIdentifier="authRootVC" id="SYd-B1-bWX" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="regRootVC" id="SYd-B1-bWX" customClass="RegistrationNavigation" customModule="DeepLinkTest" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lyv-Vf-Grw">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -89,10 +89,10 @@
             </objects>
             <point key="canvasLocation" x="-8713" y="-1784"/>
         </scene>
-        <!--View Controller-->
+        <!--Authorization View Controller-->
         <scene sceneID="7d4-VW-Wno">
             <objects>
-                <viewController storyboardIdentifier="authorizationRootVC" id="1pf-o2-SXB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="authorizationRootVC" id="1pf-o2-SXB" customClass="AuthorizationViewController" customModule="DeepLinkTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lkd-bj-ley">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,6 +124,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFr-fj-Q50">
                                 <rect key="frame" x="16" y="239" width="343" height="30"/>
                                 <state key="normal" title="Log in"/>
+                                <connections>
+                                    <action selector="logIn:" destination="1pf-o2-SXB" eventType="touchUpInside" id="2lv-xz-8na"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HFG-Yf-I9Q">
                                 <rect key="frame" x="16" y="193" width="343" height="30"/>
@@ -134,6 +137,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIa-uD-3Ii">
                                 <rect key="frame" x="16" y="285" width="343" height="30"/>
                                 <state key="normal" title="To Switch"/>
+                                <connections>
+                                    <action selector="toSwitch:" destination="1pf-o2-SXB" eventType="touchUpInside" id="BZe-rb-xtz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -167,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="-7903.1999999999998" y="-2543.4782608695655"/>
         </scene>
-        <!--View Controller-->
+        <!--RegistrationFS View Controller-->
         <scene sceneID="83m-CP-Tob">
             <objects>
-                <viewController storyboardIdentifier="authFirstStepVC" id="gHs-9Y-ryq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="regFirstStepVC" id="gHs-9Y-ryq" customClass="RegistrationFSViewController" customModule="DeepLinkTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nVQ-dT-zLQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,10 +207,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwJ-GL-G0g">
                                 <rect key="frame" x="16" y="149" width="343" height="30"/>
                                 <state key="normal" title="To next step"/>
+                                <connections>
+                                    <action selector="toNextStep:" destination="gHs-9Y-ryq" eventType="touchUpInside" id="Pnu-ul-Gzc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bi-DQ-xPC">
                                 <rect key="frame" x="16" y="195" width="343" height="30"/>
                                 <state key="normal" title="To Switch"/>
+                                <connections>
+                                    <action selector="toWitch:" destination="gHs-9Y-ryq" eventType="touchUpInside" id="ucr-EG-xHD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -224,15 +236,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DXN-0b-Cb1"/>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="hdh-9U-512" id="Dsf-fS-buz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c62-MV-3vO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-7914.3999999999996" y="-1784.257871064468"/>
         </scene>
-        <!--View Controller-->
+        <!--RegistrationSS View Controller-->
         <scene sceneID="EK0-AH-GL0">
             <objects>
-                <viewController storyboardIdentifier="authSecondStepVC" id="awL-YT-qBo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="regSecondStepVC" id="awL-YT-qBo" customClass="RegistrationSSViewController" customModule="DeepLinkTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zg9-gl-wgd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -298,10 +313,10 @@
             </objects>
             <point key="canvasLocation" x="-7140" y="-1795"/>
         </scene>
-        <!--View Controller-->
+        <!--RegistrationTS View Controller-->
         <scene sceneID="hRF-gn-32Z">
             <objects>
-                <viewController storyboardIdentifier="authThirdStepVC" id="bod-HU-J8G" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="regThirdStepVC" id="bod-HU-J8G" customClass="RegistrationTSViewController" customModule="DeepLinkTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KS5-MN-xma">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -491,10 +506,10 @@
             </objects>
             <point key="canvasLocation" x="-8562" y="-64"/>
         </scene>
-        <!--View Controller-->
+        <!--Switch View Controller-->
         <scene sceneID="hBa-ly-u6Q">
             <objects>
-                <viewController storyboardIdentifier="AuthRegSwitchVC" id="RCA-wz-s09" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthRegSwitchVC" id="RCA-wz-s09" customClass="SwitchViewController" customModule="DeepLinkTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oIf-Iw-V6o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -508,10 +523,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h65-fE-n0m">
                                 <rect key="frame" x="16" y="73" width="343" height="30"/>
                                 <state key="normal" title="Registration"/>
+                                <connections>
+                                    <action selector="toRegistration:" destination="RCA-wz-s09" eventType="touchUpInside" id="FdS-lN-07J"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VU-QT-EGQ">
                                 <rect key="frame" x="16" y="119" width="343" height="30"/>
                                 <state key="normal" title="Authorization"/>
+                                <connections>
+                                    <action selector="toAuthorization:" destination="RCA-wz-s09" eventType="touchUpInside" id="sFL-tl-nAA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -531,7 +552,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8h-vY-s7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7935" y="-878"/>
+            <point key="canvasLocation" x="-7951" y="-887"/>
         </scene>
         <!--Detail NavigationVC-->
         <scene sceneID="Zeq-SO-kMJ">

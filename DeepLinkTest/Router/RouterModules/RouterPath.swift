@@ -18,12 +18,12 @@ enum RouterPathType {
 class RouterPath {
     
     let path:[RouteNode]
-    let rootNodeLink:String
+    let rootNode:RouteNode
     let pathType:RouterPathType
     
-    init(rootNodeLink:String,path:[RouteNode], pathType:RouterPathType) {
+    init(rootNode:RouteNode,path:[RouteNode], pathType:RouterPathType) {
         self.path = path
-        self.rootNodeLink = rootNodeLink
+        self.rootNode = rootNode
         self.pathType = pathType
     }
 }
