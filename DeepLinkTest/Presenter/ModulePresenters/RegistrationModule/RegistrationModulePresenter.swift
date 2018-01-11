@@ -11,7 +11,7 @@ import Foundation
 class RegistrationModulePresenter {
     
     func presentSwitch() {
-        MainRouter.instance.navigateToLink(to: "switch")
+        MainRouter.instance.navigateToLink(to: "/switch")
     }
     func presentRegistrationFirstStep() {
         MainRouter.instance.navigateToLink(to: "/registrationFirstStep")
@@ -22,4 +22,5 @@ class RegistrationModulePresenter {
     func presentRegistrationThirdStep() {
         MainRouter.instance.navigateToLink(to: "/registrationThirdStep")
     }
+    
 }

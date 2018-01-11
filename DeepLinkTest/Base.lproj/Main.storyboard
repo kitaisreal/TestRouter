@@ -278,14 +278,23 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgo-eL-S14">
                                 <rect key="frame" x="16" y="149" width="343" height="30"/>
                                 <state key="normal" title="To next step"/>
+                                <connections>
+                                    <action selector="toThirdRegistrationStep:" destination="awL-YT-qBo" eventType="touchUpInside" id="nUV-Ag-1oa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cvf-1r-V4E">
                                 <rect key="frame" x="16" y="195" width="343" height="30"/>
                                 <state key="normal" title="To prev step"/>
+                                <connections>
+                                    <action selector="toFirstRegistrationStep:" destination="awL-YT-qBo" eventType="touchUpInside" id="Gd6-aj-4zO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dc5-Dg-u1h">
                                 <rect key="frame" x="16" y="241" width="343" height="30"/>
                                 <state key="normal" title="To Switch"/>
+                                <connections>
+                                    <action selector="toSwitch:" destination="awL-YT-qBo" eventType="touchUpInside" id="ZEH-Bb-TtS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -308,6 +317,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="G4q-c3-RhI"/>
                     </view>
+                    <connections>
+                        <outlet property="surnameTextField" destination="OrB-UQ-zOy" id="rvx-kR-ryj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uv8-QS-Xab" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -336,14 +348,23 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g35-19-33F">
                                 <rect key="frame" x="16" y="155.5" width="343" height="30"/>
                                 <state key="normal" title="End registation"/>
+                                <connections>
+                                    <action selector="endRegistration:" destination="bod-HU-J8G" eventType="touchUpInside" id="hcI-jW-4i9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejn-LV-gBY">
                                 <rect key="frame" x="16" y="109.5" width="343" height="30"/>
                                 <state key="normal" title="To prev step"/>
+                                <connections>
+                                    <action selector="toSecondStep:" destination="bod-HU-J8G" eventType="touchUpInside" id="rER-k3-Z5Y"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tit-P1-bLc">
                                 <rect key="frame" x="16" y="201.5" width="343" height="30"/>
                                 <state key="normal" title="To Switch"/>
+                                <connections>
+                                    <action selector="toSwitch:" destination="bod-HU-J8G" eventType="touchUpInside" id="2Jj-78-zRG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -534,6 +555,13 @@
                                     <action selector="toAuthorization:" destination="RCA-wz-s09" eventType="touchUpInside" id="sFL-tl-nAA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKi-5j-9aB">
+                                <rect key="frame" x="16" y="165" width="343" height="30"/>
+                                <state key="normal" title="To main"/>
+                                <connections>
+                                    <action selector="toMain:" destination="RCA-wz-s09" eventType="touchUpInside" id="EE8-85-bWa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -545,7 +573,10 @@
                             <constraint firstItem="DIR-pX-Zn4" firstAttribute="trailing" secondItem="2VU-QT-EGQ" secondAttribute="trailing" constant="16" id="PjL-tm-hWW"/>
                             <constraint firstItem="2VU-QT-EGQ" firstAttribute="top" secondItem="h65-fE-n0m" secondAttribute="bottom" constant="16" id="U1c-74-eu3"/>
                             <constraint firstItem="RLG-Ei-yPF" firstAttribute="leading" secondItem="DIR-pX-Zn4" secondAttribute="leading" constant="16" id="VHC-n0-eyA"/>
+                            <constraint firstItem="xKi-5j-9aB" firstAttribute="top" secondItem="2VU-QT-EGQ" secondAttribute="bottom" constant="16" id="ZVG-mk-81W"/>
+                            <constraint firstItem="xKi-5j-9aB" firstAttribute="leading" secondItem="DIR-pX-Zn4" secondAttribute="leading" constant="16" id="cEd-wb-zNu"/>
                             <constraint firstItem="DIR-pX-Zn4" firstAttribute="trailing" secondItem="h65-fE-n0m" secondAttribute="trailing" constant="16" id="oct-bO-g0E"/>
+                            <constraint firstItem="DIR-pX-Zn4" firstAttribute="trailing" secondItem="xKi-5j-9aB" secondAttribute="trailing" constant="16" id="zM6-Ki-fGt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DIR-pX-Zn4"/>
                     </view>
@@ -598,17 +629,27 @@
                                 <rect key="frame" x="16" y="156" width="343" height="30"/>
                                 <state key="normal" title="PrivateDetail"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhO-D7-ScX">
+                                <rect key="frame" x="16" y="202" width="343" height="30"/>
+                                <state key="normal" title="To Switch"/>
+                                <connections>
+                                    <action selector="toSwitch:" destination="g5Z-xe-bnL" eventType="touchUpInside" id="oet-LD-8Zc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="FhO-D7-ScX" firstAttribute="top" secondItem="4Uo-wc-ViB" secondAttribute="bottom" constant="16" id="1J3-Xc-8U1"/>
                             <constraint firstItem="J0u-k3-rAO" firstAttribute="trailing" secondItem="2ut-7T-Cbb" secondAttribute="trailing" constant="16" id="79l-Zh-a21"/>
                             <constraint firstItem="2ut-7T-Cbb" firstAttribute="top" secondItem="AIP-mj-nMw" secondAttribute="bottom" constant="16" id="BRT-KL-cV6"/>
                             <constraint firstItem="4Uo-wc-ViB" firstAttribute="top" secondItem="2ut-7T-Cbb" secondAttribute="bottom" constant="16" id="Hz1-W1-MtT"/>
                             <constraint firstItem="J0u-k3-rAO" firstAttribute="trailing" secondItem="AIP-mj-nMw" secondAttribute="trailing" constant="16" id="Rch-D5-Lhj"/>
                             <constraint firstItem="J0u-k3-rAO" firstAttribute="trailing" secondItem="4Uo-wc-ViB" secondAttribute="trailing" constant="16" id="YHB-Va-Pgs"/>
                             <constraint firstItem="AIP-mj-nMw" firstAttribute="leading" secondItem="J0u-k3-rAO" secondAttribute="leading" constant="16" id="aIL-YL-L7M"/>
+                            <constraint firstItem="J0u-k3-rAO" firstAttribute="trailing" secondItem="FhO-D7-ScX" secondAttribute="trailing" constant="16" id="aLc-hs-eta"/>
                             <constraint firstItem="J0u-k3-rAO" firstAttribute="trailing" secondItem="ex4-Vt-cjP" secondAttribute="trailing" constant="16" id="dbg-Xf-AEV"/>
                             <constraint firstItem="AIP-mj-nMw" firstAttribute="top" secondItem="ex4-Vt-cjP" secondAttribute="bottom" constant="16" id="pVl-Wq-aLD"/>
+                            <constraint firstItem="FhO-D7-ScX" firstAttribute="leading" secondItem="J0u-k3-rAO" secondAttribute="leading" constant="16" id="pqx-XN-JnR"/>
                             <constraint firstItem="4Uo-wc-ViB" firstAttribute="leading" secondItem="J0u-k3-rAO" secondAttribute="leading" constant="16" id="uSD-5a-t89"/>
                             <constraint firstItem="ex4-Vt-cjP" firstAttribute="top" secondItem="J0u-k3-rAO" secondAttribute="top" constant="16" id="usV-8E-Dbe"/>
                             <constraint firstItem="2ut-7T-Cbb" firstAttribute="leading" secondItem="J0u-k3-rAO" secondAttribute="leading" constant="16" id="wiF-zW-C7q"/>
@@ -622,7 +663,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Im-cO-fZB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6802.3999999999996" y="-64.31784107946028"/>
+            <point key="canvasLocation" x="-6863" y="-64"/>
         </scene>
     </scenes>
 </document>

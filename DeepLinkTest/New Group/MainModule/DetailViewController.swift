@@ -42,8 +42,12 @@ class DetailViewController: UIViewController,DataTransferProtocol,PresenterProto
                 testDetailLabel.text = "Data from deeplink " + stringData
             }
         }
+        
     }
 
+    @IBAction func toSwitch(_ sender: UIButton) {
+        MainRouter.instance.navigateToLink(to: "/switch")
+    }
     /*
     // MARK: - Navigation
 

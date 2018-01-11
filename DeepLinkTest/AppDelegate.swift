@@ -115,11 +115,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 firstModuleGraph.addNode(node: rootFirstModuleNode)
                 firstModuleGraph.addNode(node: dataVC)
                 firstModuleGraph.addNode(node: detailVC)
-                let firstRouterModule = RouterModule(configGraph: firstModuleGraph, routerModuleRootNode: rootFirstModuleNode)
+                let mainRouterModule = RouterModule(configGraph: firstModuleGraph, routerModuleRootNode: rootFirstModuleNode)
                 //
                 Presenter.instance.setWindow(window: window!)
-                MainRouter.instance.setConfig(presentedModule: authRouterModule, routerModules: [regRouterModule, switchRouterModule, authRouterModule])
-                MainRouter.instance.navigateToLink(to: "/switch")
+                MainRouter.instance.setConfig(presentedModule: mainRouterModule, routerModules: [regRouterModule, switchRouterModule, authRouterModule, mainRouterModule])
+                MainRouter.instance.navigateToLink(to: "/firstModule/data")
             case .pad:
                 let rootNode = RouteNode(routeNodeLink: "RootNode", routeNodeID: "rootSplitVC", routeNodeType: RouteNodeType.rootContainer)
                 let rootFirstModuleNode = RouteNode(routeNodeLink: "/firstModule", routeNodeID: "navigationTVVC", routeNodeType: RouteNodeType.root)

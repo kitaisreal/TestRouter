@@ -21,4 +21,8 @@ class SwitchModulePresenter {
     func presentRegModule() {
         MainRouter.instance.navigateToLink(to: "/registrationFirstStep")
     }
+    
+    func toMainModule() {
+        MainRouter.instance.navigateToLink(to: "/firstModule/data")
+    }
 }

@@ -20,4 +20,7 @@ class SwitchViewController: UIViewController,PresenterProtocol {
     @IBAction func toAuthorization(_ sender: UIButton) {
         switchModulePresenter.presentAuthModule()
     }
+    @IBAction func toMain(_ sender: UIButton) {
+        switchModulePresenter.toMainModule()
+    }
 }

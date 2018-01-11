@@ -18,6 +18,7 @@ class RegistrationStepsPresenter {
     func setSurname(surname:String) {
         self.surname = surname
     }
+    
     func registrationEnd() {
         
     }

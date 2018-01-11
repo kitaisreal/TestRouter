@@ -10,4 +10,16 @@ import UIKit
 
 class RegistrationTSViewController: UIViewController,PresenterProtocol {
     let registrationModuleInteractor:RegistrationModulePresenter = RegistrationModulePresenter()
+    
+    @IBAction func toSecondStep(_ sender: UIButton) {
+        registrationModuleInteractor.presentRegistrationSecondStep()
+    }
+    
+    @IBAction func endRegistration(_ sender: UIButton) {
+    }
+    
+    @IBAction func toSwitch(_ sender: UIButton) {
+        registrationModuleInteractor.presentSwitch()
+    }
+    
 }
