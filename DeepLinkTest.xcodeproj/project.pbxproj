@@ -27,6 +27,7 @@
 		4823FE8120077AE30031D357 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823FE8020077AE30031D357 /* AuthorizationViewController.swift */; };
 		4823FE8420077B8C0031D357 /* AuthorizationModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823FE8320077B8C0031D357 /* AuthorizationModuleInteractor.swift */; };
 		4823FE8720077C550031D357 /* AuthorizationModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823FE8620077C550031D357 /* AuthorizationModulePresenter.swift */; };
+		4823FE8B2007B5EB0031D357 /* UIViewControllerTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823FE8A2007B5EB0031D357 /* UIViewControllerTransition.swift */; };
 		48256658200609DA00C4CCF8 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48256657200609DA00C4CCF8 /* DeepLinkHandler.swift */; };
 		4825665A20060AF700C4CCF8 /* DeepLinkHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4825665920060AF700C4CCF8 /* DeepLinkHandlerTests.swift */; };
 		482566612006268E00C4CCF8 /* DetailNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482566602006268E00C4CCF8 /* DetailNavigationVC.swift */; };
@@ -104,6 +105,7 @@
 		4823FE8020077AE30031D357 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		4823FE8320077B8C0031D357 /* AuthorizationModuleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleInteractor.swift; sourceTree = "<group>"; };
 		4823FE8620077C550031D357 /* AuthorizationModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModulePresenter.swift; sourceTree = "<group>"; };
+		4823FE8A2007B5EB0031D357 /* UIViewControllerTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerTransition.swift; sourceTree = "<group>"; };
 		48256657200609DA00C4CCF8 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
 		4825665920060AF700C4CCF8 /* DeepLinkHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandlerTests.swift; sourceTree = "<group>"; };
 		482566602006268E00C4CCF8 /* DetailNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNavigationVC.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		481B02D41FFFD6A3005E9C96 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4823FE892007B5D40031D357 /* TransitionsTest */,
 				4823FE62200772CE0031D357 /* SwitchModule */,
 				4823FE61200772C40031D357 /* DefaultViews */,
 				4823FE60200772BE0031D357 /* RegistrationModule */,
@@ -319,6 +322,14 @@
 				488464E62003BB8400F19A42 /* MainModulePresenter.swift */,
 			);
 			path = MainModule;
+			sourceTree = "<group>";
+		};
+		4823FE892007B5D40031D357 /* TransitionsTest */ = {
+			isa = PBXGroup;
+			children = (
+				4823FE8A2007B5EB0031D357 /* UIViewControllerTransition.swift */,
+			);
+			path = TransitionsTest;
 			sourceTree = "<group>";
 		};
 		48256656200609D000C4CCF8 /* DeepLinkHandler */ = {
@@ -689,6 +700,7 @@
 				48523C951FFE477D00E9E6D7 /* AppDelegate.swift in Sources */,
 				489B472E2004AFC400650F10 /* ViewProtocols.swift in Sources */,
 				48A72E2A1FFF73BB00D98A10 /* RouteGraph.swift in Sources */,
+				4823FE8B2007B5EB0031D357 /* UIViewControllerTransition.swift in Sources */,
 				488464DF2003B93D00F19A42 /* DataTableViewController.swift in Sources */,
 				488464E72003BB8400F19A42 /* MainModulePresenter.swift in Sources */,
 				48A72E281FFF736500D98A10 /* RouteTransitionEdge.swift in Sources */,

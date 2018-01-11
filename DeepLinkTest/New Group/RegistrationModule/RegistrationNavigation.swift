@@ -15,7 +15,7 @@ class RegistrationNavigation: UINavigationController,NavigationProtocol {
             return
         }
         
-        self.pushViewController(VC, animated: true)
+        self.pushViewController(VC, animated: false)
     }
     override func viewDidLoad() {
         
@@ -28,5 +28,7 @@ class RegistrationNavigation: UINavigationController,NavigationProtocol {
     func getTopModule() -> PresenterProtocol? {
         return self.topViewController as? PresenterProtocol
     }
-    
+   
 }
+
+
