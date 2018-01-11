@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let host = url.host {
             let components = URLComponents(string: url.absoluteString)
             let data = (components?.queryItems)?[0].value
-            MainRouter.instance.navigateToLink(link: url.host!, data: data)
+            MainRouter.instance.navigate(to: url.host!, data: data)
         }
         return true
     }
@@ -119,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //
                 Presenter.instance.setWindow(window: window!)
                 MainRouter.instance.setConfig(presentedModule: mainRouterModule, routerModules: [regRouterModule, switchRouterModule, authRouterModule, mainRouterModule])
-                MainRouter.instance.navigateToLink(to: "/firstModule/data")
+                MainRouter.instance.navigate(to: "/firstModule/data")
             case .pad:
                 let rootNode = RouteNode(routeNodeLink: "RootNode", routeNodeID: "rootSplitVC", routeNodeType: RouteNodeType.rootContainer)
                 let rootFirstModuleNode = RouteNode(routeNodeLink: "/firstModule", routeNodeID: "navigationTVVC", routeNodeType: RouteNodeType.root)
@@ -142,8 +142,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let mainRouterModule = RouterModule(configGraph: RouteGraph(), routerModuleRootNode: rootNode)
                 mainRouterModule.addChildsRouterModules(routerModule: [firstRouterModule, secondRouterModule])
                 MainRouter.instance.setConfig(presentedModule: mainRouterModule , routerModules: [mainRouterModule])
-                MainRouter.instance.navigateToLink(to: "/firstModule/data")
-                MainRouter.instance.navigateToLink(to: "/secondModule/detail")
+                MainRouter.instance.navigate(to: "/firstModule/data")
+                MainRouter.instance.navigate(to: "/secondModule/detail")
             case .unspecified:
                 fatalError()
             case .tv:

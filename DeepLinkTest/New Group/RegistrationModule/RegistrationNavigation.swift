@@ -14,9 +14,11 @@ class RegistrationNavigation: UINavigationController,NavigationProtocol {
         guard let VC = module as? UIViewController else {
             return
         }
-        self.pushViewController(VC, animated: false)
+        
+        self.pushViewController(VC, animated: true)
     }
     override func viewDidLoad() {
+        
         self.setNavigationBarHidden(true, animated: false)
     }
     func removeFromTop() {

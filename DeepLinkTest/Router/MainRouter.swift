@@ -31,12 +31,11 @@ class MainRouter {
         }
         Presenter.instance.presentRouteModule(routerModule: moduleToPresent)
     }
-    func navigateToLink(to link:String) {
-        navigateToLink(link: link, data: nil)
+    func navigate(to link:String) {
+        navigate(to:link, data: nil)
     }
     
-    func navigateToLink(link:String, data:Any?) {
-        print("NAVIGATE TO LINK BUG ENTRY POINT \(link)")
+    func navigate(to link:String, data:Any?) {
         guard let matcherResponse = matcher.getModuleWithLink(with: link, from: routerModules) else {
             return
         }
@@ -54,6 +53,19 @@ class MainRouter {
         let realLink = matcherResponse.link
         let path = routerModule.getPathToNode(to: realLink)
         Presenter.instance.presentRoutePath(routerPath: path, data: data)
+    }
+    //ROOT LINK
+    func navigateToModule(with link:String) {
+        guard let matcherResponse = matcher.getModuleWithLink(with: link, from: routerModules) else {
+            return
+        }
+        let routerModule = matcherResponse.routerModule
+        if (routerModule.routerModuleRootNode.routeNodeLink == presentedModule?.routerModuleRootNode.routeNodeLink) {
+            return
+        } else {
+            self.presentedModule = routerModule
+            Presenter.instance.presentRouteModule(routerModule: routerModule)
+        }
     }
     
     func navigateToLink(link:String, data:Any?, sender:RouterSenderProtocol) {
@@ -76,6 +88,7 @@ class MainRouter {
         let path = routerModule.getPathToNode(to: realLink)
         Presenter.instance.presentRoutePath(routerPath: path, data: data)
     }
+    
     //REWRITE
     private func checkLink(linkToCheck:String) -> Bool {
         for link in getPresenterModuleLinks() {
@@ -95,5 +108,18 @@ class MainRouter {
             routeRootLinks.append(childModule.routerModuleRootNode.routeNodeLink)
         }
         return routeRootLinks
+    }
+    private func findRouterModuleWithLink(with link:String) {
+        var rootNodes:[RouteNode] = []
+        for module in routerModules {
+            for rootNode in module.getModuleRootNodes() {
+                rootNodes.append(rootNode)
+            }
+        }
+        for rootNode in rootNodes {
+            if (rootNode.routeNodeLink == link) {
+                
+            }
+        }
     }
 }

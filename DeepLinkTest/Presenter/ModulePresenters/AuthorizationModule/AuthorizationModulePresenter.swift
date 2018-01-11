@@ -23,6 +23,6 @@ class AuthorizationModulePresenter {
     }
     
     func presentSwitchModule() {
-        MainRouter.instance.navigateToLink(to: "/switch")
+        MainRouter.instance.navigate(to: "/switch")
     }
 }

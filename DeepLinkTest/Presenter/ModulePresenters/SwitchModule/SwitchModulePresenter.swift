@@ -15,14 +15,14 @@ class SwitchModulePresenter {
     }
     
     func presentAuthModule() {
-        MainRouter.instance.navigateToLink(to: "/authorization")
+        MainRouter.instance.navigate(to: "/authorization")
     }
     
     func presentRegModule() {
-        MainRouter.instance.navigateToLink(to: "/registrationFirstStep")
+        MainRouter.instance.navigate(to: "/registrationFirstStep")
     }
     
     func toMainModule() {
-        MainRouter.instance.navigateToLink(to: "/firstModule/data")
+        MainRouter.instance.navigateToModule(with: "/firstModule")
     }
 }

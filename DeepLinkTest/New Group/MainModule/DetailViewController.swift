@@ -15,7 +15,7 @@ class DetailViewController: UIViewController,DataTransferProtocol,PresenterProto
     var data:String?
     
     @IBAction func presenterBack(_ sender: UIButton) {
-        MainRouter.instance.navigateToLink(link: "/firstModule", data: nil)
+        MainRouter.instance.navigate(to:"/firstModule", data: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class DetailViewController: UIViewController,DataTransferProtocol,PresenterProto
     }
 
     @IBAction func toSwitch(_ sender: UIButton) {
-        MainRouter.instance.navigateToLink(to: "/switch")
+        MainRouter.instance.navigate(to: "/switch")
     }
     /*
     // MARK: - Navigation
