@@ -11,15 +11,21 @@ import Foundation
 class RouterModule {
     
     private let configGraph:RouteGraph
+    
     let routerModuleRootNode:RouteNode
+    
     private var childRouterModules:[RouterModule] = []
+    
     private var currentNodeLink:String
     
-    init(configGraph:RouteGraph, routerModuleRootNode:RouteNode) {
-        self.configGraph = configGraph
+    init(nodes:[RouteNode], routerModuleRootNode:RouteNode) {
+        let routerGraph = RouteGraph()
+        routerGraph.addNodes(nodes: nodes)
+        self.configGraph = routerGraph
         self.routerModuleRootNode = routerModuleRootNode
         self.currentNodeLink = self.routerModuleRootNode.routeNodeLink
     }
+    
     //TEST THIS SHIT
     func getModuleLinks() -> [String] {
         var moduleLinks:[String] = []
@@ -28,6 +34,7 @@ class RouterModule {
         }
         return moduleLinks
     }
+    
     func getModuleModules() -> [RouterModule] {
         var routerModules:[RouterModule] = []
         routerModules.append(self)
@@ -41,6 +48,7 @@ class RouterModule {
         }
         return routerModules
     }
+    
     func getModuleAllLinks() -> [String] {
         var routeRootLinks:[String] = []
         for module in self.getModuleModules() {
@@ -48,6 +56,7 @@ class RouterModule {
         }
         return routeRootLinks
     }
+    
     func getModuleRootNodes() -> [RouteNode]{
         var moduleRootNodes:[RouteNode] = []
         for module in self.getModuleModules() {

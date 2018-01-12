@@ -16,6 +16,10 @@ protocol NavigationProtocol {
     func getTopModule() -> PresenterProtocol?
 }
 
+protocol RootProtocol {
+    
+}
+
 protocol PresenterProtocol {
     
 }
@@ -31,6 +35,6 @@ protocol ContainerProtocol {
 }
 
 protocol ModuleContainer {
-    
+    func setData(with data:Any?, to module:Any?)
 }
 

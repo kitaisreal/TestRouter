@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		48073B2E1FFE6814001A1C7D /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48073B2D1FFE6814001A1C7D /* Matcher.swift */; };
+		4813ADDD2008A40C00934A76 /* XibViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813ADDC2008A40C00934A76 /* XibViewController.swift */; };
 		4814CAB21FFE83B200FF1987 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4814CAB11FFE83B200FF1987 /* Graph.swift */; };
 		4814CAB41FFE874D00FF1987 /* TransitionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4814CAB31FFE874D00FF1987 /* TransitionEnum.swift */; };
 		4814CAB61FFE879000FF1987 /* NavigationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4814CAB51FFE879000FF1987 /* NavigationTransition.swift */; };
@@ -86,6 +87,7 @@
 
 /* Begin PBXFileReference section */
 		48073B2D1FFE6814001A1C7D /* Matcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matcher.swift; sourceTree = "<group>"; };
+		4813ADDC2008A40C00934A76 /* XibViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibViewController.swift; sourceTree = "<group>"; };
 		4814CAB11FFE83B200FF1987 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		4814CAB31FFE874D00FF1987 /* TransitionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionEnum.swift; sourceTree = "<group>"; };
 		4814CAB51FFE879000FF1987 /* NavigationTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTransition.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				4823FE5F200772B70031D357 /* AuthorizationModule */,
 				488464F62003E12C00F19A42 /* SecondTest */,
 				488464F52003E0D800F19A42 /* MainModule */,
+				4813ADDC2008A40C00934A76 /* XibViewController.swift */,
 			);
 			name = View;
 			path = "New Group";
@@ -692,6 +695,7 @@
 				488464CD20035DB100F19A42 /* ContainerViewController.swift in Sources */,
 				4823FE7F20077A630031D357 /* RegistrationModuleInteractor.swift in Sources */,
 				4823FE6D200774E10031D357 /* SwitchViewController.swift in Sources */,
+				4813ADDD2008A40C00934A76 /* XibViewController.swift in Sources */,
 				4823FE752007779F0031D357 /* RegistrationStepsPresenter.swift in Sources */,
 				488464F82003E13F00F19A42 /* SecondDetailVC.swift in Sources */,
 				488464EA2003BC6700F19A42 /* RouterSenderProtocol.swift in Sources */,

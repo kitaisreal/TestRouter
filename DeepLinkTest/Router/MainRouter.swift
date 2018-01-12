@@ -64,6 +64,7 @@ class MainRouter {
         guard let matcherResponse = matcher.getModuleWithLink(with: link, from: routerModules) else {
             return
         }
+        //FOR ALL MODULES IN PRESENTED MODULE
         let routerModule = matcherResponse.routerModule
         if (routerModule.routerModuleRootNode.routeNodeLink == presentedModule?.routerModuleRootNode.routeNodeLink) {
             return

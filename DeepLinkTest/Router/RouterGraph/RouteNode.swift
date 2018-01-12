@@ -8,23 +8,27 @@
 
 import Foundation
 
-enum RouteNodeType {
+enum RouterNodeType {
     case navigation
     case data
     case rootContainer
     case presenter
     case root
 }
+enum RouterNodeGet {
+    case storyboard(String)
+    case xib
+}
 class RouteNode {
     
     let routeNodeLink:String
     let routeNodeID:String
-    let routeNodeType:RouteNodeType
+    let routeNodeType:RouterNodeType
     //FIX THIS
     var containerForNodes:[RouteNode] = []
     var adjacentEdges:[RouteTransitionEdge] = []
     
-    init(routeNodeLink:String, routeNodeID:String, routeNodeType:RouteNodeType) {
+    init(routeNodeLink:String, routeNodeID:String, routeNodeType:RouterNodeType) {
         self.routeNodeType = routeNodeType
         self.routeNodeLink = routeNodeLink
         self.routeNodeID = routeNodeID
@@ -35,7 +39,7 @@ class RouteNode {
         self.adjacentEdges.append(edge)
     }
     func addNodeToContainer(routeNode:RouteNode) {
-        if (self.routeNodeType == RouteNodeType.rootContainer) {
+        if (self.routeNodeType == RouterNodeType.rootContainer) {
             self.containerForNodes.append(routeNode)
         }
     }

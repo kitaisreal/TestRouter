@@ -14,11 +14,11 @@ class RouteGraphTestTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        let mainNode = RouteNode(routeNodeLink: "/", routeNodeID: "rootNode", routeNodeType: RouteNodeType.navigation)
-        let firstChildNode = RouteNode(routeNodeLink: "/firstChild", routeNodeID: "firstChildNode", routeNodeType: RouteNodeType.data)
-        let firstChildNodeChild = RouteNode(routeNodeLink: "/firstChild/firstChildNode", routeNodeID: "firstChildNodeChild", routeNodeType: RouteNodeType.data)
-        let firstChildNodeChildChild = RouteNode(routeNodeLink: "/firstChild/firstChildNode/firstChildNodeNode", routeNodeID: "firstChildNodeChildChild", routeNodeType: RouteNodeType.data)
-        let secondChildNode = RouteNode(routeNodeLink: "/secondChild", routeNodeID: "secondChildNode", routeNodeType: RouteNodeType.data)
+        let mainNode = RouteNode(routeNodeLink: "/", routeNodeID: "rootNode", routeNodeType: RouterNodeType.navigation)
+        let firstChildNode = RouteNode(routeNodeLink: "/firstChild", routeNodeID: "firstChildNode", routeNodeType: RouterNodeType.data)
+        let firstChildNodeChild = RouteNode(routeNodeLink: "/firstChild/firstChildNode", routeNodeID: "firstChildNodeChild", routeNodeType: RouterNodeType.data)
+        let firstChildNodeChildChild = RouteNode(routeNodeLink: "/firstChild/firstChildNode/firstChildNodeNode", routeNodeID: "firstChildNodeChildChild", routeNodeType: RouterNodeType.data)
+        let secondChildNode = RouteNode(routeNodeLink: "/secondChild", routeNodeID: "secondChildNode", routeNodeType: RouterNodeType.data)
         let transitionType = RouteTransitionEdgeType(transitionAnimation: TransitionAnimation.yes, transitionData: TransitionData.no)
         
         mainNode.addEdge(to: firstChildNode, transitionType: transitionType )

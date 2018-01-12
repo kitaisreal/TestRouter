@@ -65,7 +65,7 @@ class Presenter {
         var routerModulesRootControllers:[NavigationProtocol] = []
         
         for node in containerNode.containerForNodes {
-            if (node.routeNodeType == RouteNodeType.root) {
+            if (node.routeNodeType == RouterNodeType.root) {
                 guard let rootVC = presenterModuleRepository.getModuleNavigationFromPresented(rootNode: node) else {
                     continue
                 }

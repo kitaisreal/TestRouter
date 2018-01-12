@@ -9,7 +9,9 @@
 import Foundation
 
 class RouteGraph {
+    
     var nodes:[RouteNode] = []
+    
     private var nodesHashMap:[String:Int] = [:]
     
     init() {
@@ -20,6 +22,13 @@ class RouteGraph {
         self.nodes.append(node)
         nodesHashMap.updateValue(self.nodes.count-1, forKey: node.routeNodeLink)
     }
+    
+    func addNodes(nodes:[RouteNode]) {
+        for node in nodes {
+            self.addNode(node: node)
+        }
+    }
+    
     func getLinks() -> [String]{
         var linksArray:[String] = []
         for node in nodes {
@@ -27,9 +36,11 @@ class RouteGraph {
         }
         return linksArray
     }
+    
     func removeAllNodes() {
         self.nodes = []
     }
+    
     func findPathToNode(from firstNodeLink:String,to secondNodeLink:String) -> [RouteNode]{
         guard   let nodeFromIndex = nodesHashMap[firstNodeLink],
                 let nodeToIndex = nodesHashMap[secondNodeLink] else {
@@ -83,8 +94,5 @@ extension Array where Element == RouteNode {
         for i in self {
             print("Node \(i.routeNodeID)  \(i.routeNodeLink) \(i.routeNodeType)")
         }
-    }
-    func removeFromTop(count:Int) {
-        
     }
 }

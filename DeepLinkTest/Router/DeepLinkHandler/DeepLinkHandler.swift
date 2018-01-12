@@ -9,12 +9,16 @@
 import Foundation
 
 class DeepLinkHandlerResult {
+    
     let link:String
+    
     let data:Any?
+    
     init(link:String, data:Any?) {
         self.link = link
         self.data = data
     }
+    
 }
 class DeepLinkHandler {
     
@@ -27,4 +31,5 @@ class DeepLinkHandler {
         let deepLinkHandlerResult = DeepLinkHandlerResult(link: link, data: data)
         return deepLinkHandlerResult
     }
+    
 }

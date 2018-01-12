@@ -21,4 +21,11 @@ class StoryboardViewPresenter: ViewPresenterProtocol {
         return self.storyboard.instantiateViewController(withIdentifier: routeNode.routeNodeID)
     }
     
+    private func fromStoryboard(with id:String, from name:String) -> UIViewController {
+        return UIStoryboard(name: name, bundle: nil).instantiateViewController(withIdentifier: id)
+    }
+    
+    private func fromXib(with name:String) -> UIViewController {
+        return UIViewController(nibName: name, bundle: nil)
+    }
 }

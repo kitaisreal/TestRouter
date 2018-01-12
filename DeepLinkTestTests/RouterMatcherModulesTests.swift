@@ -12,15 +12,15 @@ import XCTest
 class RouterMatcherModuleTests:XCTest {
     
     func testSomething() {
-        let firstModuleNode = RouteNode(routeNodeLink: "/firstModule", routeNodeID: "secondModuleNodeID", routeNodeType: RouteNodeType.data)
+        let firstModuleNode = RouteNode(routeNodeLink: "/firstModule", routeNodeID: "secondModuleNodeID", routeNodeType: RouterNodeType.data)
         let graph = RouteGraph()
         graph.addNode(node: firstModuleNode)
-        let secondModuleNode = RouteNode(routeNodeLink: "/secondModule", routeNodeID: "secondModuleNodeID", routeNodeType: RouteNodeType.data)
+        let secondModuleNode = RouteNode(routeNodeLink: "/secondModule", routeNodeID: "secondModuleNodeID", routeNodeType: RouterNodeType.data)
         let anotherGraph = RouteGraph()
         graph.addNode(node: secondModuleNode)
         let firstRouterModule = RouterModule(configGraph: graph, routerModuleRootNode: firstModuleNode)
         let secondRouterModule = RouterModule(configGraph: anotherGraph, routerModuleRootNode: secondModuleNode)
-        let containerModuleNode = RouteNode(routeNodeLink: "/", routeNodeID: "containerModuleNode", routeNodeType: RouteNodeType.data)
+        let containerModuleNode = RouteNode(routeNodeLink: "/", routeNodeID: "containerModuleNode", routeNodeType: RouterNodeType.data)
         let thirdGraph = RouteGraph()
         thirdGraph.addNode(node: containerModuleNode)
         let thirdModule = RouterModule(configGraph: thirdGraph, routerModuleRootNode: containerModuleNode)
