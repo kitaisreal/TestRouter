@@ -9,8 +9,11 @@
 import Foundation
 
 class NavigationTransition {
+    
     private let animation:AnimationEnum
+    
     private let data:DataEnum
+    
     private let push:PushEnum
     
     init (animation:AnimationEnum, data:DataEnum, push:PushEnum) {
@@ -18,4 +21,5 @@ class NavigationTransition {
         self.data = data
         self.push = push
     }
+    
 }

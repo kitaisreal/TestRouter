@@ -8,9 +8,9 @@
 
 import Foundation
 
-class AnotherTestModulePresenter:RouterSenderProtocol {
+class AnotherTestModulePresenter {
     
     func sendDataWithLink(link:String, data:String) {
-        MainRouter.instance.navigateToLink(link: link, data: data, sender:self)
+        MainRouter.instance.navigate(to: link, data: data)
     }
 }

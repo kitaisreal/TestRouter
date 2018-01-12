@@ -10,5 +10,7 @@ import Foundation
 import UIKit
 
 protocol ViewPresenterProtocol {
+    
     func getView(routeNode:RouteNode) -> UIViewController
+    
 }

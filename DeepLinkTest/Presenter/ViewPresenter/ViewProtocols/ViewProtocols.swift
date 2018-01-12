@@ -18,6 +18,7 @@ protocol NavigationProtocol {
     func removeFromTop()
     func getTopModule() -> PresenterProtocol?
 }
+
 protocol PresenterProtocol {
     
 }

@@ -20,6 +20,8 @@ class DeepLinkHandlerResult {
     }
     
 }
+
+//ADD A LOT OF
 class DeepLinkHandler {
     
     func handleDeepLink(link:String) ->  DeepLinkHandlerResult? {

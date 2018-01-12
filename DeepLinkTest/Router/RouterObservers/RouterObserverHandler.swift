@@ -11,6 +11,7 @@ import Foundation
 fileprivate class ObserverAction {
     
     let id:String
+    
     let action:RouterObserverHandler.Action
     
     init(id:String, action:@escaping RouterObserverHandler.Action) {
@@ -31,9 +32,12 @@ fileprivate extension Array where Element == ObserverAction {
     }
 }
 
+//TESTS FOR THIS
+
 class RouterObserverHandler {
     
     typealias Action = () -> ()
+    
     private var actionMap:[String:[ObserverAction]] = [:]
     
     func addObserver(link:String,id:String,action:@escaping Action) {

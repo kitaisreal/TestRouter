@@ -8,6 +8,7 @@
 
 import Foundation
 
+//REWRITE ONLY FOR ANIMATION BEETWEEN MODULES OR CONTROLLERS
 enum AnimationEnum {
     case yes
     case no

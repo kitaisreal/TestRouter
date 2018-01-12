@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MainModulePresenter:RouterSenderProtocol {
+class MainModulePresenter {
     private let testModuleInteractor:MainModuleInteractor
     
     init() {
@@ -18,6 +18,6 @@ class MainModulePresenter:RouterSenderProtocol {
         return testModuleInteractor.getModels()
     }
     func setDataWithLink(testModel:MainModuleModel) {
-        MainRouter.instance.navigateToLink(link: "*/detail", data: testModel, sender:self)
+        MainRouter.instance.navigate(to: "*/detail", data: testModel)
     }
 }

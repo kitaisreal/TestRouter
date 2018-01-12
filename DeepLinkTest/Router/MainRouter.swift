@@ -31,6 +31,7 @@ class MainRouter {
     func removeObserver(link:String, id:String) {
         routerObserverHandler.removeObserver(link: link, id: id)
     }
+    
     private func checkLinkForActions(link:String) {
         let routerObserverLinks = routerObserverHandler.getLinks()
         print("OBSERVER GET LINKS \(routerObserverLinks) FOR LINK \(link)")
@@ -92,27 +93,6 @@ class MainRouter {
             self.presentedModule = routerModule
             Presenter.instance.presentRouteModule(routerModule: routerModule)
         }
-    }
-    
-    func navigateToLink(link:String, data:Any?, sender:RouterSenderProtocol) {
-        print("NAVIGATE TO LINK BUG ENTRY POINT \(link)")
-        guard let matcherResponse = matcher.getModuleWithLink(with: link, from: routerModules) else {
-            return
-        }
-        //REWRITE ONLY LINKS MAYBE
-        print("NAVIGATE TO LINK BUG MATCHER RESPONSE \(matcherResponse.link) \(matcherResponse.routerModule.routerModuleRootNode.routeNodeLink)")
-        let routerModule = matcherResponse.routerModule
-        print("NAVIGATE TO LINK ROUTER MODULE \(routerModule.routerModuleRootNode.routeNodeLink)")
-        let linkCheck = checkLink(linkToCheck: routerModule.routerModuleRootNode.routeNodeLink)
-        print("NAVIGATE TO LINK LINK CHECK \(linkCheck)")
-        if (linkCheck == false) {
-            //FIND IN ROUTER MODULES
-            self.presentedModule = routerModule
-            Presenter.instance.presentRouteModule(routerModule: routerModule)
-        }
-        let realLink = matcherResponse.link
-        let path = routerModule.getPathToNode(to: realLink)
-        Presenter.instance.presentRoutePath(routerPath: path, data: data)
     }
     
     //REWRITE
