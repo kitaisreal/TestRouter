@@ -11,12 +11,15 @@ import Foundation
 class MainRouter {
     
     var routerModules:[RouterModule] = []
+    
     var presentedModule:RouterModule?
     
     let matcher:Matcher = Matcher()
+    
     static let instance = MainRouter()
     
     private init() {
+        
     }
     //FIX THIS SHIT
     func setPresentedModule(moduleToPresent:RouterModule) {
@@ -31,6 +34,7 @@ class MainRouter {
         }
         Presenter.instance.presentRouteModule(routerModule: moduleToPresent)
     }
+    
     func navigate(to link:String) {
         navigate(to:link, data: nil)
     }
@@ -54,6 +58,7 @@ class MainRouter {
         let path = routerModule.getPathToNode(to: realLink)
         Presenter.instance.presentRoutePath(routerPath: path, data: data)
     }
+    
     //ROOT LINK
     func navigateToModule(with link:String) {
         guard let matcherResponse = matcher.getModuleWithLink(with: link, from: routerModules) else {
@@ -91,35 +96,15 @@ class MainRouter {
     
     //REWRITE
     private func checkLink(linkToCheck:String) -> Bool {
-        for link in getPresenterModuleLinks() {
+        guard let presentedModule = self.presentedModule else {
+            return false
+        }
+        for link in presentedModule.getModuleLinks() {
             if (linkToCheck == link) {
                 return true
             }
         }
         return false
     }
-    private func getPresenterModuleLinks() -> [String] {
-        guard let presentedModule = self.presentedModule else {
-            return []
-        }
-        var routeRootLinks:[String] = []
-        routeRootLinks.append(presentedModule.routerModuleRootNode.routeNodeLink)
-        for childModule in presentedModule.getModuleModules() {
-            routeRootLinks.append(childModule.routerModuleRootNode.routeNodeLink)
-        }
-        return routeRootLinks
-    }
-    private func findRouterModuleWithLink(with link:String) {
-        var rootNodes:[RouteNode] = []
-        for module in routerModules {
-            for rootNode in module.getModuleRootNodes() {
-                rootNodes.append(rootNode)
-            }
-        }
-        for rootNode in rootNodes {
-            if (rootNode.routeNodeLink == link) {
-                
-            }
-        }
-    }
+    
 }

@@ -41,19 +41,21 @@ class RouterModule {
         }
         return routerModules
     }
+    func getModuleAllLinks() -> [String] {
+        var routeRootLinks:[String] = []
+        for module in self.getModuleModules() {
+            routeRootLinks.append(module.routerModuleRootNode.routeNodeLink)
+        }
+        return routeRootLinks
+    }
     func getModuleRootNodes() -> [RouteNode]{
         var moduleRootNodes:[RouteNode] = []
-        moduleRootNodes.append(self.routerModuleRootNode)
-        guard childRouterModules.count != 0 else {
-            return moduleRootNodes
-        }
-        for childModule in childRouterModules {
-            for module in childModule.getModuleRootNodes() {
-                moduleRootNodes.append(module)
-            }
+        for module in self.getModuleModules() {
+            moduleRootNodes.append(module.routerModuleRootNode)
         }
         return moduleRootNodes
     }
+    
     func addChildRouterModule(routerModule:RouterModule) {
         self.childRouterModules.append(routerModule)
     }

@@ -19,12 +19,7 @@ class Matcher {
     func getModuleWithLink(with link:String,from routerModules:[RouterModule]) -> MatcherResponse? {
         print("GET MODULE WITH LINK ENTRY POINT \(link)")
         let linkValue = getLinkValue(with: link)
-        var allRouterModules:[RouterModule] = []
-        for module in routerModules {
-            for childModule in module.getModuleModules() {
-                allRouterModules.append(childModule)
-            }
-        }
+        let allRouterModules:[RouterModule] = routerModules.getAllRouterModules()
         
         for routerModule in allRouterModules {
             print("GET MODULE WITH LINK ROUTER MODULE \(routerModule.routerModuleRootNode.routeNodeLink)")
@@ -62,20 +57,12 @@ class Matcher {
         switch linkValue {
             
         case .leftMatch(let linkValue):
-//            let range = firstLink.range(of: linkValue)
-//            let rightIndex = range?.upperBound.encodedOffset
-//            return range != nil && rightIndex == firstLink.count
             return leftMatch(firstLink, linkValue)
         case .rightMatch(let linkValue):
-//            let range = firstLink.range(of: linkValue)
-//            let leftIndex = range?.lowerBound.encodedOffset
-//            return range != nil && leftIndex == 0
             return rightMatch(firstLink, linkValue)
         case .anyMatch(let linkValue):
-//            return firstLink.range(of: linkValue) != nil
             return anyMatch(firstLink, linkValue)
         case .identityMatch(let linkValue):
-//            return firstLink == linkValue
             return identityMatch(firstLink, linkValue)
         }
     }
@@ -84,15 +71,37 @@ class Matcher {
         let rightIndex = range?.upperBound.encodedOffset
         return range != nil && rightIndex == first.count
     }
+    
     private func rightMatch(_ first:String, _ second:String) -> Bool{
         let range = first.range(of: second)
         let leftIndex = range?.lowerBound.encodedOffset
         return range != nil && leftIndex == 0
     }
+    
     private func anyMatch(_ first:String, _ second:String) -> Bool{
         return first.range(of: second) != nil
     }
+    
     private func identityMatch(_ first:String, _ second:String) -> Bool  {
         return first == second
     }
+    
 }
+
+extension Array where Element == RouterModule {
+    func getAllRouterModules() -> [RouterModule] {
+        var allRouterModules:[RouterModule] = []
+        
+        for module in self {
+            for childModule in module.getModuleModules() {
+                allRouterModules.append(childModule)
+            }
+        }
+        return allRouterModules
+    }
+}
+
+
+
+
+

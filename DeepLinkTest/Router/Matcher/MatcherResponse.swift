@@ -9,10 +9,14 @@
 import Foundation
 
 class MatcherResponse {
+    
     let routerModule:RouterModule
+    
     let link:String
+    
     init(routerModule:RouterModule, link:String) {
         self.routerModule = routerModule
         self.link = link
     }
+    
 }
