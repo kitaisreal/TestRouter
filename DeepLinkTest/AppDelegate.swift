@@ -50,10 +50,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let detailVC = RouteNode(routeNodeLink: "/firstModule/data/detail", routeNodeID: "detailVC", routeNodeType: RouterNodeType.data)
                 dataVC.addEdge(to: detailVC, transitionType: transitiontype)
                 let mainRouterModule = RouterModule(nodes: [rootFirstModuleNode, dataVC, detailVC], routerModuleRootNode: rootFirstModuleNode)
+                //TEST ROUTE MODULE
+//                let testModuleNode = RouteNode(routeNodeLink: "/", routeNodeID: "testModuleRootVC", routeNodeType: RouterNodeType.root)
+                let testModuleSecondNode = RouteNode(routeNodeLink: "/test", routeNodeID: "testModuleVC", routeNodeType: RouterNodeType.root)
+//                testModuleNode.addEdge(to: testModuleSecondNode, transitionType: transitiontype)
+                let testRouterModule = RouterModule(nodes: [testModuleSecondNode], routerModuleRootNode: testModuleSecondNode)
                 //
                 Presenter.instance.setWindow(window: window!)
-                MainRouter.instance.setConfig(presentedModule: mainRouterModule, routerModules: [regRouterModule, switchRouterModule, authRouterModule, mainRouterModule])
-                MainRouter.instance.navigate(to: "/firstModule/data")
+                MainRouter.instance.setConfig(presentedModule: testRouterModule, routerModules: [regRouterModule, switchRouterModule, authRouterModule, mainRouterModule,testRouterModule])
+                MainRouter.instance.navigate(to: "/test")
             case .pad:
                 let rootNode = RouteNode(routeNodeLink: "RootNode", routeNodeID: "rootSplitVC", routeNodeType: RouterNodeType.rootContainer)
                 let rootFirstModuleNode = RouteNode(routeNodeLink: "/firstModule", routeNodeID: "navigationTVVC", routeNodeType: RouterNodeType.root)

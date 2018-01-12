@@ -14,12 +14,29 @@ class MainRouter {
     
     var presentedModule:RouterModule?
     
+    let routerObserverHandler:RouterObserverHandler = RouterObserverHandler()
+    
     let matcher:Matcher = Matcher()
     
     static let instance = MainRouter()
     
     private init() {
         
+    }
+    
+    func addObserver(link:String,id:String, action:@escaping RouterObserverHandler.Action) {
+        routerObserverHandler.addObserver(link: link, id: id, action: action)
+    }
+    
+    func removeObserver(link:String, id:String) {
+        routerObserverHandler.removeObserver(link: link, id: id)
+    }
+    private func checkLinkForActions(link:String) {
+        let routerObserverLinks = routerObserverHandler.getLinks()
+        print("OBSERVER GET LINKS \(routerObserverLinks)")
+        for matchedLink in matcher.checkLinks(in: routerObserverLinks, with: link) {
+            routerObserverHandler.makeAction(link: matchedLink)
+        }
     }
     //FIX THIS SHIT
     func setPresentedModule(moduleToPresent:RouterModule) {
@@ -55,6 +72,7 @@ class MainRouter {
             Presenter.instance.presentRouteModule(routerModule: routerModule)
         }
         let realLink = matcherResponse.link
+        checkLinkForActions(link: realLink)
         let path = routerModule.getPathToNode(to: realLink)
         Presenter.instance.presentRoutePath(routerPath: path, data: data)
     }

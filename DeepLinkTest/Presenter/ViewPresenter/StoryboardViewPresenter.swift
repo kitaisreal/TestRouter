@@ -18,6 +18,7 @@ class StoryboardViewPresenter: ViewPresenterProtocol {
     }
     
     func getView(routeNode: RouteNode) -> UIViewController {
+        print("GET VIEW \(routeNode.routeNodeID) \(routeNode.routeNodeLink)")
         return self.storyboard.instantiateViewController(withIdentifier: routeNode.routeNodeID)
     }
     

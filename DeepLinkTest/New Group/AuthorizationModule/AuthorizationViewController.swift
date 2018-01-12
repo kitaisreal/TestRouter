@@ -12,6 +12,15 @@ import UIKit
 class AuthorizationViewController:UIViewController,PresenterProtocol {
     let authorizationModulePresenter:AuthorizationModulePresenter = AuthorizationModulePresenter()
     
+    override func viewDidLoad() {
+        print("AUTHORIZATION VIEW DID LOAD")
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        print("AUTHORIZATION VIEW DID APPEAR")
+    }
+    override func awakeFromNib() {
+        print("AWAKE FROM NIB")
+    }
     @IBAction func logIn(_ sender: UIButton) {
         
     }

@@ -51,4 +51,44 @@ class RouterMatcherTests:XCTestCase {
         let thirdMatcherResult = matcher.matchLink(in: "/test", with: testIdentityLinkvalue)
         XCTAssertEqual( thirdMatcherResult, false)
     }
+    func testEveryMatch() {
+        let testString = ""
+        print(testString.count)
+        let otherTestString = "something/something"
+        print(otherTestString.range(of: testString) != nil)
+//        let matcherResult = matcher.matchLink(in: "asdfosadfops//asdflasldf", with: testEveryMatchLinkValue)
+//        print(matcherResult)
+    }
+    func testSomething() {
+        let routerObserverHandler = RouterObserverHandler()
+        routerObserverHandler.addObserver(link: "/testLink", id: "testID1") {
+            print("TESTIDACTION TEST ID 1")
+        }
+        routerObserverHandler.addObserver(link: "/testLink", id: "testID2") {
+            print("TESTIDACTION TEST ID 2")
+        }
+        routerObserverHandler.addObserver(link: "/anotherTestLink", id: "anotherTestID") {
+            print("AnotherTestIDAACTION")
+        }
+        print(routerObserverHandler.getLinks())
+        routerObserverHandler.makeAction(link: "/testLink")
+        routerObserverHandler.makeAction(link: "/anotherTestLink")
+        routerObserverHandler.removeObserver(link: "/testLink", id: "testID1")
+        routerObserverHandler.makeAction(link: "/testLink")
+        routerObserverHandler.makeAction(link: "/anotherTestLink")
+    }
+    func testHashMap() {
+        print("TEST HASH MAP")
+        var dictionary:[String:[String]] = [:]
+        dictionary.updateValue([], forKey: "test")
+        dictionary["test"]?.append("action1")
+        dictionary["test"]?.append("action2")
+        dictionary["anotherTest"]?.append("action3")
+        for key in dictionary.keys {
+            print("KEY \(key)")
+            for element in dictionary[key]! {
+                print("ELEMENT \(key) \(element)")
+            }
+        }
+    }
 }

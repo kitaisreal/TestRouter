@@ -9,9 +9,13 @@
 import Foundation
 
 class SwitchModulePresenter {
-    
+    var registrationProcessStarted:Bool = false
     init() {
-        
+        print("SWITCH MODULE PRESENTER INIT \(self)")
+        MainRouter.instance.addObserver(link: "/registrationFirstStep", id: "SwitchModulePresenter") { [weak self] in
+            print("ACTION IN OBSERVER ")
+            self?.registrationProcessStarted = true
+        }
     }
     
     func presentAuthModule() {
@@ -19,10 +23,16 @@ class SwitchModulePresenter {
     }
     
     func presentRegModule() {
-        MainRouter.instance.navigate(to: "/registrationFirstStep")
+        print("PRESENT REG MODULE PROCESS STARTED \(registrationProcessStarted)")
+        if (registrationProcessStarted){
+            MainRouter.instance.navigate(to: "/registration")
+        } else {
+            MainRouter.instance.navigate(to: "/registrationFirstStep")
+        }
     }
     
     func toMainModule() {
         MainRouter.instance.navigateToModule(with: "/firstModule")
     }
 }
+

@@ -10,6 +10,9 @@ import Foundation
 
 class RegistrationModulePresenter {
     
+    init() {
+        print("REGISTRATION MODULE PRESENTER INIT")
+    }
     func presentSwitch() {
         MainRouter.instance.navigate(to: "/switch")
     }

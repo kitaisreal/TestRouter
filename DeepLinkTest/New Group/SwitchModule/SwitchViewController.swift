@@ -13,6 +13,9 @@ class SwitchViewController: UIViewController,PresenterProtocol {
     
     let switchModulePresenter:SwitchModulePresenter = SwitchModulePresenter()
     
+    override func viewDidLoad() {
+        print("SWITCH VC DID LOAD")
+    }
     @IBAction func toRegistration(_ sender: Any) {
         switchModulePresenter.presentRegModule()
     }

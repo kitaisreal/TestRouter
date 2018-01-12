@@ -52,6 +52,18 @@ class Matcher {
         return LinkValue.identityMatch(link)
     }
     
+    func checkLinks(in links:[String], with link:String) -> [String]{
+        var linksMatched:[String] = []
+        for link in links {
+            let linkValue = self.getLinkValue(with: link)
+            if (matchLink(in: link, with: linkValue)) {
+                linksMatched.append(link)
+            }
+        }
+        print("OBSERVER MATCH LINKS \(linksMatched)")
+        return linksMatched
+    }
+    
     func matchLink(in firstLink:String, with linkValue:LinkValue) -> Bool {
         
         switch linkValue {
@@ -66,6 +78,7 @@ class Matcher {
             return identityMatch(firstLink, linkValue)
         }
     }
+    
     private func leftMatch(_ first:String, _ second:String) -> Bool {
         let range = first.range(of: second)
         let rightIndex = range?.upperBound.encodedOffset

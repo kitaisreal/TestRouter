@@ -12,6 +12,7 @@ class AuthorizationModulePresenter {
     let authorizationInteractor = AuthorizationModuleInteractor()
     
     init() {
+        print("AUTHORIZATION MODULE PRESENTER INIT")
     }
     
     func checkAuthorization(name:String, surname:String) -> Bool{

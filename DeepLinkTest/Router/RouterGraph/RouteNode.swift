@@ -22,10 +22,13 @@ enum RouterNodeGet {
 class RouteNode {
     
     let routeNodeLink:String
+    
     let routeNodeID:String
+    
     let routeNodeType:RouterNodeType
-    //FIX THIS
+    
     var containerForNodes:[RouteNode] = []
+    
     var adjacentEdges:[RouteTransitionEdge] = []
     
     init(routeNodeLink:String, routeNodeID:String, routeNodeType:RouterNodeType) {
@@ -38,12 +41,18 @@ class RouteNode {
         let edge = RouteTransitionEdge(firstNode: self, secondNode: node, transitionType: transitionType)
         self.adjacentEdges.append(edge)
     }
+    
     func addNodeToContainer(routeNode:RouteNode) {
         if (self.routeNodeType == RouterNodeType.rootContainer) {
             self.containerForNodes.append(routeNode)
         }
     }
     
+    func addNodesToContainer(routeNodes:[RouteNode]) {
+        for node in routeNodes {
+            self.addNodeToContainer(routeNode: node)
+        }
+    }
     
 }
 

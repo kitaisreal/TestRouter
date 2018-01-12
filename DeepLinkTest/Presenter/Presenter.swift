@@ -61,7 +61,13 @@ class Presenter {
     
     
     private func configureContainerNode(containerNode:RouteNode) {
-        
+        //KOSTIL REWRITE
+        guard containerNode.containerForNodes.count != 0 else {
+            //REWRITE
+            let rootView = viewPresenter.getView(routeNode: containerNode)
+            self.rootViewController = rootView
+            return
+        }
         var routerModulesRootControllers:[NavigationProtocol] = []
         
         for node in containerNode.containerForNodes {
