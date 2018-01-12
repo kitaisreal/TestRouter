@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SwitchViewController: UIViewController,PresenterProtocol {
+class SwitchViewController: UIViewController,RootProtocol {
     
     
     let switchModulePresenter:SwitchModulePresenter = SwitchModulePresenter()

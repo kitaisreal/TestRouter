@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegistrationNavigation: UINavigationController,NavigationProtocol {
+class RegistrationNavigation: UINavigationController,NavigationProtocol,RootProtocol {
     
     func push(module: PresenterProtocol) {
         guard let VC = module as? UIViewController else {

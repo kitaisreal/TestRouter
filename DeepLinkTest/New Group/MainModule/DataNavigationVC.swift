@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class DataNavigationVC:UINavigationController,NavigationProtocol {
+class DataNavigationVC:UINavigationController,NavigationProtocol,RootProtocol {
     
     func push(module: PresenterProtocol) {
         guard let VC = module as? UIViewController else {

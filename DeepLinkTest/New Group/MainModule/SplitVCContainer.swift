@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SplitVCDefaultContainer:UISplitViewController, ContainerProtocol {
+class SplitVCDefaultContainer:UISplitViewController, ContainerProtocol,RootProtocol {
     
     func contain(modules: [NavigationProtocol]) {
         print("FAST BUG \(modules.count)")

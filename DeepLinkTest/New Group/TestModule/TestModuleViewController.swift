@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TestModuleViewController: UIViewController,PresenterProtocol {
+class TestModuleViewController: UIViewController,RootProtocol {
     let testModulePresenter = TestModulePresenter()
     
     override func viewDidLoad() {

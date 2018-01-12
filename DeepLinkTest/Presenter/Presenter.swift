@@ -10,12 +10,9 @@ import Foundation
 import UIKit
 
 class Presenter {
-    
-    //FIX THIS NOT ONE PRESENTER NOT ONE ROUTER NOT ONE NAVIGATION CONTROLLER`
-    
+
     static let instance = Presenter()
     
-    private let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     private let presenterModuleRepository:PresenterModuleRepository
     
     private var rootViewController:UIViewController = UIViewController() {
@@ -35,8 +32,6 @@ class Presenter {
         presenterModuleRepository = PresenterModuleRepository(presenter: viewPresenter)
     }
     
-   
-    
     func setWindow(window:UIWindow) {
         self.window = window
     }
@@ -49,41 +44,35 @@ class Presenter {
     func presentRouteModule(routerModule:RouterModule) {
         self.presenterModuleRepository.addModule(routerModule: routerModule)
         self.presenterModuleRepository.setCurrentPresentedModule(routerModule: routerModule)
-        print("PRESENT ROUTE MODULE CONFIGURE CONTAINER NODE \(routerModule.routerModuleRootNode.routeNodeID)")
-        //KOSTIL
-        if let navigation = self.presenterModuleRepository.getModuleNavigationFromPresented(rootNode: routerModule.routerModuleRootNode), let rootVC = navigation as? UIViewController {
-            print("SET PRESENTER MODULE REPOSITORY")
-            self.rootViewController = rootVC
-            return
+        guard let rootVC = self.presenterModuleRepository.getModuleRootFromPresented(rootNode: routerModule.routerModuleRootNode) as? UIViewController else {
+            //Comments throw fix
+            fatalError()
         }
-        self.configureContainerNode(containerNode: routerModule.routerModuleRootNode)
+        self.configureContainerNode(rootContainerNode: routerModule.routerModuleRootNode)
+        self.rootViewController = rootVC
     }
     
     
-    private func configureContainerNode(containerNode:RouteNode) {
+    private func configureContainerNode(rootContainerNode:RouteNode) {
         //KOSTIL REWRITE
-        guard containerNode.containerForNodes.count != 0 else {
-            //REWRITE
-            let rootView = viewPresenter.getView(routeNode: containerNode)
-            self.rootViewController = rootView
+        guard rootContainerNode.containerForNodes.count != 0 else {
             return
         }
-        var routerModulesRootControllers:[NavigationProtocol] = []
+        var routerModulesNavigation:[NavigationProtocol] = []
         
-        for node in containerNode.containerForNodes {
+        for node in rootContainerNode.containerForNodes {
             if (node.routeNodeType == RouterNodeType.root) {
-                guard let rootVC = presenterModuleRepository.getModuleNavigationFromPresented(rootNode: node) else {
+                guard let rootVC = presenterModuleRepository.getModuleRootFromPresented(rootNode: node) as? NavigationProtocol else {
                     continue
                 }
-                routerModulesRootControllers.append(rootVC)
+                routerModulesNavigation.append(rootVC)
             } else {
                 continue
             }
         }
         print()
-        let rootView = viewPresenter.getView(routeNode: containerNode)
-        (rootView as? ContainerProtocol)?.contain(modules: routerModulesRootControllers)
-        self.rootViewController = rootView
+        let rootView = presenterModuleRepository.getModuleRootFromPresented(rootNode: rootContainerNode)
+        (rootView as? ContainerProtocol)?.contain(modules: routerModulesNavigation)
     }
     
     func presentRoutePath(routerPath:RouterPath, data:Any?) {
@@ -94,7 +83,7 @@ class Presenter {
             print("NODE PATH BUG \(node.routeNodeLink)")
         }
         print("NODE PATH BUG BEFORE GUARD")
-        guard let routerModuleNavigationVC = presenterModuleRepository.getModuleNavigationFromPresented(rootNode: routerPath.rootNode) else {
+        guard let routerModuleNavigationVC = presenterModuleRepository.getModuleRootFromPresented(rootNode: routerPath.rootNode) as? NavigationProtocol else {
             return
         }
         let path = routerPath.path

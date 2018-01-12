@@ -9,17 +9,15 @@
 import Foundation
 import UIKit
 
+protocol RootProtocol {
+    
+}
 
 protocol NavigationProtocol {
     func push(module:PresenterProtocol)
     func removeFromTop()
     func getTopModule() -> PresenterProtocol?
 }
-
-protocol RootProtocol {
-    
-}
-
 protocol PresenterProtocol {
     
 }
@@ -34,7 +32,7 @@ protocol ContainerProtocol {
     func contain(modules:[NavigationProtocol])
 }
 
-protocol ModuleContainer {
+protocol ModuleContainerProtocol {
     func setData(with data:Any?, to module:Any?)
 }
 

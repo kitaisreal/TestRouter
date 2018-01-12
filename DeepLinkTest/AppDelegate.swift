@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //
                 Presenter.instance.setWindow(window: window!)
                 MainRouter.instance.setConfig(presentedModule: testRouterModule, routerModules: [regRouterModule, switchRouterModule, authRouterModule, mainRouterModule,testRouterModule])
-                MainRouter.instance.navigate(to: "/test")
+                MainRouter.instance.navigate(to: "/firstModule/data")
             case .pad:
                 let rootNode = RouteNode(routeNodeLink: "RootNode", routeNodeID: "rootSplitVC", routeNodeType: RouterNodeType.rootContainer)
                 let rootFirstModuleNode = RouteNode(routeNodeLink: "/firstModule", routeNodeID: "navigationTVVC", routeNodeType: RouterNodeType.root)

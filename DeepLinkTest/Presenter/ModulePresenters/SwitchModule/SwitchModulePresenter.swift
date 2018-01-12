@@ -13,8 +13,11 @@ class SwitchModulePresenter {
     init() {
         print("SWITCH MODULE PRESENTER INIT \(self)")
         MainRouter.instance.addObserver(link: "/registrationFirstStep", id: "SwitchModulePresenter") { [weak self] in
-            print("ACTION IN OBSERVER ")
+            print("OBSERVER ACTION ")
             self?.registrationProcessStarted = true
+        }
+        MainRouter.instance.addObserver(link: "/registrationFirstStep", id: "SwitchModulePresenterAnotherID") {
+            print("REGISTRATION FIRST STEP STARTED")
         }
     }
     
@@ -25,7 +28,7 @@ class SwitchModulePresenter {
     func presentRegModule() {
         print("PRESENT REG MODULE PROCESS STARTED \(registrationProcessStarted)")
         if (registrationProcessStarted){
-            MainRouter.instance.navigate(to: "/registration")
+            MainRouter.instance.navigateToModule(with: "/registration")
         } else {
             MainRouter.instance.navigate(to: "/registrationFirstStep")
         }

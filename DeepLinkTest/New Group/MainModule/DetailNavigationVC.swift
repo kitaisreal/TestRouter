@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class DetailNavigationVC:UINavigationController,NavigationProtocol {
+class DetailNavigationVC:UINavigationController,NavigationProtocol,RootProtocol {
 
     func push(module: PresenterProtocol) {
         print("FAST BUG FIX PUSH MODULE \(module)")

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AuthorizationViewController:UIViewController,PresenterProtocol {
+class AuthorizationViewController:UIViewController,RootProtocol {
     let authorizationModulePresenter:AuthorizationModulePresenter = AuthorizationModulePresenter()
     
     override func viewDidLoad() {

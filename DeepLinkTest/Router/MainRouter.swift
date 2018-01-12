@@ -33,8 +33,9 @@ class MainRouter {
     }
     private func checkLinkForActions(link:String) {
         let routerObserverLinks = routerObserverHandler.getLinks()
-        print("OBSERVER GET LINKS \(routerObserverLinks)")
+        print("OBSERVER GET LINKS \(routerObserverLinks) FOR LINK \(link)")
         for matchedLink in matcher.checkLinks(in: routerObserverLinks, with: link) {
+            print("OBSERVER MAKE ACTION \(matchedLink)")
             routerObserverHandler.makeAction(link: matchedLink)
         }
     }
@@ -72,6 +73,7 @@ class MainRouter {
             Presenter.instance.presentRouteModule(routerModule: routerModule)
         }
         let realLink = matcherResponse.link
+        print("OBSERVER REAL LINK \(realLink)")
         checkLinkForActions(link: realLink)
         let path = routerModule.getPathToNode(to: realLink)
         Presenter.instance.presentRoutePath(routerPath: path, data: data)

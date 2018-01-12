@@ -52,11 +52,13 @@ class Matcher {
         return LinkValue.identityMatch(link)
     }
     
-    func checkLinks(in links:[String], with link:String) -> [String]{
+    func checkLinks(in links:[String], with realLink:String) -> [String]{
         var linksMatched:[String] = []
         for link in links {
             let linkValue = self.getLinkValue(with: link)
-            if (matchLink(in: link, with: linkValue)) {
+            let matchLinkResult = matchLink(in: realLink, with: linkValue)
+            print("OBSERVER LINK VALUE \(linkValue) REAL LINK \(realLink)")
+            if (matchLinkResult) {
                 linksMatched.append(link)
             }
         }
