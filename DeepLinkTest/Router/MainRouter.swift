@@ -41,9 +41,6 @@ class MainRouter {
         }
     }
     //FIX THIS SHIT
-    func setPresentedModule(moduleToPresent:RouterModule) {
-        self.presentedModule = moduleToPresent
-    }
     
     func setConfig(presentedModule:RouterModule, routerModules:[RouterModule]) {
         self.routerModules = routerModules
@@ -94,7 +91,9 @@ class MainRouter {
             Presenter.instance.presentRouteModule(routerModule: routerModule)
         }
     }
-    
+    func configureModule(with link:String) {
+        
+    }
     //REWRITE
     private func checkLink(linkToCheck:String) -> Bool {
         guard let presentedModule = self.presentedModule else {

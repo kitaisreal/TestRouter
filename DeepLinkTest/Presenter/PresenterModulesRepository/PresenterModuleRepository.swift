@@ -10,43 +10,38 @@ import Foundation
 import UIKit
 
 class PresenterModuleRepository {
-    private var modulesArray:[String:[String:RootProtocol]] = [:]
-    private var currentPresentedRouterNavigation:[String:RootProtocol] = [:]
+    
+    private var moduleRootsDictionary:[String:RootProtocol] = [:]
+
     private var presenter:ViewPresenterProtocol
     
     init(presenter:ViewPresenterProtocol) {
         self.presenter = presenter
     }
     
-    func setCurrentPresentedModule(routerModule:RouterModule) {
-        guard let moduleNavigation = modulesArray[routerModule.routerModuleRootNode.routeNodeLink] else {
-            return
-        }
-        currentPresentedRouterNavigation = moduleNavigation
-    }
     
     func addModule(routerModule:RouterModule) {
-        guard modulesArray[routerModule.routerModuleRootNode.routeNodeLink] == nil else {
-            return
-        }
-        var moduleHash:[String:RootProtocol] = [:]
-        let routerModuleLink = routerModule.routerModuleRootNode.routeNodeLink
-        let routerModulesRootNodes = routerModule.getModuleRootNodes()
-        for rootNode in routerModulesRootNodes {
-            guard let navigationRoot = presenter.getView(routeNode: rootNode) as? RootProtocol else {
+
+        let moduleRootNodes = routerModule.getModuleRootNodes()
+        for rootNode in moduleRootNodes {
+            guard moduleRootsDictionary[rootNode.routeNodeLink] == nil else {
                 continue
             }
-            moduleHash.updateValue(navigationRoot, forKey: rootNode.routeNodeLink)
+            guard let rootProtocol = presenter.getView(routeNode: rootNode) as? RootProtocol else {
+                continue
+            }
+            moduleRootsDictionary.updateValue(rootProtocol, forKey: rootNode.routeNodeLink)
         }
-        modulesArray.updateValue(moduleHash, forKey: routerModuleLink)
     }
     
-    func removeModule(rootNodeLink:String) {
-        modulesArray.removeValue(forKey: rootNodeLink)
+    func removeModule(routerModule:RouterModule) {
+        let moduleRootNodes = routerModule.getModuleRootNodes()
+        for rootNode in moduleRootNodes {
+            _ = moduleRootsDictionary.removeValue(forKey: rootNode.routeNodeLink)
+        }
     }
     
-    func getModuleRootFromPresented(rootNode:RouteNode) -> RootProtocol? {
-        let moduleNavigation = self.currentPresentedRouterNavigation[rootNode.routeNodeLink]
-        return moduleNavigation
+    func getModuleRoot(rootNode:RouteNode) -> RootProtocol? {
+        return moduleRootsDictionary[rootNode.routeNodeLink]
     }
 }

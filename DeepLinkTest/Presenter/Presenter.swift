@@ -38,20 +38,21 @@ class Presenter {
     
     func removeModuleNavigation(routerModule:RouterModule) {
         //IF CONTAINER BE IN WINDOW ROOT SO ???
-        presenterModuleRepository.removeModule(rootNodeLink: routerModule.routerModuleRootNode.routeNodeLink)
+        presenterModuleRepository.removeModule(routerModule: routerModule)
     }
     
     func presentRouteModule(routerModule:RouterModule) {
         self.presenterModuleRepository.addModule(routerModule: routerModule)
-        self.presenterModuleRepository.setCurrentPresentedModule(routerModule: routerModule)
-        guard let rootVC = self.presenterModuleRepository.getModuleRootFromPresented(rootNode: routerModule.routerModuleRootNode) as? UIViewController else {
-            //Comments throw fix
+        guard let rootVC = self.presenterModuleRepository.getModuleRoot(rootNode: routerModule.routerModuleRootNode) as? UIViewController else {
             fatalError()
         }
         self.configureContainerNode(rootContainerNode: routerModule.routerModuleRootNode)
         self.rootViewController = rootVC
     }
     
+    func configureRouteModule(routerModule:RouterModule) {
+        self.presenterModuleRepository.addModule(routerModule: routerModule)
+    }
     
     private func configureContainerNode(rootContainerNode:RouteNode) {
         //KOSTIL REWRITE
@@ -62,7 +63,7 @@ class Presenter {
         
         for node in rootContainerNode.containerForNodes {
             if (node.routeNodeType == RouterNodeType.root) {
-                guard let rootVC = presenterModuleRepository.getModuleRootFromPresented(rootNode: node) as? NavigationProtocol else {
+                guard let rootVC = presenterModuleRepository.getModuleRoot(rootNode: node) as? NavigationProtocol else {
                     continue
                 }
                 routerModulesNavigation.append(rootVC)
@@ -71,7 +72,7 @@ class Presenter {
             }
         }
         print()
-        let rootView = presenterModuleRepository.getModuleRootFromPresented(rootNode: rootContainerNode)
+        let rootView = presenterModuleRepository.getModuleRoot(rootNode: rootContainerNode)
         (rootView as? ContainerProtocol)?.contain(modules: routerModulesNavigation)
     }
     
@@ -83,7 +84,7 @@ class Presenter {
             print("NODE PATH BUG \(node.routeNodeLink)")
         }
         print("NODE PATH BUG BEFORE GUARD")
-        guard let routerModuleNavigationVC = presenterModuleRepository.getModuleRootFromPresented(rootNode: routerPath.rootNode) as? NavigationProtocol else {
+        guard let routerModuleNavigationVC = presenterModuleRepository.getModuleRoot(rootNode: routerPath.rootNode) as? NavigationProtocol else {
             return
         }
         let path = routerPath.path
