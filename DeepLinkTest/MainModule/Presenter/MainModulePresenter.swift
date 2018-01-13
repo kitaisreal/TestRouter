@@ -20,4 +20,8 @@ class MainModulePresenter {
     func setDataWithLink(testModel:MainModuleModel) {
         MainRouter.instance.navigate(to: "*/detail", data: testModel)
     }
+    func toSwitch() {
+        MainRouter.instance.configureModule(with: "/switch")
+        MainRouter.instance.presentModule(with: "/switch", data:"Test Data")
+    }
 }

@@ -64,11 +64,15 @@ class MainRouter {
         print("OBSERVER REAL LINK \(realLink)")
         checkLinkForActions(link: realLink)
         let path = routerModule.getPathToNode(to: realLink)
+        print("NAVIGATE PATH COUNT \(path.path) \(path.pathType)")
         Presenter.instance.presentRoutePath(routerPath: path, data: data)
     }
     
     //ROOT LINK
-    func navigateToModule(with link:String) {
+    func presentModule(with link:String) {
+        presentModule(with: link, data: nil)
+    }
+    func presentModule(with link:String, data:Any?) {
         guard let matcherResponse = matcher.getModuleWithLink(with: link, from: routerModules) else {
             return
         }
@@ -78,7 +82,7 @@ class MainRouter {
             return
         } else {
             self.presentedModule = routerModule
-            Presenter.instance.presentRouteModule(routerModule: routerModule)
+            Presenter.instance.presentRouteModule(routerModule: routerModule, with: data)
         }
     }
     func configureModule(with link:String) {
@@ -95,6 +99,7 @@ class MainRouter {
         let routerModule = matcherResponse.routerModule
         Presenter.instance.removeModule(routerModule: routerModule)
     }
+    //BACK IN MODULE TEST
     
     //REWRITE
     private func checkLink(linkToCheck:String) -> Bool {

@@ -8,27 +8,33 @@
 
 import UIKit
 
-class RegistrationNavigation: UINavigationController,NavigationProtocol,RootProtocol {
+class RegistrationNavigation: UINavigationController,NavigationProtocol,RootProtocol,UINavigationBarDelegate {
     
     func push(module: PresenterProtocol) {
         guard let VC = module as? UIViewController else {
             return
         }
-        
-        self.pushViewController(VC, animated: false)
+        print("REGISTRATION STEP PUSH MODULE PUSH")
+        self.pushViewController(VC, animated: true)
     }
+    
     override func viewDidLoad() {
-        
-        self.setNavigationBarHidden(true, animated: false)
+        self.navigationBar.delegate = self
     }
     func removeFromTop() {
-        self.popViewController(animated: false)
+        print("REGISTRATION STEP POP MODULE POP")
+        self.popViewController(animated: true)
     }
     
     func getTopModule() -> PresenterProtocol? {
         return self.topViewController as? PresenterProtocol
     }
-   
+    func navigationBar(_ navigationBar: UINavigationBar, didPop item: UINavigationItem) {
+        print("REGISTRATION STEPS POP OPERATION")
+    }
+    func navigationBar(_ navigationBar: UINavigationBar, didPush item: UINavigationItem) {
+        print("REGISTRATION STEPS PUSH OPERATION")
+    }
 }
 
 

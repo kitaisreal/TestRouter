@@ -32,11 +32,11 @@ class SwitchModulePresenter {
         if (!registrationProcessStarted){
             MainRouter.instance.navigate(to: "/registrationFirstStep")
         }
-        MainRouter.instance.navigateToModule(with: "/registration")
+        MainRouter.instance.presentModule(with: "/registration")
     }
     
     func toMainModule() {
-        MainRouter.instance.navigateToModule(with: "/firstModule")
+        MainRouter.instance.presentModule(with: "/firstModule")
     }
 }
 

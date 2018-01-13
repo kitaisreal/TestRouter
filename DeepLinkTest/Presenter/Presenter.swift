@@ -41,10 +41,11 @@ class Presenter {
         presenterModuleRepository.removeModule(routerModule: routerModule)
     }
     
-    func presentRouteModule(routerModule:RouterModule) {
+    func presentRouteModule(routerModule:RouterModule, with data:Any?) {
         guard let rootVC = self.presenterModuleRepository.getModuleRoot(rootNode: routerModule.routerModuleRootNode) as? UIViewController else {
             fatalError("Router module not configured before present")
         }
+        (rootVC as? DataTransferProtocol)?.setData(data: data)
         self.rootViewController = rootVC
     }
     
@@ -77,11 +78,12 @@ class Presenter {
     }
     
     func presentRoutePath(routerPath:RouterPath, data:Any?) {
-        guard let routerModuleNavigationVC = presenterModuleRepository.getModuleRoot(rootNode: routerPath.rootNode) as? NavigationProtocol else {
+        let routerModuleRootVC = presenterModuleRepository.getModuleRoot(rootNode: routerPath.rootNode)
+        
+        guard let routerModuleNavigationVC = routerModuleRootVC as? NavigationProtocol else {
             return
         }
-        print("ROUTER PATH ROOT NODE \(routerPath.rootNode.routeNodeLink)")
-        (routerModuleNavigationVC as? DataTransferProtocol)?.setData(data: data)
+        
         let path = routerPath.path
         switch routerPath.pathType {
         case .push:

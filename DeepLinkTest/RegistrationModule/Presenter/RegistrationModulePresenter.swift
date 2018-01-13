@@ -15,7 +15,7 @@ class RegistrationModulePresenter {
     }
     func presentSwitch() {
         MainRouter.instance.navigate(to: "switch", data: "SOME DATA")
-        MainRouter.instance.navigateToModule(with: "/switch")
+        MainRouter.instance.presentModule(with: "/switch")
     }
     func presentRegistrationFirstStep() {
         MainRouter.instance.navigate(to: "/registrationFirstStep")

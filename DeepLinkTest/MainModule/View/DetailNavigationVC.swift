@@ -9,8 +9,12 @@
 import Foundation
 import UIKit
 
-class DetailNavigationVC:UINavigationController,NavigationProtocol,RootProtocol {
+class DetailNavigationVC:UINavigationController,NavigationProtocol,RootProtocol,UINavigationControllerDelegate {
 
+    override func viewDidLoad() {
+        self.delegate = self
+    }
+    
     func push(module: PresenterProtocol) {
         print("FAST BUG FIX PUSH MODULE \(module)")
         guard let VC = module as? UIViewController else {
@@ -26,6 +30,8 @@ class DetailNavigationVC:UINavigationController,NavigationProtocol,RootProtocol 
     func getTopModule() -> PresenterProtocol? {
         return self.topViewController as? PresenterProtocol
     }
-    
+    private func navigationController(_: UINavigationController, animationControllerFor: UINavigationControllerOperation, from: UIViewController, to: UIViewController) {
+        print("OPERATION \(animationControllerFor)")
+    }
     
 }
