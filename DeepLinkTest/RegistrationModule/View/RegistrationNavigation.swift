@@ -14,7 +14,7 @@ class RegistrationNavigation: UINavigationController,NavigationProtocol,RootProt
         guard let VC = module as? UIViewController else {
             return
         }
-        print("REGISTRATION STEP PUSH MODULE PUSH")
+        print("ANIMATION BUG MODULE PUSH \(VC)")
         self.pushViewController(VC, animated: true)
     }
     

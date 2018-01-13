@@ -12,7 +12,7 @@ class RegistrationSSViewController: UIViewController,PresenterProtocol,UINavigat
     let registrationModuleInteractor:RegistrationModulePresenter = RegistrationModulePresenter()
     
     override func viewDidLoad() {
-        self.navigationController?.delegate = self
+//        self.navigationController?.delegate = self
     }
     @IBOutlet weak var surnameTextField: UITextField!
     
@@ -33,11 +33,11 @@ class RegistrationSSViewController: UIViewController,PresenterProtocol,UINavigat
             return nil
         case .push:
             print("REGISTRATION STEP SECOND PUSH ANIMATION")
+            registrationModuleInteractor.presentRegistrationFirstStep()
             return AnimationController(withDuration: 1.0, forTransitionType: .Presenting, originFrame: self.view.frame)
         case .pop:
             print("REGISTRATION STEP SECOND POP ANIMATION")
-            registrationModuleInteractor.presentRegistrationFirstStep()
-            return AnimationController(withDuration: 1.0, forTransitionType: .Dismissing, originFrame: self.view.frame)
+            return AnimationController(withDuration: 1.0, forTransitionType: .Presenting, originFrame: self.view.frame)
         }
     }
 }

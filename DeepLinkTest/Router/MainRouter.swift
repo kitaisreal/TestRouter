@@ -64,6 +64,7 @@ class MainRouter {
         print("OBSERVER REAL LINK \(realLink)")
         checkLinkForActions(link: realLink)
         let path = routerModule.getPathToNode(to: realLink)
+        print("ANIMATION ROUTE BUG TO LINK \(realLink) \(path.pathType) \(path.path.count) \(path.rootNode.routeNodeLink)")
         print("NAVIGATE PATH COUNT \(path.path) \(path.pathType)")
         Presenter.instance.presentRoutePath(routerPath: path, data: data)
     }
