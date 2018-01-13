@@ -57,8 +57,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let testRouterModule = RouterModule(nodes: [testModuleSecondNode], routerModuleRootNode: testModuleSecondNode)
                 //
                 Presenter.instance.setWindow(window: window!)
-                MainRouter.instance.setConfig(presentedModule: testRouterModule, routerModules: [regRouterModule, switchRouterModule, authRouterModule, mainRouterModule,testRouterModule])
+                MainRouter.instance.setConfig(routerModules: [regRouterModule, switchRouterModule, authRouterModule, mainRouterModule,testRouterModule])
+                MainRouter.instance.configureModule(with: mainRouterModule.routerModuleRootNode.routeNodeLink)
                 MainRouter.instance.navigate(to: "/firstModule/data")
+                MainRouter.instance.navigateToModule(with: "/firstModule")
             case .pad:
                 let rootNode = RouteNode(routeNodeLink: "RootNode", routeNodeID: "rootSplitVC", routeNodeType: RouterNodeType.rootContainer)
                 let rootFirstModuleNode = RouteNode(routeNodeLink: "/firstModule", routeNodeID: "navigationTVVC", routeNodeType: RouterNodeType.root)
@@ -74,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 Presenter.instance.setWindow(window: window!)
                 let mainRouterModule = RouterModule(nodes:[rootNode], routerModuleRootNode: rootNode)
                 mainRouterModule.addChildsRouterModules(routerModule: [firstRouterModule, secondRouterModule])
-                MainRouter.instance.setConfig(presentedModule: mainRouterModule , routerModules: [mainRouterModule])
+                MainRouter.instance.setConfig( routerModules: [mainRouterModule])
                 MainRouter.instance.navigate(to: "/firstModule/data")
                 MainRouter.instance.navigate(to: "/secondModule/detail")
             case .unspecified:

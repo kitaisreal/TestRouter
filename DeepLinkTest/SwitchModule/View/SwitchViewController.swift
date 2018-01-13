@@ -8,9 +8,10 @@
 
 import UIKit
 
-class SwitchViewController: UIViewController,RootProtocol {
-    
-    
+class SwitchViewController: UIViewController,RootProtocol,DataTransferProtocol {
+    func setData(data: Any?) {
+        print("DATA COMES IN SWITCH VC \(data)")
+    }
     let switchModulePresenter:SwitchModulePresenter = SwitchModulePresenter()
     
     override func viewDidLoad() {

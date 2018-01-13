@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		48073B2E1FFE6814001A1C7D /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48073B2D1FFE6814001A1C7D /* Matcher.swift */; };
-		4813ADDD2008A40C00934A76 /* XibViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813ADDC2008A40C00934A76 /* XibViewController.swift */; };
 		4813ADE02008ADEA00934A76 /* RouterObserverHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813ADDF2008ADEA00934A76 /* RouterObserverHandler.swift */; };
 		4813ADE22008B14700934A76 /* RouterObserverHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813ADE12008B14700934A76 /* RouterObserverHandlerTests.swift */; };
 		4814CAB21FFE83B200FF1987 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4814CAB11FFE83B200FF1987 /* Graph.swift */; };
@@ -32,7 +31,6 @@
 		4823FE8120077AE30031D357 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823FE8020077AE30031D357 /* AuthorizationViewController.swift */; };
 		4823FE8420077B8C0031D357 /* AuthorizationModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823FE8320077B8C0031D357 /* AuthorizationModuleInteractor.swift */; };
 		4823FE8720077C550031D357 /* AuthorizationModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823FE8620077C550031D357 /* AuthorizationModulePresenter.swift */; };
-		4823FE8B2007B5EB0031D357 /* UIViewControllerTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823FE8A2007B5EB0031D357 /* UIViewControllerTransition.swift */; };
 		48256658200609DA00C4CCF8 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48256657200609DA00C4CCF8 /* DeepLinkHandler.swift */; };
 		4825665A20060AF700C4CCF8 /* DeepLinkHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4825665920060AF700C4CCF8 /* DeepLinkHandlerTests.swift */; };
 		482566612006268E00C4CCF8 /* DetailNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482566602006268E00C4CCF8 /* DetailNavigationVC.swift */; };
@@ -87,7 +85,6 @@
 
 /* Begin PBXFileReference section */
 		48073B2D1FFE6814001A1C7D /* Matcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matcher.swift; sourceTree = "<group>"; };
-		4813ADDC2008A40C00934A76 /* XibViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibViewController.swift; sourceTree = "<group>"; };
 		4813ADDF2008ADEA00934A76 /* RouterObserverHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterObserverHandler.swift; sourceTree = "<group>"; };
 		4813ADE12008B14700934A76 /* RouterObserverHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterObserverHandlerTests.swift; sourceTree = "<group>"; };
 		4814CAB11FFE83B200FF1987 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
@@ -111,7 +108,6 @@
 		4823FE8020077AE30031D357 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		4823FE8320077B8C0031D357 /* AuthorizationModuleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleInteractor.swift; sourceTree = "<group>"; };
 		4823FE8620077C550031D357 /* AuthorizationModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModulePresenter.swift; sourceTree = "<group>"; };
-		4823FE8A2007B5EB0031D357 /* UIViewControllerTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerTransition.swift; sourceTree = "<group>"; };
 		48256657200609DA00C4CCF8 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
 		4825665920060AF700C4CCF8 /* DeepLinkHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandlerTests.swift; sourceTree = "<group>"; };
 		482566602006268E00C4CCF8 /* DetailNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNavigationVC.swift; sourceTree = "<group>"; };
@@ -200,163 +196,22 @@
 			path = RouterObservers;
 			sourceTree = "<group>";
 		};
-		48180FD22008DD2B00214C3B /* TestModule */ = {
-			isa = PBXGroup;
-			children = (
-				48180FD32008DD6900214C3B /* TestModulePresenter.swift */,
-			);
-			path = TestModule;
-			sourceTree = "<group>";
-		};
-		48180FD52008DD7B00214C3B /* TestModule */ = {
-			isa = PBXGroup;
-			children = (
-				48180FD62008DD8800214C3B /* TestModuleViewController.swift */,
-			);
-			path = TestModule;
-			sourceTree = "<group>";
-		};
 		481B02D11FFFC59A005E9C96 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				485443E12007495C00E9C553 /* PresenterModulesRepository */,
-				488464DD2003696300F19A42 /* ModulePresenters */,
 				488464D620035F2500F19A42 /* ViewPresenter */,
 				481B02D21FFFC5A2005E9C96 /* Presenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		481B02D41FFFD6A3005E9C96 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				48180FD52008DD7B00214C3B /* TestModule */,
-				4823FE892007B5D40031D357 /* TransitionsTest */,
-				4823FE62200772CE0031D357 /* SwitchModule */,
-				4823FE61200772C40031D357 /* DefaultViews */,
-				4823FE60200772BE0031D357 /* RegistrationModule */,
-				4823FE5F200772B70031D357 /* AuthorizationModule */,
-				488464F62003E12C00F19A42 /* SecondTest */,
-				488464F52003E0D800F19A42 /* MainModule */,
-				4813ADDC2008A40C00934A76 /* XibViewController.swift */,
-			);
-			name = View;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		4823FE5F200772B70031D357 /* AuthorizationModule */ = {
-			isa = PBXGroup;
-			children = (
-				4823FE8020077AE30031D357 /* AuthorizationViewController.swift */,
-			);
-			path = AuthorizationModule;
-			sourceTree = "<group>";
-		};
-		4823FE60200772BE0031D357 /* RegistrationModule */ = {
-			isa = PBXGroup;
-			children = (
-				4823FE64200772F20031D357 /* RegistrationFSViewController.swift */,
-				4823FE66200773000031D357 /* RegistrationSSViewController.swift */,
-				4823FE682007730A0031D357 /* RegistrationTSViewController.swift */,
-				4823FE6A200773270031D357 /* RegistrationNavigation.swift */,
-			);
-			path = RegistrationModule;
-			sourceTree = "<group>";
-		};
-		4823FE61200772C40031D357 /* DefaultViews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DefaultViews;
-			sourceTree = "<group>";
-		};
-		4823FE62200772CE0031D357 /* SwitchModule */ = {
-			isa = PBXGroup;
-			children = (
-				4823FE6C200774E10031D357 /* SwitchViewController.swift */,
-			);
-			path = SwitchModule;
-			sourceTree = "<group>";
-		};
-		4823FE6E200775EB0031D357 /* SwitchModule */ = {
-			isa = PBXGroup;
-			children = (
-				4823FE6F200775F80031D357 /* SwitchModulePresenter.swift */,
-			);
-			path = SwitchModule;
-			sourceTree = "<group>";
-		};
-		4823FE71200776AD0031D357 /* RegistrationModule */ = {
-			isa = PBXGroup;
-			children = (
-				4823FE72200776D10031D357 /* RegistrationModulePresenter.swift */,
-				4823FE742007779F0031D357 /* RegistrationStepsPresenter.swift */,
-			);
-			path = RegistrationModule;
-			sourceTree = "<group>";
-		};
-		4823FE782007795E0031D357 /* MainModuleInteractor */ = {
-			isa = PBXGroup;
-			children = (
-				4823FE762007795B0031D357 /* MainModuleInteractor.swift */,
-			);
-			path = MainModuleInteractor;
-			sourceTree = "<group>";
-		};
-		4823FE79200779670031D357 /* MainModule */ = {
-			isa = PBXGroup;
-			children = (
-				488464E02003BAD400F19A42 /* MainModuleModel.swift */,
-			);
-			path = MainModule;
-			sourceTree = "<group>";
-		};
-		4823FE7A20077A0B0031D357 /* RegistrationModule */ = {
-			isa = PBXGroup;
-			children = (
-				4823FE7B20077A180031D357 /* RegistrationModuleModel.swift */,
-			);
-			path = RegistrationModule;
-			sourceTree = "<group>";
-		};
-		4823FE7D20077A560031D357 /* RegistrationModuleInteractor */ = {
-			isa = PBXGroup;
-			children = (
-				4823FE7E20077A630031D357 /* RegistrationModuleInteractor.swift */,
-			);
-			path = RegistrationModuleInteractor;
-			sourceTree = "<group>";
-		};
-		4823FE8220077B7B0031D357 /* AuthorizationModuleInteractor */ = {
+		4823FE8220077B7B0031D357 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
 				4823FE8320077B8C0031D357 /* AuthorizationModuleInteractor.swift */,
 			);
-			path = AuthorizationModuleInteractor;
-			sourceTree = "<group>";
-		};
-		4823FE8520077C410031D357 /* AuthorizationModule */ = {
-			isa = PBXGroup;
-			children = (
-				4823FE8620077C550031D357 /* AuthorizationModulePresenter.swift */,
-			);
-			path = AuthorizationModule;
-			sourceTree = "<group>";
-		};
-		4823FE8820077C980031D357 /* MainModule */ = {
-			isa = PBXGroup;
-			children = (
-				488464E62003BB8400F19A42 /* MainModulePresenter.swift */,
-			);
-			path = MainModule;
-			sourceTree = "<group>";
-		};
-		4823FE892007B5D40031D357 /* TransitionsTest */ = {
-			isa = PBXGroup;
-			children = (
-				4823FE8A2007B5EB0031D357 /* UIViewControllerTransition.swift */,
-			);
-			path = TransitionsTest;
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		48256656200609D000C4CCF8 /* DeepLinkHandler */ = {
@@ -390,9 +245,12 @@
 		48523C931FFE477D00E9E6D7 /* DeepLinkTest */ = {
 			isa = PBXGroup;
 			children = (
-				488464D220035DDB00F19A42 /* Model */,
-				488464D120035DD500F19A42 /* Interactor */,
-				481B02D41FFFD6A3005E9C96 /* View */,
+				486BEA27200A14AC007EED68 /* TestModule */,
+				486BEA22200A145C007EED68 /* SwitchModule */,
+				486BEA1D200A1441007EED68 /* AuthorizationModule */,
+				486BEA14200A1403007EED68 /* RegistrationModule */,
+				486BEA10200A1200007EED68 /* MainModule */,
+				486BEA0F200A11E7007EED68 /* AuthorizationModule */,
 				481B02D11FFFC59A005E9C96 /* Presenter */,
 				48073B2C1FFE67FC001A1C7D /* Router */,
 				48523C941FFE477D00E9E6D7 /* AppDelegate.swift */,
@@ -436,6 +294,228 @@
 			path = PresenterModulesRepository;
 			sourceTree = "<group>";
 		};
+		486BEA0F200A11E7007EED68 /* AuthorizationModule */ = {
+			isa = PBXGroup;
+			children = (
+				486BEA13200A13F7007EED68 /* Presenter */,
+				486BEA12200A13F2007EED68 /* Model */,
+				486BEA11200A121A007EED68 /* View */,
+				4823FE8220077B7B0031D357 /* Interactor */,
+			);
+			path = AuthorizationModule;
+			sourceTree = "<group>";
+		};
+		486BEA10200A1200007EED68 /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				486BEA18200A1427007EED68 /* Model */,
+				486BEA17200A1422007EED68 /* Interactor */,
+				486BEA16200A141E007EED68 /* Presenter */,
+				486BEA15200A141B007EED68 /* View */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		486BEA11200A121A007EED68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4823FE8020077AE30031D357 /* AuthorizationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		486BEA12200A13F2007EED68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		486BEA13200A13F7007EED68 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4823FE8620077C550031D357 /* AuthorizationModulePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		486BEA14200A1403007EED68 /* RegistrationModule */ = {
+			isa = PBXGroup;
+			children = (
+				486BEA1C200A143C007EED68 /* View */,
+				486BEA1B200A1438007EED68 /* Presenter */,
+				486BEA1A200A1434007EED68 /* Interactor */,
+				486BEA19200A1431007EED68 /* Model */,
+			);
+			path = RegistrationModule;
+			sourceTree = "<group>";
+		};
+		486BEA15200A141B007EED68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				488464DE2003B93D00F19A42 /* DataTableViewController.swift */,
+				488464EB2003BD5C00F19A42 /* DataTableViewCell.swift */,
+				488464EF2003D26000F19A42 /* DetailViewController.swift */,
+				482566602006268E00C4CCF8 /* DetailNavigationVC.swift */,
+				482566622006276700C4CCF8 /* DataNavigationVC.swift */,
+				4825666420062A1D00C4CCF8 /* SplitVCContainer.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		486BEA16200A141E007EED68 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				488464E62003BB8400F19A42 /* MainModulePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		486BEA17200A1422007EED68 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				4823FE762007795B0031D357 /* MainModuleInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		486BEA18200A1427007EED68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				488464E02003BAD400F19A42 /* MainModuleModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		486BEA19200A1431007EED68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4823FE7B20077A180031D357 /* RegistrationModuleModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		486BEA1A200A1434007EED68 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				4823FE7E20077A630031D357 /* RegistrationModuleInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		486BEA1B200A1438007EED68 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4823FE72200776D10031D357 /* RegistrationModulePresenter.swift */,
+				4823FE742007779F0031D357 /* RegistrationStepsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		486BEA1C200A143C007EED68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4823FE64200772F20031D357 /* RegistrationFSViewController.swift */,
+				4823FE66200773000031D357 /* RegistrationSSViewController.swift */,
+				4823FE682007730A0031D357 /* RegistrationTSViewController.swift */,
+				4823FE6A200773270031D357 /* RegistrationNavigation.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		486BEA1D200A1441007EED68 /* AuthorizationModule */ = {
+			isa = PBXGroup;
+			children = (
+				486BEA21200A1458007EED68 /* Model */,
+				486BEA20200A1453007EED68 /* Interactor */,
+				486BEA1F200A144E007EED68 /* Presenter */,
+				486BEA1E200A144B007EED68 /* View */,
+			);
+			name = AuthorizationModule;
+			path = "New Group2";
+			sourceTree = "<group>";
+		};
+		486BEA1E200A144B007EED68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		486BEA1F200A144E007EED68 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		486BEA20200A1453007EED68 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		486BEA21200A1458007EED68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		486BEA22200A145C007EED68 /* SwitchModule */ = {
+			isa = PBXGroup;
+			children = (
+				486BEA26200A1475007EED68 /* View */,
+				486BEA25200A1470007EED68 /* Presenter */,
+				486BEA24200A146A007EED68 /* Interactor */,
+				486BEA23200A1467007EED68 /* Model */,
+			);
+			path = SwitchModule;
+			sourceTree = "<group>";
+		};
+		486BEA23200A1467007EED68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		486BEA24200A146A007EED68 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		486BEA25200A1470007EED68 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4823FE6F200775F80031D357 /* SwitchModulePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		486BEA26200A1475007EED68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4823FE6C200774E10031D357 /* SwitchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		486BEA27200A14AC007EED68 /* TestModule */ = {
+			isa = PBXGroup;
+			children = (
+				48180FD62008DD8800214C3B /* TestModuleViewController.swift */,
+				488464F32003E0C900F19A42 /* FirstDetailVC.swift */,
+				488464F72003E13F00F19A42 /* SecondDetailVC.swift */,
+				48180FD32008DD6900214C3B /* TestModulePresenter.swift */,
+				488464F12003E08000F19A42 /* AnotherTestModulePresenter.swift */,
+			);
+			path = TestModule;
+			sourceTree = "<group>";
+		};
 		488464D020035DCE00F19A42 /* RouterGraph */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,26 +526,6 @@
 				48A72E291FFF73BB00D98A10 /* RouteGraph.swift */,
 			);
 			path = RouterGraph;
-			sourceTree = "<group>";
-		};
-		488464D120035DD500F19A42 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				4823FE8220077B7B0031D357 /* AuthorizationModuleInteractor */,
-				4823FE7D20077A560031D357 /* RegistrationModuleInteractor */,
-				4823FE782007795E0031D357 /* MainModuleInteractor */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		488464D220035DDB00F19A42 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				4823FE7A20077A0B0031D357 /* RegistrationModule */,
-				4823FE79200779670031D357 /* MainModule */,
-			);
-			name = Model;
-			path = "New Group1";
 			sourceTree = "<group>";
 		};
 		488464D320035E0D00F19A42 /* RouterModules */ = {
@@ -494,41 +554,6 @@
 				48556AE72004A8FB0053AED0 /* MatcherResponse.swift */,
 			);
 			path = Matcher;
-			sourceTree = "<group>";
-		};
-		488464DD2003696300F19A42 /* ModulePresenters */ = {
-			isa = PBXGroup;
-			children = (
-				48180FD22008DD2B00214C3B /* TestModule */,
-				4823FE8820077C980031D357 /* MainModule */,
-				4823FE8520077C410031D357 /* AuthorizationModule */,
-				4823FE71200776AD0031D357 /* RegistrationModule */,
-				4823FE6E200775EB0031D357 /* SwitchModule */,
-				488464F12003E08000F19A42 /* AnotherTestModulePresenter.swift */,
-			);
-			path = ModulePresenters;
-			sourceTree = "<group>";
-		};
-		488464F52003E0D800F19A42 /* MainModule */ = {
-			isa = PBXGroup;
-			children = (
-				488464DE2003B93D00F19A42 /* DataTableViewController.swift */,
-				488464EB2003BD5C00F19A42 /* DataTableViewCell.swift */,
-				488464EF2003D26000F19A42 /* DetailViewController.swift */,
-				482566602006268E00C4CCF8 /* DetailNavigationVC.swift */,
-				482566622006276700C4CCF8 /* DataNavigationVC.swift */,
-				4825666420062A1D00C4CCF8 /* SplitVCContainer.swift */,
-			);
-			path = MainModule;
-			sourceTree = "<group>";
-		};
-		488464F62003E12C00F19A42 /* SecondTest */ = {
-			isa = PBXGroup;
-			children = (
-				488464F32003E0C900F19A42 /* FirstDetailVC.swift */,
-				488464F72003E13F00F19A42 /* SecondDetailVC.swift */,
-			);
-			path = SecondTest;
 			sourceTree = "<group>";
 		};
 		489B472C2004AFA400650F10 /* ViewProtocols */ = {
@@ -702,7 +727,6 @@
 				4823FE67200773000031D357 /* RegistrationSSViewController.swift in Sources */,
 				4823FE7F20077A630031D357 /* RegistrationModuleInteractor.swift in Sources */,
 				4823FE6D200774E10031D357 /* SwitchViewController.swift in Sources */,
-				4813ADDD2008A40C00934A76 /* XibViewController.swift in Sources */,
 				4823FE752007779F0031D357 /* RegistrationStepsPresenter.swift in Sources */,
 				488464F82003E13F00F19A42 /* SecondDetailVC.swift in Sources */,
 				482566632006276700C4CCF8 /* DataNavigationVC.swift in Sources */,
@@ -710,7 +734,6 @@
 				48523C951FFE477D00E9E6D7 /* AppDelegate.swift in Sources */,
 				489B472E2004AFC400650F10 /* ViewProtocols.swift in Sources */,
 				48A72E2A1FFF73BB00D98A10 /* RouteGraph.swift in Sources */,
-				4823FE8B2007B5EB0031D357 /* UIViewControllerTransition.swift in Sources */,
 				488464DF2003B93D00F19A42 /* DataTableViewController.swift in Sources */,
 				488464E72003BB8400F19A42 /* MainModulePresenter.swift in Sources */,
 				48A72E281FFF736500D98A10 /* RouteTransitionEdge.swift in Sources */,

@@ -36,22 +36,22 @@ class Presenter {
         self.window = window
     }
     
-    func removeModuleNavigation(routerModule:RouterModule) {
+    func removeModule(routerModule:RouterModule) {
         //IF CONTAINER BE IN WINDOW ROOT SO ???
         presenterModuleRepository.removeModule(routerModule: routerModule)
     }
     
     func presentRouteModule(routerModule:RouterModule) {
-        self.presenterModuleRepository.addModule(routerModule: routerModule)
         guard let rootVC = self.presenterModuleRepository.getModuleRoot(rootNode: routerModule.routerModuleRootNode) as? UIViewController else {
-            fatalError()
+            fatalError("Router module not configured before present")
         }
-        self.configureContainerNode(rootContainerNode: routerModule.routerModuleRootNode)
         self.rootViewController = rootVC
     }
     
     func configureRouteModule(routerModule:RouterModule) {
+        print("PRESENTER CONFIGURE ROUTE MODULE \(routerModule.routerModuleRootNode.routeNodeLink)")
         self.presenterModuleRepository.addModule(routerModule: routerModule)
+        self.configureContainerNode(rootContainerNode: routerModule.routerModuleRootNode)
     }
     
     private func configureContainerNode(rootContainerNode:RouteNode) {
@@ -77,26 +77,16 @@ class Presenter {
     }
     
     func presentRoutePath(routerPath:RouterPath, data:Any?) {
-        print("NODE PATH BUG ENTRY POINT")
-        print("NODE PATH BUG ROOT NODE \(routerPath.rootNode.routeNodeLink)")
-        print("NODE PATH BUG PATH COUNT \(routerPath.path.count)")
-        for node in routerPath.path {
-            print("NODE PATH BUG \(node.routeNodeLink)")
-        }
-        print("NODE PATH BUG BEFORE GUARD")
         guard let routerModuleNavigationVC = presenterModuleRepository.getModuleRoot(rootNode: routerPath.rootNode) as? NavigationProtocol else {
             return
         }
+        print("ROUTER PATH ROOT NODE \(routerPath.rootNode.routeNodeLink)")
+        (routerModuleNavigationVC as? DataTransferProtocol)?.setData(data: data)
         let path = routerPath.path
-        print("NODE PATH BUG \(path.count)")
-        for node in path {
-            print("NODE PATH BUG NODE \(node.routeNodeLink)")
-        }
         switch routerPath.pathType {
         case .push:
             self.presentPushRoutePath(navigationVC: routerModuleNavigationVC, path: path, data: data)
         case .remove(let value):
-            print("REMOVE BUG PRESENTER LETS PRESENT PATH")
             self.presentRemoveRoutePath(navigationVC: routerModuleNavigationVC, path: path, data: data, count: value)
         case .currentLink:
             self.presentCurrentLinkRoutePath(navigationVC: routerModuleNavigationVC, path: path, data: data)
@@ -122,7 +112,6 @@ class Presenter {
     }
     
     private func presentPushRoutePath(navigationVC:NavigationProtocol, path:[RouteNode], data:Any?) {
-        print("PRESENT PUSH ROUTE PATH \(navigationVC) \(path.count) ")
         for routeNode in path {
             switch routeNode.routeNodeType {
             case .navigation:
@@ -134,7 +123,6 @@ class Presenter {
                 break
             case .presenter:
                 let viewVC = viewPresenter.getView(routeNode: routeNode) as! PresenterProtocol
-                print("PRESENT ROUTE PATH PRESENTER VIEW VC \(routeNode.routeNodeLink) VC \(viewVC)")
                 navigationVC.push(module: viewVC)
             case .root:
                 break

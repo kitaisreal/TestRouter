@@ -42,13 +42,8 @@ class MainRouter {
     }
     //FIX THIS SHIT
     
-    func setConfig(presentedModule:RouterModule, routerModules:[RouterModule]) {
+    func setConfig(routerModules:[RouterModule]) {
         self.routerModules = routerModules
-        self.presentedModule = presentedModule
-        guard let moduleToPresent = self.presentedModule else {
-            return
-        }
-        Presenter.instance.presentRouteModule(routerModule: moduleToPresent)
     }
     
     func navigate(to link:String) {
@@ -65,11 +60,6 @@ class MainRouter {
         print("NAVIGATE TO LINK ROUTER MODULE \(routerModule.routerModuleRootNode.routeNodeLink)")
         let linkCheck = checkLink(linkToCheck: routerModule.routerModuleRootNode.routeNodeLink)
         print("NAVIGATE TO LINK LINK CHECK \(linkCheck)")
-        if (linkCheck == false) {
-            //FIND IN ROUTER MODULES
-            self.presentedModule = routerModule
-            Presenter.instance.presentRouteModule(routerModule: routerModule)
-        }
         let realLink = matcherResponse.link
         print("OBSERVER REAL LINK \(realLink)")
         checkLinkForActions(link: realLink)
@@ -92,8 +82,20 @@ class MainRouter {
         }
     }
     func configureModule(with link:String) {
-        
+        guard let matcherResponse = matcher.getModuleWithLink(with: link, from: routerModules) else {
+            return
+        }
+        let routerModule = matcherResponse.routerModule
+        Presenter.instance.configureRouteModule(routerModule: routerModule)
     }
+    func removeModule(with link:String) {
+        guard let matcherResponse = matcher.getModuleWithLink(with: link, from: routerModules) else {
+            return
+        }
+        let routerModule = matcherResponse.routerModule
+        Presenter.instance.removeModule(routerModule: routerModule)
+    }
+    
     //REWRITE
     private func checkLink(linkToCheck:String) -> Bool {
         guard let presentedModule = self.presentedModule else {

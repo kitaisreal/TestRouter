@@ -46,7 +46,9 @@ class DetailViewController: UIViewController,DataTransferProtocol,PresenterProto
     }
 
     @IBAction func toSwitch(_ sender: UIButton) {
+        MainRouter.instance.configureModule(with: "/switch")
         MainRouter.instance.navigate(to: "/switch")
+        MainRouter.instance.navigateToModule(with: "/switch")
     }
     /*
     // MARK: - Navigation
