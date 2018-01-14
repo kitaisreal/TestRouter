@@ -29,8 +29,7 @@ protocol DataTransferProtocol {
 
 
 protocol ContainerProtocol {
-    func contain(modules:[PresenterProtocol])
-    func contain(modules:[NavigationProtocol])
+    func contain(modules:[RootProtocol])
 }
 
 protocol ModuleContainerProtocol {

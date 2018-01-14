@@ -11,16 +11,10 @@ import UIKit
 //ASK FOR THIS
 class TabBarViewController: UITabBarController,RootProtocol,ContainerProtocol, UITabBarControllerDelegate {
     
-    func contain(modules: [PresenterProtocol]) {
-        print("TAB BAR CONTAIN MODULE \(modules.count)")
-        guard let containModules = modules as? [UIViewController] else {
-            return
-        }
-    }
     override func viewDidLoad() {
         self.delegate = self
     }
-    func contain(modules: [NavigationProtocol]) {
+    func contain(modules: [RootProtocol]) {
         print("TAB BAR CONTAIN MODULE \(modules.count)")
         guard let containModules = modules as? [UIViewController] else{
             return

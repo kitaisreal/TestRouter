@@ -11,7 +11,7 @@ import UIKit
 
 class SplitVCDefaultContainer:UISplitViewController, ContainerProtocol,RootProtocol {
     
-    func contain(modules: [NavigationProtocol]) {
+    func contain(modules: [RootProtocol]) {
         print("FAST BUG \(modules.count)")
         guard let containModules = modules as? [UIViewController], containModules.count == 2 else {
             return
@@ -19,26 +19,13 @@ class SplitVCDefaultContainer:UISplitViewController, ContainerProtocol,RootProto
         self.viewControllers = containModules
     }
     
-    func contain(modules: [PresenterProtocol]) {
-        print("FAST BUG \(modules.count)")
-        guard let containModules = modules as? [UIViewController], containModules.count == 2 else {
-            return
-        }
-        self.viewControllers = containModules
-    }
 }
 class VCDefaultContainer:UIViewController, ContainerProtocol {
-    func contain(modules: [NavigationProtocol]) {
+    func contain(modules: [RootProtocol]) {
         guard let containModules = modules as? [UIViewController], containModules.count == 1 else {
             return
         }
         self.present(containModules[0], animated: false, completion: nil)
     }
     
-    func contain(modules:[PresenterProtocol]) {
-        guard let containModules = modules as? [UIViewController], containModules.count == 1 else {
-            return
-        }
-        self.present(containModules[0], animated: false)
-    }
 }

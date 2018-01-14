@@ -64,22 +64,21 @@ class Presenter {
         guard rootContainerNode.containerForNodes.count != 0 else {
             return
         }
-        var routerModulesNavigation:[NavigationProtocol] = []
+        var routerModulesRootsForContainer:[RootProtocol] = []
         
         for node in rootContainerNode.containerForNodes {
             if (node.routeNodeType == RouterNodeType.root) {
-                guard let rootVC = presenterModuleRepository.getModuleRoot(rootNode: node) as? NavigationProtocol else {
-                    continue
+                if let rootVC = presenterModuleRepository.getModuleRoot(rootNode: node) {
+                    routerModulesRootsForContainer.append(rootVC)
                 }
-                routerModulesNavigation.append(rootVC)
             } else {
                 continue
             }
         }
         print()
         let rootView = presenterModuleRepository.getModuleRoot(rootNode: rootContainerNode)
-        print("ROOT VIEW \(rootView) \(rootContainerNode.containerForNodes.count) \(routerModulesNavigation.count)")
-        (rootView as? ContainerProtocol)?.contain(modules: routerModulesNavigation)
+        print("ROUTER MODULES ROOTS FOR CONTAINERS \(routerModulesRootsForContainer.count)")
+        (rootView as? ContainerProtocol)?.contain(modules: routerModulesRootsForContainer)
     }
     
     func presentRoutePath(routerPath:RouterPath, data:Any?) {
