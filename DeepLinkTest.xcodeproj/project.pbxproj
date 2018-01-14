@@ -17,6 +17,15 @@
 		48180FD72008DD8800214C3B /* TestModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48180FD62008DD8800214C3B /* TestModuleViewController.swift */; };
 		481B02D01FFFB6F8005E9C96 /* RouteGraphTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B02CF1FFFB6F8005E9C96 /* RouteGraphTestTests.swift */; };
 		481B02D31FFFC5A2005E9C96 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B02D21FFFC5A2005E9C96 /* Presenter.swift */; };
+		48205360200B652300BB1B85 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4820535F200B652300BB1B85 /* Registration.storyboard */; };
+		48205363200B66EC00BB1B85 /* Switch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48205362200B66EC00BB1B85 /* Switch.storyboard */; };
+		48205365200B672800BB1B85 /* Authorization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48205364200B672800BB1B85 /* Authorization.storyboard */; };
+		48205367200B67AD00BB1B85 /* TabBarModuleTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48205366200B67AD00BB1B85 /* TabBarModuleTest.storyboard */; };
+		4820536E200B682100BB1B85 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4820536D200B682100BB1B85 /* TabBarViewController.swift */; };
+		48205370200B688200BB1B85 /* FirstNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4820536F200B688200BB1B85 /* FirstNavigationViewController.swift */; };
+		48205372200B68A500BB1B85 /* SecondNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48205371200B68A500BB1B85 /* SecondNavigationViewController.swift */; };
+		48205374200B6D0E00BB1B85 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48205373200B6D0E00BB1B85 /* FirstViewController.swift */; };
+		48205376200B6D1600BB1B85 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48205375200B6D1600BB1B85 /* SecondViewController.swift */; };
 		4823FE65200772F20031D357 /* RegistrationFSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823FE64200772F20031D357 /* RegistrationFSViewController.swift */; };
 		4823FE67200773000031D357 /* RegistrationSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823FE66200773000031D357 /* RegistrationSSViewController.swift */; };
 		4823FE692007730A0031D357 /* RegistrationTSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823FE682007730A0031D357 /* RegistrationTSViewController.swift */; };
@@ -47,7 +56,7 @@
 		485443E52007566100E9C553 /* RouterMatcherModulesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485443E42007566100E9C553 /* RouterMatcherModulesTests.swift */; };
 		48556AE82004A8FB0053AED0 /* MatcherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48556AE72004A8FB0053AED0 /* MatcherResponse.swift */; };
 		48556AEA2004AAE60053AED0 /* ViewPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48556AE92004AAE60053AED0 /* ViewPresenterProtocol.swift */; };
-		48556AEC2004AB280053AED0 /* StoryboardViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48556AEB2004AB280053AED0 /* StoryboardViewPresenter.swift */; };
+		48556AEC2004AB280053AED0 /* DefaultViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48556AEB2004AB280053AED0 /* DefaultViewPresenter.swift */; };
 		488464D520035E1600F19A42 /* RouterModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464D420035E1600F19A42 /* RouterModule.swift */; };
 		488464DA2003640200F19A42 /* RouterPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464D92003640200F19A42 /* RouterPath.swift */; };
 		488464DC200364B300F19A42 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488464DB200364B300F19A42 /* MainRouter.swift */; };
@@ -94,6 +103,15 @@
 		48180FD62008DD8800214C3B /* TestModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModuleViewController.swift; sourceTree = "<group>"; };
 		481B02CF1FFFB6F8005E9C96 /* RouteGraphTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteGraphTestTests.swift; sourceTree = "<group>"; };
 		481B02D21FFFC5A2005E9C96 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		4820535F200B652300BB1B85 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
+		48205362200B66EC00BB1B85 /* Switch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Switch.storyboard; sourceTree = "<group>"; };
+		48205364200B672800BB1B85 /* Authorization.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authorization.storyboard; sourceTree = "<group>"; };
+		48205366200B67AD00BB1B85 /* TabBarModuleTest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarModuleTest.storyboard; sourceTree = "<group>"; };
+		4820536D200B682100BB1B85 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		4820536F200B688200BB1B85 /* FirstNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNavigationViewController.swift; sourceTree = "<group>"; };
+		48205371200B68A500BB1B85 /* SecondNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondNavigationViewController.swift; sourceTree = "<group>"; };
+		48205373200B6D0E00BB1B85 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		48205375200B6D1600BB1B85 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		4823FE64200772F20031D357 /* RegistrationFSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFSViewController.swift; sourceTree = "<group>"; };
 		4823FE66200773000031D357 /* RegistrationSSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSSViewController.swift; sourceTree = "<group>"; };
 		4823FE682007730A0031D357 /* RegistrationTSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTSViewController.swift; sourceTree = "<group>"; };
@@ -130,7 +148,7 @@
 		485443E42007566100E9C553 /* RouterMatcherModulesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterMatcherModulesTests.swift; sourceTree = "<group>"; };
 		48556AE72004A8FB0053AED0 /* MatcherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherResponse.swift; sourceTree = "<group>"; };
 		48556AE92004AAE60053AED0 /* ViewPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresenterProtocol.swift; sourceTree = "<group>"; };
-		48556AEB2004AB280053AED0 /* StoryboardViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardViewPresenter.swift; sourceTree = "<group>"; };
+		48556AEB2004AB280053AED0 /* DefaultViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewPresenter.swift; sourceTree = "<group>"; };
 		488464D420035E1600F19A42 /* RouterModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterModule.swift; sourceTree = "<group>"; };
 		488464D92003640200F19A42 /* RouterPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterPath.swift; sourceTree = "<group>"; };
 		488464DB200364B300F19A42 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -206,6 +224,62 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		48205361200B65C700BB1B85 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				48523C981FFE477D00E9E6D7 /* Main.storyboard */,
+				4820535F200B652300BB1B85 /* Registration.storyboard */,
+				48205362200B66EC00BB1B85 /* Switch.storyboard */,
+				48205364200B672800BB1B85 /* Authorization.storyboard */,
+				48205366200B67AD00BB1B85 /* TabBarModuleTest.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		48205368200B67F400BB1B85 /* TabBarModule */ = {
+			isa = PBXGroup;
+			children = (
+				4820536C200B680F00BB1B85 /* Model */,
+				4820536B200B680900BB1B85 /* Interactor */,
+				4820536A200B680300BB1B85 /* Presenter */,
+				48205369200B67FF00BB1B85 /* View */,
+			);
+			path = TabBarModule;
+			sourceTree = "<group>";
+		};
+		48205369200B67FF00BB1B85 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4820536D200B682100BB1B85 /* TabBarViewController.swift */,
+				4820536F200B688200BB1B85 /* FirstNavigationViewController.swift */,
+				48205371200B68A500BB1B85 /* SecondNavigationViewController.swift */,
+				48205373200B6D0E00BB1B85 /* FirstViewController.swift */,
+				48205375200B6D1600BB1B85 /* SecondViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4820536A200B680300BB1B85 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4820536B200B680900BB1B85 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		4820536C200B680F00BB1B85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4823FE8220077B7B0031D357 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,16 +319,16 @@
 		48523C931FFE477D00E9E6D7 /* DeepLinkTest */ = {
 			isa = PBXGroup;
 			children = (
+				48205368200B67F400BB1B85 /* TabBarModule */,
+				48205361200B65C700BB1B85 /* Storyboards */,
 				486BEA27200A14AC007EED68 /* TestModule */,
 				486BEA22200A145C007EED68 /* SwitchModule */,
-				486BEA1D200A1441007EED68 /* AuthorizationModule */,
 				486BEA14200A1403007EED68 /* RegistrationModule */,
 				486BEA10200A1200007EED68 /* MainModule */,
 				486BEA0F200A11E7007EED68 /* AuthorizationModule */,
 				481B02D11FFFC59A005E9C96 /* Presenter */,
 				48073B2C1FFE67FC001A1C7D /* Router */,
 				48523C941FFE477D00E9E6D7 /* AppDelegate.swift */,
-				48523C981FFE477D00E9E6D7 /* Main.storyboard */,
 				48523C9B1FFE477D00E9E6D7 /* Assets.xcassets */,
 				48523C9D1FFE477D00E9E6D7 /* LaunchScreen.storyboard */,
 				48523CA01FFE477D00E9E6D7 /* Info.plist */,
@@ -423,46 +497,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		486BEA1D200A1441007EED68 /* AuthorizationModule */ = {
-			isa = PBXGroup;
-			children = (
-				486BEA21200A1458007EED68 /* Model */,
-				486BEA20200A1453007EED68 /* Interactor */,
-				486BEA1F200A144E007EED68 /* Presenter */,
-				486BEA1E200A144B007EED68 /* View */,
-			);
-			name = AuthorizationModule;
-			path = "New Group2";
-			sourceTree = "<group>";
-		};
-		486BEA1E200A144B007EED68 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		486BEA1F200A144E007EED68 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		486BEA20200A1453007EED68 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		486BEA21200A1458007EED68 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		486BEA22200A145C007EED68 /* SwitchModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,7 +576,7 @@
 			children = (
 				489B472C2004AFA400650F10 /* ViewProtocols */,
 				48556AE92004AAE60053AED0 /* ViewPresenterProtocol.swift */,
-				48556AEB2004AB280053AED0 /* StoryboardViewPresenter.swift */,
+				48556AEB2004AB280053AED0 /* DefaultViewPresenter.swift */,
 			);
 			path = ViewPresenter;
 			sourceTree = "<group>";
@@ -671,9 +705,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48205365200B672800BB1B85 /* Authorization.storyboard in Resources */,
+				48205360200B652300BB1B85 /* Registration.storyboard in Resources */,
 				48523C9F1FFE477D00E9E6D7 /* LaunchScreen.storyboard in Resources */,
 				48523C9C1FFE477D00E9E6D7 /* Assets.xcassets in Resources */,
 				48523C9A1FFE477D00E9E6D7 /* Main.storyboard in Resources */,
+				48205367200B67AD00BB1B85 /* TabBarModuleTest.storyboard in Resources */,
+				48205363200B66EC00BB1B85 /* Switch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +738,8 @@
 			files = (
 				482566612006268E00C4CCF8 /* DetailNavigationVC.swift in Sources */,
 				48256658200609DA00C4CCF8 /* DeepLinkHandler.swift in Sources */,
+				4820536E200B682100BB1B85 /* TabBarViewController.swift in Sources */,
+				48205372200B68A500BB1B85 /* SecondNavigationViewController.swift in Sources */,
 				4823FE8420077B8C0031D357 /* AuthorizationModuleInteractor.swift in Sources */,
 				488464F02003D26000F19A42 /* DetailViewController.swift in Sources */,
 				488464F42003E0C900F19A42 /* FirstDetailVC.swift in Sources */,
@@ -714,7 +754,8 @@
 				4823FE8720077C550031D357 /* AuthorizationModulePresenter.swift in Sources */,
 				488464DC200364B300F19A42 /* MainRouter.swift in Sources */,
 				4814CAB61FFE879000FF1987 /* NavigationTransition.swift in Sources */,
-				48556AEC2004AB280053AED0 /* StoryboardViewPresenter.swift in Sources */,
+				48205376200B6D1600BB1B85 /* SecondViewController.swift in Sources */,
+				48556AEC2004AB280053AED0 /* DefaultViewPresenter.swift in Sources */,
 				48556AEA2004AAE60053AED0 /* ViewPresenterProtocol.swift in Sources */,
 				488464EC2003BD5C00F19A42 /* DataTableViewCell.swift in Sources */,
 				4825666520062A1D00C4CCF8 /* SplitVCContainer.swift in Sources */,
@@ -726,6 +767,7 @@
 				4823FE6B200773270031D357 /* RegistrationNavigation.swift in Sources */,
 				4823FE67200773000031D357 /* RegistrationSSViewController.swift in Sources */,
 				4823FE7F20077A630031D357 /* RegistrationModuleInteractor.swift in Sources */,
+				48205370200B688200BB1B85 /* FirstNavigationViewController.swift in Sources */,
 				4823FE6D200774E10031D357 /* SwitchViewController.swift in Sources */,
 				4823FE752007779F0031D357 /* RegistrationStepsPresenter.swift in Sources */,
 				488464F82003E13F00F19A42 /* SecondDetailVC.swift in Sources */,
@@ -740,6 +782,7 @@
 				488464F22003E08000F19A42 /* AnotherTestModulePresenter.swift in Sources */,
 				48180FD72008DD8800214C3B /* TestModuleViewController.swift in Sources */,
 				48073B2E1FFE6814001A1C7D /* Matcher.swift in Sources */,
+				48205374200B6D0E00BB1B85 /* FirstViewController.swift in Sources */,
 				4823FE772007795B0031D357 /* MainModuleInteractor.swift in Sources */,
 				488464D520035E1600F19A42 /* RouterModule.swift in Sources */,
 				4823FE70200775F80031D357 /* SwitchModulePresenter.swift in Sources */,

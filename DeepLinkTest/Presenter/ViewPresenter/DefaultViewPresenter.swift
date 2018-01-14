@@ -9,17 +9,16 @@
 import Foundation
 import UIKit
 
-class StoryboardViewPresenter: ViewPresenterProtocol {
-    
-    private let storyboard:UIStoryboard
-    
-    init(storyboardName:String) {
-        self.storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-    }
+class DefaultViewPresenter: ViewPresenterProtocol {
     
     func getView(routeNode: RouteNode) -> UIViewController {
-        print("GET VIEW \(routeNode.routeNodeID) \(routeNode.routeNodeLink)")
-        return self.storyboard.instantiateViewController(withIdentifier: routeNode.routeNodeID)
+        switch routeNode.routeNodeGetType {
+        case .storyboard(let value):
+            return self.fromStoryboard(with: routeNode.routeNodeID, from: value)
+        case .xib(let value):
+            //ADD THEN
+            return fromXib(with: "test")
+        }
     }
     
     private func fromStoryboard(with id:String, from name:String) -> UIViewController {

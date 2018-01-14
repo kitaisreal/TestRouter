@@ -23,13 +23,18 @@ class PresenterModuleRepository {
     func addModule(routerModule:RouterModule) {
 
         let moduleRootNodes = routerModule.getModuleRootNodes()
+        print("ADD MODULE \(moduleRootNodes.count)")
         for rootNode in moduleRootNodes {
+            print("ADD MODULE FIRST STEP")
             guard moduleRootsDictionary[rootNode.routeNodeLink] == nil else {
                 continue
             }
+            print("ADD  MODULE SECOND STEP")
             guard let rootProtocol = presenter.getView(routeNode: rootNode) as? RootProtocol else {
                 continue
             }
+            print("ADD MODULE THIRD STEP")
+            print("ADD  MODULE \(rootProtocol) for key \(rootNode.routeNodeLink)")
             moduleRootsDictionary.updateValue(rootProtocol, forKey: rootNode.routeNodeLink)
         }
     }

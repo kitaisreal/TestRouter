@@ -33,7 +33,8 @@ fileprivate extension Array where Element == ObserverAction {
 }
 
 //TESTS FOR THIS
-
+//OBSERVERS ON MODULE PRESENT: MODULE REMOVE: NAVIGATE TO LINK: NAVIGATE TO CUSTOM LINK: MODULE CONFIGURE
+//ADD LINKS FOR CONFIGURE MODULE PRESENT MODULE NAVIGATE TO LINK
 class RouterObserverHandler {
     
     typealias Action = () -> ()

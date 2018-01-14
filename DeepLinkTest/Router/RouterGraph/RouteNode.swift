@@ -15,26 +15,37 @@ enum RouterNodeType {
     case presenter
     case root
 }
-enum RouterNodeGet {
+enum RouteNodeGetType {
     case storyboard(String)
-    case xib
+    case xib(Int)
 }
 class RouteNode {
     
+    var isRoot:Bool {
+        get {
+            return self.routerNodeTypes.isNodeType(of: RouterNodeType.root)
+        }
+    }
+    
     let routeNodeLink:String
+    
+    let routeNodeGetType:RouteNodeGetType
     
     let routeNodeID:String
     
     let routeNodeType:RouterNodeType
     
+    let routerNodeTypes:[RouterNodeType] = []
+    
     var containerForNodes:[RouteNode] = []
     
     var adjacentEdges:[RouteTransitionEdge] = []
     
-    init(routeNodeLink:String, routeNodeID:String, routeNodeType:RouterNodeType) {
+    init(routeNodeLink:String, routeNodeID:String,routeNodeGetType:RouteNodeGetType, routeNodeType:RouterNodeType) {
         self.routeNodeType = routeNodeType
         self.routeNodeLink = routeNodeLink
         self.routeNodeID = routeNodeID
+        self.routeNodeGetType = routeNodeGetType
     }
     
     func addEdge(to node:RouteNode, transitionType:RouteTransitionEdgeType) {
@@ -43,9 +54,7 @@ class RouteNode {
     }
     
     func addNodeToContainer(routeNode:RouteNode) {
-        if (self.routeNodeType == RouterNodeType.rootContainer) {
             self.containerForNodes.append(routeNode)
-        }
     }
     
     func addNodesToContainer(routeNodes:[RouteNode]) {
@@ -56,3 +65,13 @@ class RouteNode {
     
 }
 
+fileprivate extension Array where Element == RouterNodeType {
+    func isNodeType(of testNodeType:RouterNodeType) -> Bool{
+        for nodeType in self {
+            if (nodeType == testNodeType) {
+                return true
+            }
+        }
+        return false
+    }
+}

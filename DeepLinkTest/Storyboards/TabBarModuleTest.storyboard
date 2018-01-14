@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar View Controller-->
+        <scene sceneID="ijZ-Qw-Qkn">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBarRootVC" id="r54-8Z-vBT" customClass="TabBarViewController" customModule="DeepLinkTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MxP-U9-e4S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tqG-4K-fca" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1118" y="-199"/>
+        </scene>
+        <!--First Navigation View Controller-->
+        <scene sceneID="ky0-JH-pkT">
+            <objects>
+                <navigationController storyboardIdentifier="firstRootNVC" id="ssC-cG-RLp" customClass="FirstNavigationViewController" customModule="DeepLinkTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WNa-Uo-1Nu">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72T-hy-umq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-386" y="-457"/>
+        </scene>
+        <!--First View Controller-->
+        <scene sceneID="T41-Nb-hyf">
+            <objects>
+                <viewController storyboardIdentifier="firstTabVC" id="pLY-ms-Bzu" customClass="FirstViewController" customModule="DeepLinkTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5so-iM-Pae">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First TAB VC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANX-j3-uYr">
+                                <rect key="frame" x="16" y="36" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ANX-j3-uYr" firstAttribute="leading" secondItem="WjV-8n-hkI" secondAttribute="leading" constant="16" id="MfK-6S-5oa"/>
+                            <constraint firstItem="WjV-8n-hkI" firstAttribute="trailing" secondItem="ANX-j3-uYr" secondAttribute="trailing" constant="16" id="YQU-SF-6aE"/>
+                            <constraint firstItem="ANX-j3-uYr" firstAttribute="top" secondItem="WjV-8n-hkI" secondAttribute="top" constant="16" id="w7T-fW-wDA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WjV-8n-hkI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h4c-VB-VbR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="543" y="-457"/>
+        </scene>
+        <!--Second Navigation View Controller-->
+        <scene sceneID="SN3-Ac-zgQ">
+            <objects>
+                <navigationController storyboardIdentifier="secondRootNVC" id="UTe-cx-jeW" customClass="SecondNavigationViewController" customModule="DeepLinkTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GTR-Td-lbJ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wGo-Er-8he" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-386" y="284"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="j1j-Qf-t2G">
+            <objects>
+                <viewController storyboardIdentifier="secondTabVC" id="7Ge-uv-yqQ" customClass="SecondViewController" customModule="DeepLinkTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F2a-J0-aYp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Second TAB VC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPE-uW-d7a">
+                                <rect key="frame" x="16" y="36" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hPE-uW-d7a" firstAttribute="top" secondItem="4SZ-YI-8hU" secondAttribute="top" constant="16" id="9ws-Zr-NeT"/>
+                            <constraint firstItem="4SZ-YI-8hU" firstAttribute="trailing" secondItem="hPE-uW-d7a" secondAttribute="trailing" constant="16" id="Nty-Fn-osU"/>
+                            <constraint firstItem="hPE-uW-d7a" firstAttribute="leading" secondItem="4SZ-YI-8hU" secondAttribute="leading" constant="16" id="Wak-8k-vTg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4SZ-YI-8hU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MX7-T7-Hqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="542" y="284"/>
+        </scene>
+    </scenes>
+</document>

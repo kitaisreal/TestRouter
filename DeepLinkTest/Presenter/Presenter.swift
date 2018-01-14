@@ -26,9 +26,10 @@ class Presenter {
     }
     
     private var window:UIWindow?
-    private var viewPresenter:ViewPresenterProtocol = StoryboardViewPresenter(storyboardName: "Main")
+    private var viewPresenter:ViewPresenterProtocol
     
     private init() {
+        viewPresenter =  DefaultViewPresenter()
         presenterModuleRepository = PresenterModuleRepository(presenter: viewPresenter)
     }
     
@@ -42,7 +43,9 @@ class Presenter {
     }
     
     func presentRouteModule(routerModule:RouterModule, with data:Any?) {
-        guard let rootVC = self.presenterModuleRepository.getModuleRoot(rootNode: routerModule.routerModuleRootNode) as? UIViewController else {
+        let root = self.presenterModuleRepository.getModuleRoot(rootNode: routerModule.routerModuleRootNode)
+        print("ROUTER MODULE TO PRESENT \(routerModule.routerModuleRootNode.routeNodeLink) with \(root)")
+        guard let rootVC = root as? UIViewController else {
             fatalError("Router module not configured before present")
         }
         (rootVC as? DataTransferProtocol)?.setData(data: data)
@@ -57,6 +60,7 @@ class Presenter {
     
     private func configureContainerNode(rootContainerNode:RouteNode) {
         //KOSTIL REWRITE
+        print("CONFIGURE CONTAINER NODE \(rootContainerNode.containerForNodes.count) \(rootContainerNode.routeNodeLink)")
         guard rootContainerNode.containerForNodes.count != 0 else {
             return
         }
@@ -74,6 +78,7 @@ class Presenter {
         }
         print()
         let rootView = presenterModuleRepository.getModuleRoot(rootNode: rootContainerNode)
+        print("ROOT VIEW \(rootView) \(rootContainerNode.containerForNodes.count) \(routerModulesNavigation.count)")
         (rootView as? ContainerProtocol)?.contain(modules: routerModulesNavigation)
     }
     
@@ -83,7 +88,7 @@ class Presenter {
         guard let routerModuleNavigationVC = routerModuleRootVC as? NavigationProtocol else {
             return
         }
-        
+        print("PRESENT ROUTE PATH \(routerPath.pathType) \(routerPath.rootNode.routeNodeLink) \(routerPath.path.count)")
         let path = routerPath.path
         switch routerPath.pathType {
         case .push:

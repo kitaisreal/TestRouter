@@ -10,13 +10,13 @@ import Foundation
 
 class MainRouter {
     
-    var routerModules:[RouterModule] = []
+    private var routerModules:[RouterModule] = []
     
-    var presentedModule:RouterModule?
+    private var presentedModule:RouterModule?
     
-    let routerObserverHandler:RouterObserverHandler = RouterObserverHandler()
+    private let routerObserverHandler:RouterObserverHandler = RouterObserverHandler()
     
-    let matcher:Matcher = Matcher()
+    private let matcher:Matcher = Matcher()
     
     static let instance = MainRouter()
     
@@ -40,7 +40,6 @@ class MainRouter {
             routerObserverHandler.makeAction(link: matchedLink)
         }
     }
-    //FIX THIS SHIT
     
     func setConfig(routerModules:[RouterModule]) {
         self.routerModules = routerModules
@@ -54,30 +53,23 @@ class MainRouter {
         guard let matcherResponse = matcher.getModuleWithLink(with: link, from: routerModules) else {
             return
         }
-        //REWRITE ONLY LINKS MAYBE
-        print("NAVIGATE TO LINK BUG MATCHER RESPONSE \(matcherResponse.link) \(matcherResponse.routerModule.routerModuleRootNode.routeNodeLink)")
         let routerModule = matcherResponse.routerModule
-        print("NAVIGATE TO LINK ROUTER MODULE \(routerModule.routerModuleRootNode.routeNodeLink)")
-        let linkCheck = checkLink(linkToCheck: routerModule.routerModuleRootNode.routeNodeLink)
-        print("NAVIGATE TO LINK LINK CHECK \(linkCheck)")
         let realLink = matcherResponse.link
-        print("OBSERVER REAL LINK \(realLink)")
         checkLinkForActions(link: realLink)
         let path = routerModule.getPathToNode(to: realLink)
-        print("ANIMATION ROUTE BUG TO LINK \(realLink) \(path.pathType) \(path.path.count) \(path.rootNode.routeNodeLink)")
-        print("NAVIGATE PATH COUNT \(path.path) \(path.pathType)")
         Presenter.instance.presentRoutePath(routerPath: path, data: data)
     }
     
-    //ROOT LINK
     func presentModule(with link:String) {
         presentModule(with: link, data: nil)
     }
+    
     func presentModule(with link:String, data:Any?) {
         guard let matcherResponse = matcher.getModuleWithLink(with: link, from: routerModules) else {
             return
         }
-        //FOR ALL MODULES IN PRESENTED MODULE
+        let realLink = matcherResponse.link
+        checkLinkForActions(link: realLink)
         let routerModule = matcherResponse.routerModule
         if (routerModule.routerModuleRootNode.routeNodeLink == presentedModule?.routerModuleRootNode.routeNodeLink) {
             return
@@ -86,6 +78,7 @@ class MainRouter {
             Presenter.instance.presentRouteModule(routerModule: routerModule, with: data)
         }
     }
+    
     func configureModule(with link:String) {
         guard let matcherResponse = matcher.getModuleWithLink(with: link, from: routerModules) else {
             return
@@ -93,26 +86,13 @@ class MainRouter {
         let routerModule = matcherResponse.routerModule
         Presenter.instance.configureRouteModule(routerModule: routerModule)
     }
+    
     func removeModule(with link:String) {
         guard let matcherResponse = matcher.getModuleWithLink(with: link, from: routerModules) else {
             return
         }
         let routerModule = matcherResponse.routerModule
         Presenter.instance.removeModule(routerModule: routerModule)
-    }
-    //BACK IN MODULE TEST
-    
-    //REWRITE
-    private func checkLink(linkToCheck:String) -> Bool {
-        guard let presentedModule = self.presentedModule else {
-            return false
-        }
-        for link in presentedModule.getModuleLinks() {
-            if (linkToCheck == link) {
-                return true
-            }
-        }
-        return false
     }
     
 }
