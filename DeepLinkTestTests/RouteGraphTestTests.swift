@@ -11,26 +11,23 @@ import XCTest
 
 class RouteGraphTestTests: XCTestCase {
     let graph = RouteGraph()
+    let standartGetType = RouteNodeGetType.storyboard("test")
+    let transitionType = RouteTransitionEdgeType(transitionAnimation: TransitionAnimation.yes, transitionData: TransitionData.no)
     
     override func setUp() {
         super.setUp()
-        let mainNode = RouteNode(routeNodeLink: "/", routeNodeID: "rootNode", routeNodeType: RouterNodeType.navigation)
-        let firstChildNode = RouteNode(routeNodeLink: "/firstChild", routeNodeID: "firstChildNode", routeNodeType: RouterNodeType.data)
-        let firstChildNodeChild = RouteNode(routeNodeLink: "/firstChild/firstChildNode", routeNodeID: "firstChildNodeChild", routeNodeType: RouterNodeType.data)
-        let firstChildNodeChildChild = RouteNode(routeNodeLink: "/firstChild/firstChildNode/firstChildNodeNode", routeNodeID: "firstChildNodeChildChild", routeNodeType: RouterNodeType.data)
-        let secondChildNode = RouteNode(routeNodeLink: "/secondChild", routeNodeID: "secondChildNode", routeNodeType: RouterNodeType.data)
-        let transitionType = RouteTransitionEdgeType(transitionAnimation: TransitionAnimation.yes, transitionData: TransitionData.no)
+        
+        let mainNode = RouteNode(routeNodeLink: "/", routeNodeID: "rootNode", routeNodeGetType: standartGetType, routeNodeType: RouterNodeType.navigation)
+        let firstChildNode = RouteNode(routeNodeLink: "/firstChild", routeNodeID: "firstChildNode", routeNodeGetType: standartGetType, routeNodeType: RouterNodeType.data)
+        let firstChildNodeChild = RouteNode(routeNodeLink: "/firstChild/firstChildNode", routeNodeID: "firstChildNodeChild", routeNodeGetType: standartGetType, routeNodeType: RouterNodeType.data)
+        let firstChildNodeChildChild = RouteNode(routeNodeLink: "/firstChild/firstChildNode/firstChildNodeNode", routeNodeID: "firstChildNodeChildChild", routeNodeGetType: standartGetType, routeNodeType: RouterNodeType.data)
+        let secondChildNode = RouteNode(routeNodeLink: "/secondChild", routeNodeID: "secondChildNode", routeNodeGetType: standartGetType, routeNodeType: RouterNodeType.data)
         
         mainNode.addEdge(to: firstChildNode, transitionType: transitionType )
         firstChildNode.addEdge(to: firstChildNodeChild, transitionType: transitionType)
         firstChildNodeChild.addEdge(to: firstChildNodeChildChild, transitionType: transitionType)
         firstChildNodeChildChild.addEdge(to: secondChildNode, transitionType: transitionType)
-        
-        graph.addNode(node: mainNode)
-        graph.addNode(node: firstChildNode)
-        graph.addNode(node: secondChildNode)
-        graph.addNode(node: firstChildNodeChild)
-        graph.addNode(node: firstChildNodeChildChild)
+        graph.addNodes(nodes: [mainNode,firstChildNode,secondChildNode,firstChildNodeChild,firstChildNodeChildChild])
     }
     override func tearDown() {
         super.tearDown()
@@ -47,6 +44,17 @@ class RouteGraphTestTests: XCTestCase {
     }
     func testPathFromPointsWithoutPathBeetween() {
         let path = graph.findPathToNode(from: "/firstChild/firstChildNode/firstChildNodeNode", to: "/firstChild/firstChildNode")
+        XCTAssertEqual(path.count, 0)
+    }
+    func testPathWhereNoLinksInGraph() {
+        let path = graph.findPathToNode(from: "/", to: "/noLink")
+        XCTAssertEqual(path.count, 0)
+    }
+    func testRecursionBug() {
+        let node = RouteNode(routeNodeLink: "/first", routeNodeID: "test", routeNodeGetType: standartGetType, routeNodeType: .root)
+        node.addEdge(to: node, transitionType: transitionType)
+        graph.addNode(node: node)
+        let path = graph.findPathToNode(from: "/first", to: "/first")
         XCTAssertEqual(path.count, 0)
     }
 }

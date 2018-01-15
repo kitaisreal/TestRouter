@@ -9,9 +9,23 @@
 import XCTest
 @testable import DeepLinkTest
 
-class RouterMatcherModuleTests:XCTest {
+class RouterMatcherModuleTests:XCTestCase {
+    let getTypeDefault = RouteNodeGetType.storyboard("test")
+    let matcher = Matcher()
     
-    func testSomething() {
-       
+    func testRouterModulesMatch() {
+        let node = RouteNode(routeNodeLink: "/", routeNodeID: "test", routeNodeGetType: getTypeDefault, routeNodeType: .root)
+        let otherNode = RouteNode(routeNodeLink: "/test", routeNodeID: "otherTest", routeNodeGetType: getTypeDefault, routeNodeType: .root)
+        let routerModule = RouterModule(nodes: [node,otherNode], routerModuleRootNode: node)
+        let otherRouterModule = RouterModule(nodes: [node], routerModuleRootNode: node)
+        let matcherResponse = matcher.getModuleWithLink(with: "*st", from: [routerModule, otherRouterModule])
+        XCTAssertEqual(matcherResponse!.routerModule.routerModuleRootNode.routeNodeLink, routerModule.routerModuleRootNode.routeNodeLink)
+        XCTAssertEqual(matcherResponse!.link, "/test")
+        let otherMatcherResponse = matcher.getModuleWithLink(with: "/test", from: [otherRouterModule])
+        if (otherMatcherResponse == nil) {
+            XCTAssertEqual(true, true)
+        }
     }
+    
+    
 }

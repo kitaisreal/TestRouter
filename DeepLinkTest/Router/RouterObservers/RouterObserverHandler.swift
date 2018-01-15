@@ -31,7 +31,13 @@ fileprivate extension Array where Element == ObserverAction {
         }
     }
 }
-
+enum RouterObserverLinkType {
+    case moduleConfiguration
+    case moduleRemove
+    case moduleNavigation
+    case modulePresent
+    case custom
+}
 //TESTS FOR THIS
 //OBSERVERS ON MODULE PRESENT: MODULE REMOVE: NAVIGATE TO LINK: NAVIGATE TO CUSTOM LINK: MODULE CONFIGURE
 //ADD LINKS FOR CONFIGURE MODULE PRESENT MODULE NAVIGATE TO LINK
@@ -40,6 +46,12 @@ class RouterObserverHandler {
     typealias Action = () -> ()
     
     private var actionMap:[String:[ObserverAction]] = [:]
+    
+    private var mainActionMap:[RouterObserverLinkType:[String:[ObserverAction]]] = [:]
+    
+    init() {
+        mainActionMap.updateValue([:], forKey: RouterObserverLinkType.modulePresent)
+    }
     
     func addObserver(link:String,id:String,action:@escaping Action) {
         print("OBSERVER ADD OBSERVER \(link) \(id)")

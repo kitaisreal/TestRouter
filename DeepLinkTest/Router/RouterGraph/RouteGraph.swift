@@ -10,7 +10,7 @@ import Foundation
 
 class RouteGraph {
     
-    var nodes:[RouteNode] = []
+    private var nodes:[RouteNode] = []
     
     private var nodesHashMap:[String:Int] = [:]
     

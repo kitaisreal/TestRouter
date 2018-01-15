@@ -56,10 +56,20 @@ class MainRouter {
         let routerModule = matcherResponse.routerModule
         let realLink = matcherResponse.link
         checkLinkForActions(link: realLink)
+        print("REGISTRATION BUG NAVIGATE TO LINK \(link) ROUTER MODULE \(routerModule.routerModuleRootNode)")
         let path = routerModule.getPathToNode(to: realLink)
+        print("REGISTRATION BUG PATH COUNT \(path.path.count) \(path.rootNode.routeNodeLink)")
         Presenter.instance.presentRoutePath(routerPath: path, data: data)
     }
-    
+    func getBackInModule(with link:String, data:Any?) {
+        guard let matcherResponse = matcher.getModuleWithLink(with: link, from: routerModules) else {
+            return
+        }
+        let routerModule = matcherResponse.routerModule
+        let realLink = matcherResponse.link
+        checkLinkForActions(link: realLink)
+        routerModule.getBackInModule()
+    }
     func presentModule(with link:String) {
         presentModule(with: link, data: nil)
     }

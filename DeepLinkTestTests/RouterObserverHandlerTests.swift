@@ -26,4 +26,8 @@ class RouterObserverHandlertests:XCTest {
         routerObserverHandler.makeAction(link: "/testLink")
         routerObserverHandler.makeAction(link: "/anotherTestLink")
     }
+    func test() {
+        print("TEST")
+        XCTAssertEqual(false, true)
+    }
 }

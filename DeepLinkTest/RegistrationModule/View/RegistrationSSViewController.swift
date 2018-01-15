@@ -8,12 +8,9 @@
 
 import UIKit
 
-class RegistrationSSViewController: UIViewController,PresenterProtocol,UINavigationControllerDelegate {
+class RegistrationSSViewController: UIViewController,PresenterProtocol {
     let registrationModuleInteractor:RegistrationModulePresenter = RegistrationModulePresenter()
     
-    override func viewDidLoad() {
-//        self.navigationController?.delegate = self
-    }
     @IBOutlet weak var surnameTextField: UITextField!
     
     @IBAction func toThirdRegistrationStep(_ sender: UIButton) {
@@ -27,17 +24,5 @@ class RegistrationSSViewController: UIViewController,PresenterProtocol,UINavigat
     @IBAction func toSwitch(_ sender: UIButton) {
         registrationModuleInteractor.presentSwitch()
     }
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .none:
-            return nil
-        case .push:
-            print("REGISTRATION STEP SECOND PUSH ANIMATION")
-            registrationModuleInteractor.presentRegistrationFirstStep()
-            return AnimationController(withDuration: 1.0, forTransitionType: .Presenting, originFrame: self.view.frame)
-        case .pop:
-            print("REGISTRATION STEP SECOND POP ANIMATION")
-            return AnimationController(withDuration: 1.0, forTransitionType: .Presenting, originFrame: self.view.frame)
-        }
-    }
+    
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegistrationNavigation: UINavigationController,NavigationProtocol,RootProtocol,UINavigationBarDelegate {
+class RegistrationNavigation: UINavigationController,NavigationProtocol,RootProtocol,UINavigationBarDelegate,UINavigationControllerDelegate {
     
     func push(module: PresenterProtocol) {
         guard let VC = module as? UIViewController else {
@@ -20,20 +20,30 @@ class RegistrationNavigation: UINavigationController,NavigationProtocol,RootProt
     
     override func viewDidLoad() {
         self.navigationBar.delegate = self
+        self.delegate = self
     }
     func removeFromTop() {
         print("REGISTRATION STEP POP MODULE POP")
-        self.popViewController(animated: true)
+//        self.popViewController(animated: true)
     }
     
     func getTopModule() -> PresenterProtocol? {
         return self.topViewController as? PresenterProtocol
     }
     func navigationBar(_ navigationBar: UINavigationBar, didPop item: UINavigationItem) {
-        print("REGISTRATION STEPS POP OPERATION")
+        print("PREVIOUS LINK GET BACK IN MODULE ACTION")
+        MainRouter.instance.getBackInModule(with: "/registration", data: nil)
     }
-    func navigationBar(_ navigationBar: UINavigationBar, didPush item: UINavigationItem) {
-        print("REGISTRATION STEPS PUSH OPERATION")
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        switch operation {
+        case .none:
+            return nil
+        case .push:
+            return AnimationController(withDuration: 1.0, forTransitionType: .Presenting, originFrame: self.view.frame)
+        case .pop:
+            return AnimationController(withDuration: 1.0, forTransitionType: .Presenting, originFrame: self.view.frame)
+        }
     }
 }
 

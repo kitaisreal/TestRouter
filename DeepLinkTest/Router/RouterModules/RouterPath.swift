@@ -8,7 +8,22 @@
 
 import Foundation
 
-enum RouterPathType {
+enum RouterPathType:Equatable {
+    static func ==(lhs: RouterPathType, rhs: RouterPathType) -> Bool {
+        switch (lhs,rhs) {
+        case (.push, .push):
+            return true
+        case (let .remove(value1), let .remove(value2)):
+            return value1 == value2
+        case (.empty, .empty):
+            return true
+        case (.currentLink, .currentLink):
+            return true
+        default:
+            return false
+        }
+    }
+    
     case push
     case remove(Int)
     case empty
