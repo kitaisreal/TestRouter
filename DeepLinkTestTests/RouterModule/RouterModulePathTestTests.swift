@@ -40,6 +40,7 @@ class RouterModulePathTestTests:XCTestCase {
         let module = getModuleForTest()
         _ = module.getPathToNode(to: "/second")
         let path = module.getPathToNode(to: "/")
+        print("PATH \(path.path.count) \(path.pathType) \(path.rootNode.routeNodeLink)")
         XCTAssertEqual(path.path.count, 0)
         XCTAssertEqual(path.pathType, RouterPathType.remove(2))
         XCTAssertEqual(path.rootNode.routeNodeLink, "/")
@@ -61,13 +62,26 @@ class RouterModulePathTestTests:XCTestCase {
         XCTAssertEqual(path.pathType, RouterPathType.empty)
         XCTAssertEqual(path.rootNode.routeNodeLink, "/")
     }
-    func testBackInModule() {
+    func testFirstBackInModuleTest() {
         let module:RouterModule = getModuleForTest()
         _ = module.getPathToNode(to: "/second")
         module.getBackInModule()
         module.getBackInModule()
-        path = module.getPathToNode(to: "/")
-        
+        let path = module.getPathToNode(to: "/")
+        XCTAssertEqual(path.path.count, 0)
+        XCTAssertEqual(path.pathType, RouterPathType.currentLink)
+        XCTAssertEqual(path.rootNode.routeNodeLink, "/")
+    }
+    func testBackInModuleMoreThanNeededTest() {
+        let module:RouterModule = getModuleForTest()
+        _ = module.getPathToNode(to: "/second")
+        for _ in 0..<9 {
+            module.getBackInModule()
+        }
+        let path = module.getPathToNode(to: "/")
+        XCTAssertEqual(path.path.count, 0)
+        XCTAssertEqual(path.pathType, RouterPathType.currentLink)
+        XCTAssertEqual(path.rootNode.routeNodeLink, "/")
     }
     func testRouterPathTypesEnum() {
         XCTAssertEqual(RouterPathType.push == RouterPathType.push, true)

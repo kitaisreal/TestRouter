@@ -17,11 +17,11 @@ class RouteGraphTestTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        let mainNode = RouteNode(routeNodeLink: "/", routeNodeID: "rootNode", routeNodeGetType: standartGetType, routeNodeType: RouterNodeType.navigation)
-        let firstChildNode = RouteNode(routeNodeLink: "/firstChild", routeNodeID: "firstChildNode", routeNodeGetType: standartGetType, routeNodeType: RouterNodeType.data)
-        let firstChildNodeChild = RouteNode(routeNodeLink: "/firstChild/firstChildNode", routeNodeID: "firstChildNodeChild", routeNodeGetType: standartGetType, routeNodeType: RouterNodeType.data)
-        let firstChildNodeChildChild = RouteNode(routeNodeLink: "/firstChild/firstChildNode/firstChildNodeNode", routeNodeID: "firstChildNodeChildChild", routeNodeGetType: standartGetType, routeNodeType: RouterNodeType.data)
-        let secondChildNode = RouteNode(routeNodeLink: "/secondChild", routeNodeID: "secondChildNode", routeNodeGetType: standartGetType, routeNodeType: RouterNodeType.data)
+        let mainNode = RouteNode(routeNodeLink: "/", routeNodeID: "rootNode", routeNodeGetType: standartGetType, routeNodeTypes: [RouterNodeType.navigation])
+        let firstChildNode = RouteNode(routeNodeLink: "/firstChild", routeNodeID: "firstChildNode", routeNodeGetType: standartGetType, routeNodeTypes: [RouterNodeType.data])
+        let firstChildNodeChild = RouteNode(routeNodeLink: "/firstChild/firstChildNode", routeNodeID: "firstChildNodeChild", routeNodeGetType: standartGetType, routeNodeTypes: [RouterNodeType.data])
+        let firstChildNodeChildChild = RouteNode(routeNodeLink: "/firstChild/firstChildNode/firstChildNodeNode", routeNodeID: "firstChildNodeChildChild", routeNodeGetType: standartGetType, routeNodeTypes: [RouterNodeType.data])
+        let secondChildNode = RouteNode(routeNodeLink: "/secondChild", routeNodeID: "secondChildNode", routeNodeGetType: standartGetType, routeNodeTypes: [RouterNodeType.data])
         
         mainNode.addEdge(to: firstChildNode, transitionType: transitionType )
         firstChildNode.addEdge(to: firstChildNodeChild, transitionType: transitionType)
@@ -51,10 +51,22 @@ class RouteGraphTestTests: XCTestCase {
         XCTAssertEqual(path.count, 0)
     }
     func testRecursionBug() {
-        let node = RouteNode(routeNodeLink: "/first", routeNodeID: "test", routeNodeGetType: standartGetType, routeNodeType: .root)
+        let node = RouteNode(routeNodeLink: "/first", routeNodeID: "test", routeNodeGetType: standartGetType, routeNodeTypes: [.root])
         node.addEdge(to: node, transitionType: transitionType)
         graph.addNode(node: node)
         let path = graph.findPathToNode(from: "/first", to: "/first")
         XCTAssertEqual(path.count, 0)
+    }
+    
+    func testGraphCompare() {
+        var otherGraph = graph
+        print("OTHER GRAPH NODES COUNT \(otherGraph.getLinks().count)")
+        let otherNode = RouteNode(routeNodeLink: "/someNode", routeNodeID: "someID", routeNodeGetType: standartGetType, routeNodeTypes: [.container])
+        otherGraph.addNode(node: otherNode)
+        print("OTHER GRAPH NODES COUNT \(otherGraph.getLinks().count)")
+        print("GRAPH NODES COUNT \(graph.getLinks().count)")
+        XCTAssertEqual(otherGraph == graph, false)
+        XCTAssertEqual(graph == graph, true)
+        XCTAssertEqual(otherGraph == otherGraph, true)
     }
 }
