@@ -26,12 +26,18 @@ struct RouteTransitionEdgeType {
         self.transitionData = transitionData
     }
 }
-
+extension RouteTransitionEdgeType:Equatable {
+    
+    static func ==(lhs: RouteTransitionEdgeType, rhs: RouteTransitionEdgeType) -> Bool {
+        return (lhs.transitionAnimation == rhs.transitionAnimation && lhs.transitionData == rhs.transitionData)
+    }
+    
+    
+}
 class RouteTransitionEdge {
     let firstNode:RouteNode
     let secondNode:RouteNode
     let transitionType:RouteTransitionEdgeType
-    let weight:Int = 1
     
     init(firstNode:RouteNode, secondNode:RouteNode, transitionType:RouteTransitionEdgeType) {
         self.firstNode = firstNode
@@ -39,3 +45,9 @@ class RouteTransitionEdge {
         self.transitionType = transitionType
     }
 }
+extension RouteTransitionEdge:Equatable {
+    static func ==(lhs: RouteTransitionEdge, rhs: RouteTransitionEdge) -> Bool {
+        return (lhs.firstNode == rhs.firstNode && lhs.secondNode == rhs.secondNode && lhs.transitionType == rhs.transitionType)
+    }
+}
+

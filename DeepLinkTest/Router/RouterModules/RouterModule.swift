@@ -76,12 +76,20 @@ class RouterModule {
         return routerModules
     }
     
-    func getModuleAllLinks() -> [String] {
+    func getModuleAllRootsLinks() -> [String] {
         var routeRootLinks:[String] = []
         for module in self.getModuleModules() {
             routeRootLinks.append(module.routerModuleRootNode.routeNodeLink)
         }
         return routeRootLinks
+    }
+    
+    func getModuleAllLinks() -> [String] {
+        var allLinksInModule:[String] = []
+        for module in self.getModuleModules() {
+            allLinksInModule.append(contentsOf: module.getModuleLinks())
+        }
+        return allLinksInModule
     }
     
     func getModuleRootNodes() -> [RouteNode]{
@@ -93,6 +101,9 @@ class RouterModule {
     }
     
     func addChildRouterModule(routerModule:RouterModule) {
+        guard routerModule != self else {
+            return
+        }
         self.childRouterModules.append(routerModule)
     }
     
@@ -109,7 +120,7 @@ class RouterModule {
         var routerPath:RouterPath = RouterPath(rootNode: routerModuleRootNode,
                                                path: [],
                                                pathType: RouterPathType.empty)
-        if (fromRootToLinkPath.count >= fromRootToCurrentLinkPath.count) {
+        if (fromRootToLinkPath.count > fromRootToCurrentLinkPath.count) {
             routerPath = RouterPath(rootNode: routerModuleRootNode, path: path, pathType: RouterPathType.push)
             currentNodeLink = link
             nodeLinksStack.append(currentNodeLink)
@@ -132,4 +143,10 @@ class RouterModule {
         return routerPath
     }
     
+}
+
+extension RouterModule:Equatable {
+    static func ==(lhs: RouterModule, rhs: RouterModule) -> Bool {
+        return lhs.configGraph == rhs.configGraph && lhs.routerModuleRootNode == rhs.routerModuleRootNode && lhs.childRouterModules.compare(with: rhs.childRouterModules)
+    }
 }

@@ -67,7 +67,7 @@ class Presenter {
         var routerModulesRootsForContainer:[RootProtocol] = []
         
         for node in rootContainerNode.containerForNodes {
-            if (node.routeNodeType == RouterNodeType.root) {
+            if (node.isRoot) {
                 if let rootVC = presenterModuleRepository.getModuleRoot(rootNode: node) {
                     routerModulesRootsForContainer.append(rootVC)
                 }
@@ -118,19 +118,28 @@ class Presenter {
     }
     
     private func presentPushRoutePath(navigationVC:NavigationProtocol, path:[RouteNode], data:Any?) {
+        //REWRITE
         for routeNode in path {
-            switch routeNode.routeNodeType {
-            case .navigation:
+            if (routeNode.isNavigation) {
+                fatalError()
                 break
-            case .data:
+            }
+            if (routeNode.isData) {
                 let viewVC = viewPresenter.getView(routeNode: routeNode) as! PresenterProtocol
                 navigationVC.push(module: viewVC)
-            case .rootContainer:
+            }
+            if (routeNode.isRoot) {
+                fatalError()
                 break
-            case .presenter:
+            }
+            if (routeNode.isContainer) {
+                break
+            }
+            if (routeNode.isPresenter) {
                 let viewVC = viewPresenter.getView(routeNode: routeNode) as! PresenterProtocol
                 navigationVC.push(module: viewVC)
-            case .root:
+            }
+            if (routeNode.isSubmodule) {
                 break
             }
         }

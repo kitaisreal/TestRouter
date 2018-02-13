@@ -16,13 +16,13 @@ class RouterNodeTestTests:XCTestCase {
     
     func testRouterNodeComparable() {
         let notStandartGetType = RouteNodeGetType.storyboard("something")
-        let routeNodeFirst = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .root)
-        let routeNodeSecond = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .root)
-        let routeNodeThird = RouteNode(routeNodeLink: "/some", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .root)
-        let routeNodeFourth = RouteNode(routeNodeLink: "/some", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .navigation)
-        let routeNodeFifth = RouteNode(routeNodeLink: "/some", routeNodeID: "testIDs", routeNodeGetType: standartGetType, routeNodeType: .presenter)
-        let routeNodeSixth = RouteNode(routeNodeLink: "/some", routeNodeID: "testIDs", routeNodeGetType: notStandartGetType, routeNodeType: .presenter)
-        let routeNodeSeventh = RouteNode(routeNodeLink: "/some", routeNodeID: "testIDs", routeNodeGetType: notStandartGetType, routeNodeType: .presenter)
+        let routeNodeFirst = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.root])
+        let routeNodeSecond = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.root])
+        let routeNodeThird = RouteNode(routeNodeLink: "/some", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.root])
+        let routeNodeFourth = RouteNode(routeNodeLink: "/some", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.navigation])
+        let routeNodeFifth = RouteNode(routeNodeLink: "/some", routeNodeID: "testIDs", routeNodeGetType: standartGetType, routeNodeTypes: [.presenter])
+        let routeNodeSixth = RouteNode(routeNodeLink: "/some", routeNodeID: "testIDs", routeNodeGetType: notStandartGetType, routeNodeTypes: [.presenter])
+        let routeNodeSeventh = RouteNode(routeNodeLink: "/some", routeNodeID: "testIDs", routeNodeGetType: notStandartGetType, routeNodeTypes: [.presenter])
         XCTAssertEqual(routeNodeFirst == routeNodeSecond , true)
         XCTAssertEqual(routeNodeFirst == routeNodeThird, false)
         XCTAssertEqual(routeNodeThird == routeNodeFourth, false)
@@ -32,10 +32,10 @@ class RouterNodeTestTests:XCTestCase {
     }
     
     func testRouterNodesCompares() {
-        let routeNodeFirst = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .root)
-        let routeNodeSecond = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .root)
-        let routeNodeThird = RouteNode(routeNodeLink: "/some", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .root)
-        let routeNodeFourth = RouteNode(routeNodeLink: "/some", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .navigation)
+        let routeNodeFirst = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.root])
+        let routeNodeSecond = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.root])
+        let routeNodeThird = RouteNode(routeNodeLink: "/some", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.root])
+        let routeNodeFourth = RouteNode(routeNodeLink: "/some", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.navigation])
         let firstNodeArray = [routeNodeFirst, routeNodeSecond, routeNodeThird]
         let secondNodeArray = [routeNodeThird, routeNodeFirst, routeNodeSecond]
         let thirdNodeArray = [routeNodeFirst, routeNodeSecond, routeNodeFourth]
@@ -47,22 +47,19 @@ class RouterNodeTestTests:XCTestCase {
     }
     
     func testRouterNodeAddToContainer() {
-        let routeNodeFirst = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .root)
-        let routeNodeSecond = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .root)
-        let routeNodeThird = RouteNode(routeNodeLink: "/some", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .root)
-        routeNodeFirst.addNodesToContainer(routeNodes: [routeNodeSecond, routeNodeFirst])
+        let routeNodeFirst = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.root, .container])
+        let routeNodeSecond = RouteNode(routeNodeLink: "/first", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.root])
+        let routeNodeThird = RouteNode(routeNodeLink: "/second", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.root])
+        routeNodeFirst.addNodesToContainer(routeNodes: [routeNodeSecond, routeNodeThird])
         XCTAssertEqual(routeNodeFirst.containerForNodes.compare(with: [routeNodeSecond, routeNodeThird]), true)
-        let result = routeNodeFirst.containerForNodes.compare(with: [routeNodeSecond])
-        print("ROUTE NODE FIRST CONTAINER FOR NODES COUNT \(routeNodeFirst.containerForNodes.count)")
-        print("RESULT \(result)")
         XCTAssertEqual(routeNodeFirst.containerForNodes.compare(with: [routeNodeSecond]), false)
     }
     
     func testRouterNodeAddEdges() {
         let defaultTransitionType = RouteTransitionEdgeType(transitionAnimation: TransitionAnimation.no, transitionData: TransitionData.no)
-        let routeNodeFirst = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .root)
-        let routeNodeSecond = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .root)
-        let routeNodeThird = RouteNode(routeNodeLink: "/some", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .root)
+        let routeNodeFirst = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.root])
+        let routeNodeSecond = RouteNode(routeNodeLink: "/first", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.root])
+        let routeNodeThird = RouteNode(routeNodeLink: "/second", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.root])
         routeNodeFirst.addEdge(to: routeNodeSecond, transitionType: defaultTransitionType)
         routeNodeFirst.addEdge(to: routeNodeThird, transitionType: defaultTransitionType)
         let firstEdge = RouteTransitionEdge(firstNode: routeNodeFirst, secondNode: routeNodeSecond, transitionType: defaultTransitionType)
@@ -79,5 +76,14 @@ class RouterNodeTestTests:XCTestCase {
         XCTAssertEqual(RouteNodeGetType.xib(1) == RouteNodeGetType.xib(1), true)
         XCTAssertEqual(RouteNodeGetType.xib(1) == RouteNodeGetType.xib(2), false)
         XCTAssertEqual(RouteNodeGetType.storyboard("test") == RouteNodeGetType.xib(1), false)
+    }
+    
+    func testRouterTypesComparable() {
+        let firstRouterTypesArray:[RouterNodeType] = [RouterNodeType.root, RouterNodeType.presenter]
+        let secondRouterTypesArray:[RouterNodeType] = [RouterNodeType.root, RouterNodeType.presenter]
+        let thirdRouterTypesArray:[RouterNodeType] = [RouterNodeType.root]
+        let fourthRouterTypesArray:[RouterNodeType] = [RouterNodeType.root]
+        XCTAssertEqual(firstRouterTypesArray.compare(with: secondRouterTypesArray), true)
+        XCTAssertEqual(thirdRouterTypesArray.compare(with: fourthRouterTypesArray), true)
     }
 }

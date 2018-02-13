@@ -14,6 +14,7 @@ enum LinkValue {
     case anyMatch(String)
     case identityMatch(String)
 }
+//REWRITE WITH REGEX
 class Matcher {
     
     func getModuleWithLink(with link:String,from routerModules:[RouterModule]) -> MatcherResponse? {
@@ -52,7 +53,7 @@ class Matcher {
         return LinkValue.identityMatch(link)
     }
     
-    func checkLinks(in links:[String], with realLink:String) -> [String]{
+    func checkRealLinkInLinks(in links:[String], with realLink:String) -> [String]{
         var linksMatched:[String] = []
         for link in links {
             let linkValue = self.getLinkValue(with: link)
@@ -113,7 +114,7 @@ extension Array where Element == RouterModule {
             }
         }
         return allRouterModules
-    }
+//    }
 }
 
 

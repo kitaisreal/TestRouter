@@ -14,8 +14,8 @@ class RouterMatcherModuleTests:XCTestCase {
     let matcher = Matcher()
     
     func testRouterModulesMatch() {
-        let node = RouteNode(routeNodeLink: "/", routeNodeID: "test", routeNodeGetType: getTypeDefault, routeNodeType: .root)
-        let otherNode = RouteNode(routeNodeLink: "/test", routeNodeID: "otherTest", routeNodeGetType: getTypeDefault, routeNodeType: .root)
+        let node = RouteNode(routeNodeLink: "/", routeNodeID: "test", routeNodeGetType: getTypeDefault, routeNodeTypes: [.root])
+        let otherNode = RouteNode(routeNodeLink: "/test", routeNodeID: "otherTest", routeNodeGetType: getTypeDefault, routeNodeTypes: [.root])
         let routerModule = RouterModule(nodes: [node,otherNode], routerModuleRootNode: node)
         let otherRouterModule = RouterModule(nodes: [node], routerModuleRootNode: node)
         let matcherResponse = matcher.getModuleWithLink(with: "*st", from: [routerModule, otherRouterModule])

@@ -14,6 +14,7 @@ fileprivate class ObserverAction {
     
     let action:RouterObserverHandler.Action
     
+    
     init(id:String, action:@escaping RouterObserverHandler.Action) {
         self.id = id
         self.action = action
@@ -36,16 +37,13 @@ enum RouterObserverLinkType {
     case moduleRemove
     case moduleNavigation
     case modulePresent
+    case deepLinkHandle
     case custom
 }
-//TESTS FOR THIS
-//OBSERVERS ON MODULE PRESENT: MODULE REMOVE: NAVIGATE TO LINK: NAVIGATE TO CUSTOM LINK: MODULE CONFIGURE
-//ADD LINKS FOR CONFIGURE MODULE PRESENT MODULE NAVIGATE TO LINK
+
 class RouterObserverHandler {
     
     typealias Action = () -> ()
-    
-    private var actionMap:[String:[ObserverAction]] = [:]
     
     private var mainActionMap:[RouterObserverLinkType:[String:[ObserverAction]]] = [:]
     
@@ -53,41 +51,43 @@ class RouterObserverHandler {
         mainActionMap.updateValue([:], forKey: RouterObserverLinkType.modulePresent)
     }
     
-    func addObserver(link:String,id:String,action:@escaping Action) {
-        print("OBSERVER ADD OBSERVER \(link) \(id)")
+    func addObserver(link:String, id:String, linkType:RouterObserverLinkType, action:@escaping Action) {
+        if mainActionMap[linkType] == nil {
+            mainActionMap.updateValue([:], forKey: linkType)
+        }
+        if mainActionMap[linkType]?[link] == nil {
+            mainActionMap[linkType]?.updateValue([], forKey: link)
+        }
         let observerAction = ObserverAction(id: id, action: action)
-        guard actionMap[link] != nil else {
-            let actionArray:[ObserverAction] = [observerAction]
-            actionMap.updateValue(actionArray, forKey: link)
-            return
-        }
-        actionMap[link]?.append(observerAction)
+        mainActionMap[linkType]?[link]?.append(observerAction)
     }
     
-    func removeObserver(link:String, id:String) {
-        actionMap[link]?.removeObserverAction(by: id)
-    }
-    
-    func makeAction(link:String) {
-        guard let linkActionArray = actionMap[link] else {
-            return
-        }
-        print("OBSERVER LINK ACTION ARRAY COUNT \(linkActionArray.count)")
-        for i in linkActionArray {
-            print("OBSERVER LINK ACTION \(i.id)")
-        }
-        for observerAction in linkActionArray {
-            let action = observerAction.action
-            action()
+    func makeAction(with link:String, by linkType:RouterObserverLinkType) {
+        if let observerActions = mainActionMap[linkType]?[link] {
+            for observerAction in observerActions {
+                observerAction.action()
+            }
         }
     }
     
-    func getLinks() -> [String] {
-        var keys:[String] = []
-        for key in actionMap.keys {
-            keys.append(key)
-        }
-        return keys
+    func removeObserver(linkType:RouterObserverLinkType,link:String, id:String) {
+        mainActionMap[linkType]?[link]?.removeObserverAction(by: id)
     }
     
+    func removeObservers(linkType:RouterObserverLinkType ,link:String) {
+        mainActionMap[linkType]?[link]?.removeAll()
+    }
+    
+    func removeObservers(by linkType:RouterObserverLinkType) {
+        mainActionMap[linkType]?.removeAll()
+    }
+    func removeAllObservers() {
+        mainActionMap.removeAll()
+    }
+    func getAllLinks(by linktype:RouterObserverLinkType) -> [String]{
+        if let links = mainActionMap[linktype] {
+            return links.keys.map() {return $0}
+        }
+        return []
+    }
 }

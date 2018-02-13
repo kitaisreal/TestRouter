@@ -24,20 +24,27 @@ class MainRouter {
         
     }
     
-    func addObserver(link:String,id:String, action:@escaping RouterObserverHandler.Action) {
-        routerObserverHandler.addObserver(link: link, id: id, action: action)
+    func addObserver(link:String,id:String, linkType:RouterObserverLinkType, action:@escaping RouterObserverHandler.Action) {
+        routerObserverHandler.addObserver(link: link, id: id, linkType: linkType, action: action)
     }
     
-    func removeObserver(link:String, id:String) {
-        routerObserverHandler.removeObserver(link: link, id: id)
+    func removeObserver(linkType:RouterObserverLinkType ,link:String, id:String) {
+        routerObserverHandler.removeObserver(linkType: linkType, link: link, id: id)
     }
-    
-    private func checkLinkForActions(link:String) {
-        let routerObserverLinks = routerObserverHandler.getLinks()
-        print("OBSERVER GET LINKS \(routerObserverLinks) FOR LINK \(link)")
-        for matchedLink in matcher.checkLinks(in: routerObserverLinks, with: link) {
-            print("OBSERVER MAKE ACTION \(matchedLink)")
-            routerObserverHandler.makeAction(link: matchedLink)
+    func removeObservers(linkType:RouterObserverLinkType) {
+        
+//        routerObserverHandler.removeObservers(linkType: linkType)
+    }
+    func removeObservers(linkType:RouterObserverLinkType, link:String) {
+        routerObserverHandler.removeObservers(linkType: linkType, link: link)
+    }
+    func removeObservers() {
+        routerObserverHandler.removeAllObservers()
+    }
+    private func checkObserverForActions(link:String, linkType:RouterObserverLinkType) {
+        let routerObserverLinks = routerObserverHandler.getAllLinks(by: linkType)
+        for matchedLink in matcher.checkRealLinkInLinks(in: routerObserverLinks, with: link) {
+            routerObserverHandler.makeAction(with: matchedLink, by: linkType)
         }
     }
     
@@ -55,10 +62,8 @@ class MainRouter {
         }
         let routerModule = matcherResponse.routerModule
         let realLink = matcherResponse.link
-        checkLinkForActions(link: realLink)
-        print("REGISTRATION BUG NAVIGATE TO LINK \(link) ROUTER MODULE \(routerModule.routerModuleRootNode)")
+        checkObserverForActions(link: realLink, linkType: RouterObserverLinkType.moduleNavigation)
         let path = routerModule.getPathToNode(to: realLink)
-        print("REGISTRATION BUG PATH COUNT \(path.path.count) \(path.rootNode.routeNodeLink)")
         Presenter.instance.presentRoutePath(routerPath: path, data: data)
     }
     func getBackInModule(with link:String, data:Any?) {
@@ -67,8 +72,8 @@ class MainRouter {
         }
         let routerModule = matcherResponse.routerModule
         let realLink = matcherResponse.link
-        checkLinkForActions(link: realLink)
         routerModule.getBackInModule()
+        checkObserverForActions(link: realLink, linkType: RouterObserverLinkType.moduleNavigation)
     }
     func presentModule(with link:String) {
         presentModule(with: link, data: nil)
@@ -79,7 +84,7 @@ class MainRouter {
             return
         }
         let realLink = matcherResponse.link
-        checkLinkForActions(link: realLink)
+        checkObserverForActions(link: realLink, linkType: RouterObserverLinkType.modulePresent)
         let routerModule = matcherResponse.routerModule
         if (routerModule.routerModuleRootNode.routeNodeLink == presentedModule?.routerModuleRootNode.routeNodeLink) {
             return
@@ -94,6 +99,8 @@ class MainRouter {
             return
         }
         let routerModule = matcherResponse.routerModule
+        let realLink = matcherResponse.link
+        checkObserverForActions(link: realLink, linkType: RouterObserverLinkType.moduleConfiguration)
         Presenter.instance.configureRouteModule(routerModule: routerModule)
     }
     
@@ -102,6 +109,8 @@ class MainRouter {
             return
         }
         let routerModule = matcherResponse.routerModule
+        let realLink = matcherResponse.link
+        checkObserverForActions(link: realLink, linkType: RouterObserverLinkType.moduleRemove)
         Presenter.instance.removeModule(routerModule: routerModule)
     }
     

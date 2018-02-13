@@ -56,9 +56,21 @@ class RouterMatcherTests:XCTestCase {
         print(testString.count)
         let otherTestString = "something/something"
         print(otherTestString.range(of: testString) != nil)
-//        let matcherResult = matcher.matchLink(in: "asdfosadfops//asdflasldf", with: testEveryMatchLinkValue)
-//        print(matcherResult)
     }
-   
-   
+    
+    func testLinksMatch() {
+        let links = ["*Detail", "*a*", "Detail*"]
+        let firstMatchedLinks = links
+        let secondMachedLinks = ["*Detail", "*a*"]
+        let thirdMatchedLinks = ["*a*","Detail*"]
+        let firstCheckedLinks = matcher.checkRealLinkInLinks(in: links, with: "Detail")
+        let secondCheckedLinks = matcher.checkRealLinkInLinks(in: links, with: "SomethingDetail")
+        let thirdCheckedLinks = matcher.checkRealLinkInLinks(in: links, with: "DetailSomething")
+        print(firstCheckedLinks)
+        print(secondCheckedLinks)
+        print(thirdCheckedLinks)
+        XCTAssertEqual(firstCheckedLinks.compare(with: firstMatchedLinks), true)
+        XCTAssertEqual(secondCheckedLinks.compare(with: secondMachedLinks), true)
+        XCTAssertEqual(thirdCheckedLinks.compare(with: thirdMatchedLinks), true)
+    }
 }

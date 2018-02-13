@@ -15,9 +15,9 @@ class RouterModulePathTestTests:XCTestCase {
     let standartTransitionEdgeType = RouteTransitionEdgeType(transitionAnimation: .no, transitionData: .no)
     
     private func getModuleForTest() -> RouterModule{
-        let firstNode:RouteNode = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeType: .root)
-        let secondNode:RouteNode = RouteNode(routeNodeLink: "/first", routeNodeID: "firstTestID", routeNodeGetType: standartGetType, routeNodeType: .presenter)
-        let thirdNode:RouteNode = RouteNode(routeNodeLink: "/second", routeNodeID: "secondTestID", routeNodeGetType: standartGetType, routeNodeType: .presenter)
+        let firstNode:RouteNode = RouteNode(routeNodeLink: "/", routeNodeID: "testID", routeNodeGetType: standartGetType, routeNodeTypes: [.root])
+        let secondNode:RouteNode = RouteNode(routeNodeLink: "/first", routeNodeID: "firstTestID", routeNodeGetType: standartGetType, routeNodeTypes: [.presenter])
+            let thirdNode:RouteNode = RouteNode(routeNodeLink: "/second", routeNodeID: "secondTestID", routeNodeGetType: standartGetType, routeNodeTypes: [.presenter])
         firstNode.addEdge(to: secondNode, transitionType: standartTransitionEdgeType)
         secondNode.addEdge(to: thirdNode, transitionType: standartTransitionEdgeType)
         let module:RouterModule = RouterModule(nodes: [firstNode,secondNode,thirdNode], routerModuleRootNode: firstNode)

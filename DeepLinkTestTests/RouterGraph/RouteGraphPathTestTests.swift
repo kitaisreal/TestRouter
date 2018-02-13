@@ -58,15 +58,5 @@ class RouteGraphTestTests: XCTestCase {
         XCTAssertEqual(path.count, 0)
     }
     
-    func testGraphCompare() {
-        var otherGraph = graph
-        print("OTHER GRAPH NODES COUNT \(otherGraph.getLinks().count)")
-        let otherNode = RouteNode(routeNodeLink: "/someNode", routeNodeID: "someID", routeNodeGetType: standartGetType, routeNodeTypes: [.container])
-        otherGraph.addNode(node: otherNode)
-        print("OTHER GRAPH NODES COUNT \(otherGraph.getLinks().count)")
-        print("GRAPH NODES COUNT \(graph.getLinks().count)")
-        XCTAssertEqual(otherGraph == graph, false)
-        XCTAssertEqual(graph == graph, true)
-        XCTAssertEqual(otherGraph == otherGraph, true)
-    }
+    
 }

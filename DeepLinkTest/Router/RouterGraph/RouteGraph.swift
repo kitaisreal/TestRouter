@@ -92,7 +92,13 @@ extension Array where Element == RouteNode {
     func printPath() {
         print("PATH")
         for i in self {
-            print("Node \(i.routeNodeID)  \(i.routeNodeLink) \(i.routeNodeType)")
+            print("Node \(i.routeNodeID)  \(i.routeNodeLink) ")
         }
+    }
+}
+
+extension RouteGraph:Equatable {
+    static func ==(lhs: RouteGraph, rhs: RouteGraph) -> Bool {
+        return (lhs.getLinks().compare(with: rhs.getLinks()) && lhs.nodes.compare(with: rhs.nodes))
     }
 }
