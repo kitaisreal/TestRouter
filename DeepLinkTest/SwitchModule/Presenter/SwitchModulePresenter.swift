@@ -13,13 +13,13 @@ class SwitchModulePresenter {
     init() {
         print("SWITCH MODULE PRESENTER INIT \(self)")
         
-        MainRouter.instance.addObserver(link: "/registrationFirstStep", id: "SwitchModulePresenter") { [weak self] in
-            print("OBSERVER ACTION ")
-            self?.registrationProcessStarted = true
-        }
-        MainRouter.instance.addObserver(link: "/registrationFirstStep", id: "SwitchModulePresenterAnotherID") {
-            print("REGISTRATION FIRST STEP STARTED")
-        }
+//        MainRouter.instance.addObserver(link: "/registrationFirstStep", id: "SwitchModulePresenter") { [weak self] in
+//            print("OBSERVER ACTION ")
+//            self?.registrationProcessStarted = true
+//        }
+//        MainRouter.instance.addObserver(link: "/registrationFirstStep", id: "SwitchModulePresenterAnotherID") {
+//            print("REGISTRATION FIRST STEP STARTED")
+//        }
     }
     
     func presentAuthModule() {

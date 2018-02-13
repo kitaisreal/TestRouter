@@ -31,6 +31,7 @@ class MainRouter {
     func removeObserver(linkType:RouterObserverLinkType ,link:String, id:String) {
         routerObserverHandler.removeObserver(linkType: linkType, link: link, id: id)
     }
+    
     func removeObservers(linkType:RouterObserverLinkType) {
         
 //        routerObserverHandler.removeObservers(linkType: linkType)

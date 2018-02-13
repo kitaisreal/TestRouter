@@ -81,9 +81,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let testPageRouterModule = RouterModule(nodes: [testPageModuleRootNode, firstPageRootNode, secondPageRootNode, thirdPageRootNode], routerModuleRootNode: testPageModuleRootNode)
                 testPageRouterModule.addChildsRouterModules(routerModule: [firstPageRouterModule, secondPageRouterModule, thirdPageRouterModule])
                 //
-                MainRouter.instance.addObserver(link: "*/*", id: "AppDelegateObserver") {
-                    print("OBSERVER ACTION BUG ANY LINK SHOULD MATCH")
-                }
+//                MainRouter.instance.addObserver(link: "*/*", id: "AppDelegateObserver", linkType: <#RouterObserverLinkType#>) {
+//                    print("OBSERVER ACTION BUG ANY LINK SHOULD MATCH")
+//                }
                 Presenter.instance.setWindow(window: window!)
                 MainRouter.instance.setConfig(routerModules: [regRouterModule, switchRouterModule, authRouterModule, mainRouterModule,testRouterModule , rootRouterModule, testPageRouterModule])
                 print("CONFIGURE MODULE WITH \(rootRouterModule.routerModuleRootNode.routeNodeLink)")
